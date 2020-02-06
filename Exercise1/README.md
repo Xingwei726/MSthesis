@@ -1,4 +1,4 @@
-# Odyssey of Food (in our fridge)
+# Odyssey of Food
 
 Mindmap
 ![](mindmap.png)
