@@ -1,4 +1,4 @@
-# Thesis Outline
+# Odyssey of Food (in our fridge)
 
 Mindmap
 ![](mindmap.png)
