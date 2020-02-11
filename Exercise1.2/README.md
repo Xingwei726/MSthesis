@@ -2,19 +2,20 @@
 
 The Ivory Coast has lost 80% of its forests over the last 50 years, and 40% of the world’s cocoa comes from there. The ballooning global demand for chocolate means that if nothing is done, by 2030 there will be no forest left. The final, insulting irony is that locals are so poor they could never afford to eat a chocolate bar.
 
-To overcome Ivory Coast's excessive dependence on coffee and cocoa, the government in the mid-1970s embarked on a series of agricultural diversification and regional development projects with the hope of boosting agricultural production by 4 percent per year. The plan would allow the country to become self-sufficient in food and expand the production of rubber, cotton, sugar, bananas, pineapples, and tropical oils. In spite of these efforts, the agricultural sector appeared unable to adapt to changing conditions...
-  
 
 ## **Research Topic**
 
-**Topic:** I am visualizing how (monoculture) chocolate industry is driving deforestation in Ivory Coast (CÔTE D'IVOIRE).
+-   **Topic:** I am visualizing how (monoculture) chocolate industry is driving deforestation in Ivory Coast (CÔTE D'IVOIRE).
 -   **Conceptual Question:** to study what’s the bittersweet price we’ve paid for each pound of chocolate, its conflicting role in tropical deforestation and forest conservation as well as further impacts on local suppliers.
 -   **Conceptual Significance:** We love chocolate, and we think we know it well. However, because a lot of times consumers are at the end of the supply chain, we have little awareness about how the food was produced and what’s the environmental cost. As a result we indulge ourselves to the gluttony and absurd waste of food.
 -   **Practical Application:** Raise people’s awareness to this harsh issue so we would think about the actual cost while taking a respectful bite of the chocolate, hopefully we would see less chocolate bath challenges on Youtube or overconsumption of chocolate in a Mukbang video.
 
   
 
-## **Section One / Introduction & Background **
+## **Section One / Introduction & Background**
+
+To overcome Ivory Coast's excessive dependence on coffee and cocoa, the government in the mid-1970s embarked on a series of agricultural diversification and regional development projects with the hope of boosting agricultural production by 4 percent per year. The plan would allow the country to become self-sufficient in food and expand the production of rubber, cotton, sugar, bananas, pineapples, and tropical oils. In spite of these efforts, the agricultural sector appeared unable to adapt to changing conditions...
+
 
 **Contents**
 
@@ -34,9 +35,13 @@ What’s current demand and supply curves look like? And how many cocoa beans do
 
 **Evidence/ References**
 
-- International Monetary Fund: [https://www.imf.org/en/News/Articles/2018/06/29/NA-062918-Cote-d-Ivoire-Sustaining-Its-Economic-Transformation](https://www.imf.org/en/News/Articles/2018/06/29/NA-062918-Cote-d-Ivoire-Sustaining-Its-Economic-Transformation)
+- International Monetary Fund: 
+
+[https://www.imf.org/en/News/Articles/2018/06/29/NA-062918-Cote-d-Ivoire-Sustaining-Its-Economic-Transformation](https://www.imf.org/en/News/Articles/2018/06/29/NA-062918-Cote-d-Ivoire-Sustaining-Its-Economic-Transformation)
+
 - BBC Country Profile:
- [https://www.bbc.com/news/world-africa-13287216](https://www.bbc.com/news/world-africa-13287216)
+
+[https://www.bbc.com/news/world-africa-13287216](https://www.bbc.com/news/world-africa-13287216)
   
 
   
@@ -83,4 +88,4 @@ Unsustainable cocoa beans supply is not only harmful to the environment would al
 
 **Evidence / References**
 
--   Washington Post**Inside the Wrapper**
+-   Washington Post
