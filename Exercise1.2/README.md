@@ -1,6 +1,13 @@
-# **Inside the Wrapper**
+# **A Guilty Pleasure**
+
+Thousands of miles away from the American and European homes where the majority of the world’s chocolate is devoured, lies the denuded landscape of West Africa’s Ivory Coast. The nation is the world’s largest producer of cocoa, the raw material for chocolate. As its name suggests, elephants once abundantly roamed the rainforests of Ivory Coast. Today’s reality is much different: many of the country’s national parks and conservation lands have been cleared of their forest to make way for cocoa operations to feed demand from large chocolate companies like Nestlé, Cadbury, and Mars.
 
 The Ivory Coast has lost 80% of its forests over the last 50 years, and 40% of the world’s cocoa comes from there. The ballooning global demand for chocolate means that if nothing is done, by 2030 there will be no forest left. The final, insulting irony is that locals are so poor they could never afford to eat a chocolate bar.
+
+Mindmap
+
+![](mindmap.png)
+
 
 
 ## **Research Topic**
@@ -42,11 +49,15 @@ What’s current demand and supply curves look like? And how many cocoa beans do
 - BBC Country Profile:
 
 [https://www.bbc.com/news/world-africa-13287216](https://www.bbc.com/news/world-africa-13287216)
-  
+
+- The World Bank: 
+[https://data.worldbank.org/country/cote-divoire](https://data.worldbank.org/country/cote-divoire)
 
   
 
-## **Section Two / Chocolate and Its Invisible Costs**
+  
+
+## **Section Two / Cocoa and Its Invisible Costs**
 
 **Contents**
 
@@ -88,4 +99,14 @@ Unsustainable cocoa beans supply is not only harmful to the environment would al
 
 **Evidence / References**
 
--   Washington Post
+- Washington Post: 
+
+[https://www.washingtonpost.com/graphics/2019/business/hershey-nestle-mars-chocolate-child-labor-west-africa/](https://www.washingtonpost.com/graphics/2019/business/hershey-nestle-mars-chocolate-child-labor-west-africa/)
+
+- Raconteur:
+
+[https://www.raconteur.net/business-innovation/child-labour-cocoa-production](https://www.raconteur.net/business-innovation/child-labour-cocoa-production)
+
+- Bitter Chocolate Stories: 
+
+[http://www.paradox.nl/news/i-dont-think-cocoa-plantation-place-child/](http://www.paradox.nl/news/i-dont-think-cocoa-plantation-place-child/)
