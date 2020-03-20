@@ -96,15 +96,12 @@ h1 {
   width:1440px;
   display:block;
   background:#000000;
-  /*position: fixed;*/
-  /*top: 80%;*/
+
 }
 
-/*#graph2{*/
-/*  height:1500px;*/
-/*  width:1440px;*/
-/*  display:inline-block;*/
-/*  background:#000000;*/
-  /*position: fixed;*/
-  /*top: 80%;*/
-/*}*/
+#graph2{
+  height:2000px;
+  width:1440px;
+  display:block;
+  background:#000000;
+}
