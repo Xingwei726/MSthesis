@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equix="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>A Guilty Pleasure</title>
+        <link href="https://fonts.googleapis.com/css?family=Anton&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Rubik:400,400i,500,500i,700,700i&display=swap" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="styleP1.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/noframework.waypoints.js"></script>
+        <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.js'></script>
+        <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.css' rel='stylesheet' />
+        <script src="https://d3js.org/d3.v5.js"></script>
+    
+    </head>
+
+    <body style="background-color:#000000;">
+
+
+            
+            <div id='graphic'>
+ 
+
+                <!--<div class='fixed'>-->
+                <div class="graph3">
+                    <div class="sticky">
+                      <section id="section1" class="active">
+                      <h2>West Africa</h2>
+                      <p>Cocoa farming is a major contributor to the economies of several West African countries. The last piece of chocolate you ate likely had its roots in West Africa, where two-thirds of cocoa beans are produced.</p>
+                    </div>
+                </div>  
+                
+
+                <div class="graph3">
+                    <div class="sticky">
+                      <section id="section2">
+                      <h2>Ivory Coast</h2>
+                      <p>Most likely it’s grown up in Ivory Coast (Côte d'Ivoire) where cocoa sales accounting for approximately 10% of the country's GNP. In 2019 four west African countries produce 74% of the world’s supply, among them Ivory Coast occupies 60% of total.</p>
+                    </div>
+                    
+                    
+                    <div class="buttongroup">
+                    <button class="button" onclick="update(data1)">GDP</button>
+                    <button class="button" onclick="update(data2)">Unemployment Rate</button>
+                    </div>
+                    <div id="employment"></div>
+                    
+                    
+                </div>   
+
+                <div class="graph3">
+                    <div class="sticky">
+                      <section id="section3">
+                      <h2>Sticky Section 3 - Cocoa Plantation</h2>
+                    </div>
+                </div>  
+
+                
+                <div class='container'>
+                  <div>
+                    <h3>Test sentence to see if scroll works.</h3>
+                  </div>
+                  <div>
+                    <h3>Another test sentence to see if scroll works.</h3>
+                  </div>
+                </div>
+
+                
+                <!--Place for map-->
+                <div id="map"></div>
+
+
+                <!--Chapter Cover-->
+                <div class="horizontal-scroll-wrapper squares" id="fixed">
+                  <div class="section"><a href="index.html">Homepage</a></div>
+                  <div class="section"><a href="part1.html">Part 1</a></div>
+                  <div class="section"><a href="part2.html">Part 2</a></div>
+                  <div class="introsection" id="intro">
+                      <h1>Part 3 As Cocoa Grows</h1>
+                        <div id="svg-container"></div>
+                        <div id="legendText"><h4>Ivory Coast</h4></div>
+                  </div>
+                  <div class="section"><a href="part4.html">Part 4</a></div>
+                </div>
+
+
+
+              
+            </div>            
+
+
+
+
+
+                
+
+    
+        <!-- References Links -->
+        <script src='https://d3js.org/d3.v5.min.js'></script>
+        <script src="scriptP3.js"></script>
+
+
+
+    </body>
+
+</html>
