@@ -2,10 +2,18 @@
 //     height = 1000;
 
 var margin = { top: 150, right: 40, bottom: 350, left: 50 },
-    width4 = 650 - margin.left - margin.right,
+    width2 = 1440 - margin.left - margin.right,
+    height2 = 2000 - margin.top - margin.bottom;
+    
+var size = 100;
+var groupSpacing = 5;
+var cellSpacing = 5;
+
+// var margin = { top: 150, right: 40, bottom: 350, left: 50 },
+var width4 = 650 - margin.left - margin.right,
     height4 = 800 - margin.top - margin.bottom;
 
-d3.xml("Ivory_Coast.svg")
+d3.xml("./images/Ivory_Coast.svg")
   .then(data => {
     d3.select("#svg-container").node().append(data.documentElement)
   });
@@ -38,6 +46,13 @@ var section = {
         pitch: 0
     },
     'section3': {
+        bearing: 0,
+        center: [-5.336393, 7.781411],
+        zoom: 6,
+        // speed: 0.5,
+        // pitch: 0
+    },
+    'section4': {
         bearing: 0,
         center: [30.962501, 6.392383],
         zoom: 2,
@@ -225,6 +240,57 @@ function update(data) {
       
 }
 
-
 // At the beginning, I run the update function on the first dataset:
 update(data1)
+
+
+
+//cocoa plantation squares
+        var svg5 = d3.select('#method')
+          .append('svg')
+          .attr('width', 1440)
+          .attr('height', 1000)
+          .attr('background','#000000')
+          .attr("transform", "translate(0," + margin.top + ")");
+
+        var mouseover= function(d){
+                    d3.select(this)
+                      .attr('width', size*3+cellSpacing*2)
+                      .attr('height', size*3+cellSpacing*2)
+                      .attr('fill', '#FFFAF0')
+                      .attr('z-index', '200')
+
+        }
+         
+        var mouseleave= function(d){
+                    d3.select(this)
+                      .attr('fill', '#FFFAF0')
+                      .attr('width', size)
+                      .attr('height', size)
+                    //   .style('opacity',0);
+        }
+      
+        var totalGraph = svg5.selectAll('rect').append("g")
+        var totalGraphGroup = totalGraph.data(d3.range(98))
+          .enter()
+          .append('rect')
+          .attr('x', (d, i) => {
+              //12 determines how many square in one row
+              var x0 = Math.floor(i / 100) % 14, x1 = Math.floor(i % 14);
+              return groupSpacing * x0 + (cellSpacing + size) * (x1 + x0 * 14);
+          })
+          .attr('y', (d, i) => {
+              var y0 = Math.floor(i / 1000), y1 = Math.floor(i % 100 / 14);
+              return groupSpacing * y0 + (cellSpacing + size) * (y1 + y0 * 14)+20;
+          }) 
+          .attr('width', size)
+          .attr('height', size)
+          .attr('fill', '#FFFAF0')
+          .attr("rx", 3)
+          .attr("ry", 3)
+          .attr('stroke-width', 2)
+          .on('mouseover', mouseover)
+          .on('mouseleave', mouseleave);
+
+
+
