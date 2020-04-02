@@ -12,7 +12,9 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/noframework.waypoints.js"></script>
         <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.js'></script>
         <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.css' rel='stylesheet' />
-        <script src="https://d3js.org/d3.v5.js"></script>
+        <!--<script src="https://d3js.org/d3.v5.js"></script>-->
+        <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+
     
     </head>
 
@@ -27,9 +29,14 @@
                 <div class="graph3">
                     <div class="sticky">
                       <section id="section1" class="active">
-                      <h2>West Africa</h2>
-                      <p>Cocoa farming is a major contributor to the economies of several West African countries. The last piece of chocolate you ate likely had its roots in West Africa, where two-thirds of cocoa beans are produced.Most likely it’s grown up in Ivory Coast (Côte d'Ivoire) where cocoa sales accounting for approximately 10% of the country's GNP.</p>
+                      <h2>Biggest Cocoa Supplier</h2>
+                      <p>Cocoa farming is a major contributor to the economies of several West African countries. The last piece of chocolate you ate likely had its roots in West Africa, where two-thirds of cocoa beans are produced. </p>
+                      <p>Most likely it’s grown up in Ivory Coast (Côte d'Ivoire) where cocoa sales accounting for approximately 10% of the country's GNP.</p>
                     </div>
+                    
+                    <div id="countrySupply"></div>
+
+                    
                 </div>  
                 
 
@@ -55,13 +62,14 @@
                     <div class="sticky">
                       <section id="section3">
                       <h2>Cocoa & Ivory Coast's Economy</h2>
-                      <p>In 2019 four west African countries produce 74% of the world’s supply, among them Ivory Coast occupies 60% of total.</p>
+                      <p>Cocoa has brought to this land with....(good aspects)</p>
                     </div>
                     
                     <div class="buttongroup">
                       <button class="button" onclick="update(data1)">GDP</button>
                       <button class="button" onclick="update(data2)">Unemployment Rate</button>
                     </div>
+                    
                     <div id="employment"></div>
                     
                 </div> 
@@ -93,16 +101,14 @@
 
                 <div class="graph3">
 
-                    <div class="stickyblack">
-                      <h3>Cocoa farming and forest degradation inside protected areas</h3>
-                    </div>
-                    
-                    <img id="image" style="width:1440px;" src="./images/test.svg">
+                    <div class="stickyblack"></div>
                     
                     <div class="stickyfloating">
+                      <h2>Cocoa farming and forest degradation inside protected areas</h2>
                       <p>Of the 23 forest reserves, 16 of them have exceeded 65% degradation quotients. 93% of illegally grown agricultural products in these surveyed national parks is cocoa. Other crops encountered are subsistence crops such as bananas, yams, maize, rice, and miscellaneous vegetables interspersed and associated with young cocoa trees. Of the approximately 4,392 km2 surveyed, 3,239 km2 have already been transformed into cocoa plantations. </p>
                     </div>
-
+                    <img id="image" style="width:1440px;" src="./images/test2.svg">
+                  
                 </div>  
 
 
@@ -134,8 +140,11 @@
                   <div class="section"><a href="part2.html">Part 2</a></div>
                   <div class="introsection" id="intro">
                       <h1>Part 3 As Cocoa Grows</h1>
+
                         <div id="svg-container"></div>
                         <div id="legendText"><h4>Ivory Coast</h4></div>
+                        <!--<div id="scrollText"><h4>(Scroll Here)</h4></div>-->
+
                   </div>
                   <div class="section"><a href="part4.html">Part 4</a></div>
                 </div>

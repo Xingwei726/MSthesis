@@ -1,6 +1,3 @@
-// var width = 1220,
-//     height = 1000;
-
 var margin = { top: 150, right: 40, bottom: 350, left: 50 },
     width2 = 1440 - margin.left - margin.right,
     height2 = 2000 - margin.top - margin.bottom;
@@ -13,11 +10,18 @@ var cellSpacing = 5;
 var width4 = 650 - margin.left - margin.right,
     height4 = 800 - margin.top - margin.bottom;
 
+var width5 = 700 - margin.left - margin.right,
+    height5 = 750 - margin.top - margin.bottom;
+
+
+
+// map icon on the front page
 d3.xml("./images/Ivory_Coast.svg")
   .then(data => {
     d3.select("#svg-container").node().append(data.documentElement)
   });
 
+// mapbox setup
 mapboxgl.accessToken = "pk.eyJ1IjoiaHVhbng0MjkiLCJhIjoiY2szMzRzNHpqMGpiZDNib3EzbGgweHR0eSJ9.FbzMgwMQ7oL8uqZBSJqF2A";
 var map = new mapboxgl.Map({
     container: 'map',
@@ -29,6 +33,26 @@ var map = new mapboxgl.Map({
     pitch: 0
 });
 
+map.on('load', function() {
+    map.addLayer({ 
+      'id': 'countries',
+      'source': {
+        'type': 'vector',
+        'url': 'mapbox://byfrost-articles.74qv0xp0'
+      },
+      'source-layer': 'ne_10m_admin_0_countries-76t9ly',
+      'type': 'fill',
+      'paint': {
+        'fill-color': 'tomato',
+        'fill-opacity':0.3
+        // 'fill-outline-color': '#000000'
+      }
+    });
+      
+    map.setFilter('countries', ['in', 'ADM0_A3_IS'].concat(['CIV']));
+});
+
+map.scrollZoom.disable();
 
 //scroll points & coordinates
 var section = {
@@ -154,25 +178,6 @@ var data2 = [
    {year: 2019, gdp: 2.44},
 ];
 
-// var year=[];
-// var GDP=[]
-
-// d3.csv("GDP.csv").then(function(data) {
-//         for (var i=0; i<data.length; i++){
-//             year.push(data[i].year);
-//             GDP.push(data[i].gdp);
-//         }
-//         console.log("Year:",year);
-//         console.log("GDP:",GDP);  
-
-// });
-
-
-
-
-
-
-
 
 
 
@@ -183,6 +188,8 @@ var svg4 = d3.select("#employment")
   .append("g")
     .attr("transform",
           "translate(" + margin.left + "," + 50 + ")");
+
+
 
 // Initialise a X axis:
 var x = d3.scaleLinear().range([0, width4]);
@@ -197,7 +204,6 @@ var yAxis = d3.axisLeft().scale(y);
 svg4.append("g")
   .attr("class","myYaxis")
 
-// Create a function that takes a dataset as input and update the plot:
 
 
 
@@ -293,4 +299,148 @@ update(data1)
           .on('mouseleave', mouseleave);
 
 
+var data = [
+  { year: "2013", ivoryCoast: "1449", Ghana: "835", Indonesia: "410", Eduador: "192", Cameroon: "225"},
+  { year: "2014", ivoryCoast: "1746", Ghana: "897", Indonesia: "375", Eduador: "234", Cameroon: "211"},
+  { year: "2015", ivoryCoast: "1796", Ghana: "740", Indonesia: "325", Eduador: "250", Cameroon: "232"},
+  { year: "2016", ivoryCoast: "1581", Ghana: "778", Indonesia: "320", Eduador: "232", Cameroon: "211"},
+  { year: "2017", ivoryCoast: "2020", Ghana: "969", Indonesia: "270", Eduador: "290", Cameroon: "246"},
+  { year: "2018", ivoryCoast: "1964", Ghana: "905", Indonesia: "240", Eduador: "285", Cameroon: "250"},
+  { year: "2019", ivoryCoast: "2150", Ghana: "900", Indonesia: "220", Eduador: "298", Cameroon: "250"},
+];
 
+
+
+
+var svg6 = d3.select("#countrySupply")
+  .append("svg")
+    .attr("width", width5 + margin.left + margin.right)
+    .attr("height", height5 + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform",
+          "translate(" + 50 + "," + 50 + ")");
+          
+// var parse = d3.time.format("%Y").parse;
+
+
+// Transpose the data into layers
+var dataset = d3.layout.stack()(["ivoryCoast", "Ghana", "Indonesia", "Eduador", "Cameroon"].map(function(country) {
+  return data.map(function(d) {
+    return {x: d.year, y: +d[country]};
+  });
+}));
+
+
+// Set x, y and colors
+var x = d3.scale.ordinal()
+  .domain(dataset[0].map(function(d) { return d.x; }))
+  .rangeRoundBands([0, width5-70], 0.02);
+
+var y = d3.scale.linear()
+  .domain([0, d3.max(dataset, function(d) {  return d3.max(d, function(d) { return d.y0 + d.y; });  })])
+  .range([height5, 0]);
+
+var colors = ["#FF7154", "#FE9984", "#FFCCC2", "#FFE6E1", "#FFF2EF"];
+
+
+// Define and draw axes
+var yAxis = d3.axisLeft()
+  .scale(y)
+  .ticks(3)
+  .tickFormat( function(d) { return d } );
+
+var xAxis = d3.axisBottom()
+  .scale(x)
+  .ticks(0)
+
+svg6.append("g")
+  .attr("class", "y axis")
+  .attr("transform", "translate(" + 5 + ",0)")
+  .call(yAxis);
+  
+
+svg6.append("g")
+  .attr("class", "x axis")
+  .attr("transform", "translate(" + 35 + "," + height5 + ")")
+  .call(xAxis);
+
+
+// Create groups for each series, rects for each segment 
+var groups = svg6.selectAll("g.cost")
+  .data(dataset)
+  .enter().append("g")
+  .attr("class", "cost")
+  .style("fill", function(d, i) { return colors[i]; });
+
+var rect = groups.selectAll("rect")
+  .data(function(d) { return d; })
+  .enter()
+  .append("rect")
+  .attr("x", function(d) { return x(d.x); })
+  .attr("y", function(d) { return y(d.y0 + d.y); })
+  .attr("height", function(d) { return y(d.y0) - y(d.y0 + d.y); })
+  .attr("width", x.rangeBand())
+  .on("mouseover", function() { 
+      tooltip.style("display", null); 
+      
+  })
+  .on("mouseout", function() { tooltip.style("display", "none"); })
+  .on("mousemove", function(d) {
+    var xPosition = d3.mouse(this)[0] - 15;
+    var yPosition = d3.mouse(this)[1] - 25;
+    tooltip.attr("transform", "translate(" + xPosition + "," + yPosition + ")");
+    tooltip.select("text").text( d.y + ",000 tons");
+  });
+
+
+// Draw legend
+var legend = svg6.selectAll(".legend")
+  .data(colors)
+  .enter().append("g")
+  .attr("class", "legend")
+  .attr("transform", function(d, i) { return "translate(30," + i * 15 + ")"; });
+ 
+legend.append("rect")
+  .attr("x", width4 - 40)
+  .attr("width", 10)
+  .attr("height", 10)
+  .style("fill", function(d, i) {return colors.slice().reverse()[i];});
+ 
+legend.append("text")
+  .attr("x", width4 -25)
+  .attr("y", 6)
+  .attr("dy", ".25em")
+  .style("text-anchor", "start")
+  .style("font-size","10px")
+  .style("font-family", "sans-serif")
+  .text(function(d, i) { 
+    switch (i) {
+      case 4: return "Ivory Coast";
+      case 3: return "Ghana";
+      case 2: return "Indonesia";
+      case 1: return "Eduador";
+      case 0: return "Cameroon";
+    }
+  });
+
+
+// Prep the tooltip bits, initial display is hidden
+var tooltip = svg6.append("g")
+  .attr("class", "tooltip")
+  .style("display", "none");
+    
+tooltip.append("rect")
+  .attr("width", 80)
+  .attr("height", 20)
+  .attr("fill", "#000000")
+//   .style("opacity", 0.5);
+
+tooltip.append("text")
+  .attr("x", 40)
+  .attr("dy", "1.2em")
+  .style("text-anchor", "middle")
+  .style("font-size","10px")
+  .style("font-family", "gopher")
+  .attr("fill", "#FFFAF0")
+  .attr("font-weight", "bold");
+    

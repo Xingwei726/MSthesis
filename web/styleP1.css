@@ -11,6 +11,8 @@ a {
   font-family: gopher, sans-serif;
 }
 
+
+/*h1 page title*/
 h1 {
   transform: rotate(90deg) translateY(350px) translateX(970px);
   color:#FFFAF0;
@@ -19,6 +21,8 @@ h1 {
   font-weight: 400;
 }
 
+
+/*h2 section title on white background*/
 h2 {
   color:#000000;
   font-family: gopher, sans-serif;
@@ -28,6 +32,8 @@ h2 {
   margin-top: 10px;
 }
 
+
+/*h3 section title on black background*/
 h3 {
   color: #FFFAF0;
   font-family: gopher, sans-serif;
@@ -38,16 +44,25 @@ h3 {
 
 }
 
+/*small explaination text on black section page*/
 h4 {
   color: #FFFAF0;
   font-family: courier-std, monospace;
   font-style: normal;
   font-weight: 400; 
   font-size: 12px;
+}
+
+#legendText {
   width: 400px; 
   transform: rotate(90deg)translateY(-70px)translateX(-290px);
-
 }
+
+/*#scrollText {*/
+/*  width: 400px; */
+/*  transform: rotate(90deg)translateY(180px)translateX(-820px);*/
+/*}*/
+
 
 /*h5 is white text (p)*/
 h5 {
@@ -294,8 +309,13 @@ section:last-child {
 #employment {
   position: -webkit-sticky;
   position: sticky;
-  
-  /*top:500px;*/
+}
+
+
+#countrySupply {
+  position: -webkit-sticky;
+  position: sticky;
+  padding-top:370px;
 }
 
 #method {
@@ -307,7 +327,7 @@ section:last-child {
 #image {
   position: -webkit-sticky;
   position: sticky;
-  padding-top: 50px;
+  padding-top: -50px;
   z-index: 100;
 }
 
@@ -318,4 +338,18 @@ section:last-child {
   /*top:500px;*/
   margin-left: 30px;
   padding-top:100px;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+}
+ 
+path.domain {
+  stroke: none;
+}
+ 
+.y .tick line {
+  stroke: #ddd;
 }
