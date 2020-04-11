@@ -1,4 +1,4 @@
-var margin = { top: 150, right: 40, bottom: 350, left: 50 },
+var margin = { top: 150, right: 40, bottom: 350, left: 40 },
     width2 = 1440 - margin.left - margin.right,
     height2 = 2000 - margin.top - margin.bottom;
     
@@ -77,6 +77,11 @@ var section = {
         // pitch: 0
     },
     'section4': {
+        bearing: 0,
+        center: [-5.336393, 7.781411],
+        zoom: 6,
+    },
+    'section5': {
         bearing: 0,
         center: [30.962501, 6.392383],
         zoom: 2,
@@ -178,9 +183,188 @@ var data2 = [
    {year: 2019, gdp: 2.44},
 ];
 
+var data = [
+  { year: "2013", ivoryCoast: "1449", Ghana: "835", Indonesia: "410", Eduador: "192", Cameroon: "225"},
+  { year: "2014", ivoryCoast: "1746", Ghana: "897", Indonesia: "375", Eduador: "234", Cameroon: "211"},
+  { year: "2015", ivoryCoast: "1796", Ghana: "740", Indonesia: "325", Eduador: "250", Cameroon: "232"},
+  { year: "2016", ivoryCoast: "1581", Ghana: "778", Indonesia: "320", Eduador: "232", Cameroon: "211"},
+  { year: "2017", ivoryCoast: "2020", Ghana: "969", Indonesia: "270", Eduador: "290", Cameroon: "246"},
+  { year: "2018", ivoryCoast: "1964", Ghana: "905", Indonesia: "240", Eduador: "285", Cameroon: "250"},
+  { year: "2019", ivoryCoast: "2150", Ghana: "900", Indonesia: "220", Eduador: "298", Cameroon: "250"},
+];
 
 
 
+//id = countrySupply
+var svg6 = d3.select("#countrySupply")
+  .append("svg")
+    .attr("width", width5 + margin.left + margin.right)
+    .attr("height", height5 + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform",
+          "translate(" + 50 + "," + 50 + ")");
+          
+
+// Transpose the data into layers
+var dataset = d3.layout.stack()(["ivoryCoast", "Ghana", "Indonesia", "Eduador", "Cameroon"].map(function(country) {
+  return data.map(function(d) {
+    return {x: d.year, y: +d[country]};
+  });
+}));
+
+
+// Set x, y and colors
+var x = d3.scale.ordinal()
+  .domain(dataset[0].map(function(d) { return d.x; }))
+  .rangeRoundBands([0, width5-70], 0.02);
+
+var y = d3.scale.linear()
+  .domain([0, d3.max(dataset, function(d) {  return d3.max(d, function(d) { return d.y0 + d.y; });  })])
+  .range([height5, 0]);
+
+var colors = ["#FF7154", "#FE9984", "#FFCCC2", "#FFE6E1", "#FFF2EF"];
+
+
+// Define and draw axes
+var yAxis = d3.axisLeft()
+  .scale(y)
+  .ticks(3)
+  .tickFormat( function(d) { return d } );
+
+var xAxis = d3.axisBottom()
+  .scale(x)
+  .ticks(0)
+
+svg6.append("g")
+  .attr("class", "y axis")
+  .attr("transform", "translate(" + 5 + ",0)")
+  .call(yAxis);
+  
+
+svg6.append("g")
+  .attr("class", "x axis")
+  .attr("transform", "translate(" + 35 + "," + height5 + ")")
+  .call(xAxis);
+
+
+// Create groups for each series, rects for each segment 
+var groups = svg6.selectAll("g.cost")
+  .data(dataset)
+  .enter().append("g")
+  .attr("class", "cost")
+  .style("fill", function(d, i) { return colors[i]; });
+
+  groups.selectAll("rect")
+  .data(function(d) { return d; })
+  .enter()
+  .append("rect")
+  .attr("x", function(d) { return x(d.x); })
+  .attr("y", function(d) { return y(d.y0 + d.y); })
+          .attr("rx", 10)
+        .attr("ry", 10) 
+  .attr("height", function(d) { return y(d.y0) - y(d.y0 + d.y); })
+  .attr("width", x.rangeBand())
+  .on("mouseover", function() { 
+      tooltip.style("display", null);
+      d3.select(this)
+        .attr("rx", 0)
+        .attr("ry", 0)        
+    // .style('stroke',"tomato")
+        // .attr('stroke-width', 1);
+  })
+  .on("mouseout", function() { 
+      tooltip.style("display", "none");
+      d3.select(this)
+    .attr("rx", 10)
+    .attr("ry", 10)
+  })
+  .on("mousemove", function(d,i) {
+    var xPosition = d3.mouse(this)[0] - 15;
+    var yPosition = d3.mouse(this)[1] - 25;
+    tooltip.attr("transform", "translate(" + xPosition + "," + yPosition + ")");
+    tooltip.select("text").text( d.y + ",000 tons");
+  });
+
+
+// Draw legend
+var legend = svg6.selectAll(".legend")
+  .data(colors)
+  .enter().append("g")
+  .attr("class", "legend")
+  .attr("transform", function(d, i) { return "translate(30," + i * 15 + ")"; });
+ 
+legend.append("rect")
+  .attr("x", width4 - 40)
+  .attr("width", 10)
+  .attr("height", 10)
+  .style("fill", function(d, i) {return colors.slice().reverse()[i];});
+ 
+legend.append("text")
+  .attr("x", width4 -25)
+  .attr("y", 6)
+  .attr("dy", ".25em")
+  .style("text-anchor", "start")
+  .style("font-size","10px")
+  .style("font-family", "sans-serif")
+  .text(function(d, i) { 
+    switch (i) {
+      case 4: return "Ivory Coast";
+      case 3: return "Ghana";
+      case 2: return "Indonesia";
+      case 1: return "Eduador";
+      case 0: return "Cameroon";
+    }
+  });
+  
+svg6.append("text")
+  .attr("x", width4/2-22)
+  .attr("y", height5 + 35)
+  .style("text-anchor", "start")
+  .style("font-size","12px")
+  .style("font-family", "sans-serif")
+  .text("Year");
+
+svg6.append("text")
+  .attr("x", -20)
+  .attr("y", 10)
+  .style("text-anchor", "start")
+  .style("font-size","12px")
+  .style("font-family", "sans-serif")
+  .text("(Unit: 1000 tons)");
+  
+svg6.append("text")
+  .attr("x", -20)
+  .attr("y", -20)
+  .style("text-anchor", "start")
+  .style("font-size","14px")
+  .style("font-family", "gopher")
+  .text("Global Cocoa Production by Country");
+
+// Prep the tooltip bits, initial display is hidden
+var tooltip = svg6.append("g")
+  .attr("class", "tooltip")
+  .style("display", "none");
+    
+tooltip.append("rect")
+  .attr("width", 80)
+  .attr("height", 20)
+  .attr("fill", "#000000")
+
+tooltip.append("text")
+  .attr("x", 40)
+  .attr("dy", "1.2em")
+  .style("text-anchor", "middle")
+  .style("font-size","10px")
+  .style("font-family", "gopher")
+  .attr("fill", "#FFFAF0")
+  .attr("font-weight", "bold");
+
+
+
+
+
+
+//employment & GDP line graph conflicts with the first bar graph
 var svg4 = d3.select("#employment")
   .append("svg")
     .attr("width", width4 + margin.left + margin.right)
@@ -299,148 +483,629 @@ update(data1)
           .on('mouseleave', mouseleave);
 
 
-var data = [
-  { year: "2013", ivoryCoast: "1449", Ghana: "835", Indonesia: "410", Eduador: "192", Cameroon: "225"},
-  { year: "2014", ivoryCoast: "1746", Ghana: "897", Indonesia: "375", Eduador: "234", Cameroon: "211"},
-  { year: "2015", ivoryCoast: "1796", Ghana: "740", Indonesia: "325", Eduador: "250", Cameroon: "232"},
-  { year: "2016", ivoryCoast: "1581", Ghana: "778", Indonesia: "320", Eduador: "232", Cameroon: "211"},
-  { year: "2017", ivoryCoast: "2020", Ghana: "969", Indonesia: "270", Eduador: "290", Cameroon: "246"},
-  { year: "2018", ivoryCoast: "1964", Ghana: "905", Indonesia: "240", Eduador: "285", Cameroon: "250"},
-  { year: "2019", ivoryCoast: "2150", Ghana: "900", Indonesia: "220", Eduador: "298", Cameroon: "250"},
-];
+    
 
-
-
-
-var svg6 = d3.select("#countrySupply")
+var svg7 = d3.select("#dashboard")
   .append("svg")
     .attr("width", width5 + margin.left + margin.right)
     .attr("height", height5 + margin.top + margin.bottom)
   .append("g")
     .attr("transform",
-          "translate(" + 50 + "," + 50 + ")");
+          "translate(" + 0 + "," + 50 + ")");
+
+var x1=0;
+var length=195;
+var y1=0;
+var y2=100;
+var y3=200;
+var z=20+length;//gutter
+
+
+//Dashboard Infromation - First Row
+svg7.append("line")
+    .attr("x1", x1 )
+    .attr("x2", length)
+    .attr("y1", y1)
+    .attr("y2", y1)
+    .style("stroke", "#000000")
+    .style("stroke-width", "2px")
+svg7.append("text")  
+   .attr("x", x1)
+   .attr("y", y1+20)
+   .style("text-anchor", "left")
+   .style("font-size","14px")
+   .style("font-family", "gopher")
+   .style("font-weight","500")
+   .text("Official Name")
+svg7.append("text")  
+   .attr("x", x1)
+   .attr("y", y1+20+20)
+   .style("text-anchor", "left")
+   .style("font-size","14px")
+   .style("font-family", "sans-serif")
+   .text("Republic of Côte d'Ivoire")   
+
+
+
+
+svg7.append("line")
+    .attr("x1", x1+z )
+    .attr("x2", length+z)
+    .attr("y1", y1)
+    .attr("y2", y1)
+    .style("stroke", "#000000")
+    .style("stroke-width", "2px")
+svg7.append("text")  
+   .attr("x", x1+z)
+   .attr("y", y1+20)
+   .style("text-anchor", "left")
+   .style("font-size","14px")
+   .style("font-family", "gopher")
+   .style("font-weight","500")
+   .text("Coordinates")
+svg7.append("text")  
+   .attr("x", x1+z)
+   .attr("y", y1+20+20)
+   .style("text-anchor", "left")
+   .style("font-size","14px")
+   .style("font-family", "sans-serif")
+   .text("7.5400° N, 5.5471° W")
+
+
+
+
+svg7.append("line")
+    .attr("x1", x1+z*2 )
+    .attr("x2", length+z*2)
+    .attr("y1", y1)
+    .attr("y2", y1)
+    .style("stroke", "#000000")
+    .style("stroke-width", "2px")    
+svg7.append("text")  
+   .attr("x", x1+z*2)
+   .attr("y", y1+20)
+   .style("text-anchor", "left")
+   .style("font-size","14px")
+   .style("font-family", "gopher")
+   .style("font-weight","500")
+   .text("Languages")
+svg7.append("text")  
+   .attr("x", x1+z*2)
+   .attr("y", y1+20+20)
+   .style("text-anchor", "left")
+   .style("font-size","14px")
+   .style("font-family", "sans-serif")
+   .text("French, Dyula, Baoulé...")
+
+
+
+
+svg7.append("line")
+    .attr("x1", x1+z )
+    .attr("x2", length+z)
+    .attr("y1", y2)
+    .attr("y2", y2)
+    .style("stroke", "#000000")
+    .style("stroke-width", "2px")
+svg7.append("text")  
+   .attr("x", x1+z)
+   .attr("y", y2+20)
+   .style("text-anchor", "left")
+   .style("font-size","14px")
+   .style("font-family", "gopher")
+   .style("font-weight","500")
+   .text("Area")
+svg7.append("text")  
+   .attr("x", x1+z)
+   .attr("y", y2+20+20)
+   .style("text-anchor", "left")
+   .style("font-size","14px")
+   .style("font-family", "sans-serif")
+   .text("322,460 sq km")
+
+
+svg7.append("line")
+    .attr("x1", x1+z*2 )
+    .attr("x2", length+z*2)
+    .attr("y1", y2)
+    .attr("y2", y2)
+    .style("stroke", "#000000")
+    .style("stroke-width", "2px")    
+svg7.append("text")
+   .attr("x", x1+z*2)
+   .attr("y", y2+20)
+   .style("text-anchor", "left")
+   .style("font-size","14px")
+   .style("font-family", "gopher")
+   .style("font-weight","500")
+   .text("Population")
+svg7.append("a")
+   .attr("xlink:href", "https://worldpopulationreview.com/countries/ivory-coast-population/")
+   .append("text")  
+   .attr("x", x1+z*2)
+   .attr("y", y2+20+20)
+   .style("text-anchor", "left")
+   .style("font-size","14px")
+   .style("font-family", "sans-serif")
+   .text("26.38 million (2020 census)")
+   
+   
+   
+//Dashboard Information - 3rd rwo
+svg7.append("line")
+    .attr("x1", x1+z )
+    .attr("x2", length+z)
+    .attr("y1", y3)
+    .attr("y2", y3)
+    .style("stroke", "#000000")
+    .style("stroke-width", "2px")
+svg7.append("text")  
+   .attr("x", x1+z)
+   .attr("y", y3+20)
+   .style("text-anchor", "left")
+   .style("font-size","14px")
+   .style("font-family", "gopher")
+   .style("font-weight","500")
+   .text("Climate")
+svg7.append("text")  
+   .attr("x", x1+z)
+   .attr("y", y3+20+20)
+   .style("text-anchor", "left")
+   .style("font-size","14px")
+   .style("font-family", "sans-serif")
+   .text("tropical & semiarid")
+   
+svg7.append("line")
+    .attr("x1", x1+z*2 )
+    .attr("x2", length+z*2)
+    .attr("y1", y3)
+    .attr("y2", y3)
+    .style("stroke", "#000000")
+    .style("stroke-width", "2px")    
+svg7.append("text")
+   .attr("x", x1+z*2)
+   .attr("y", y3+20)
+   .style("text-anchor", "left")
+   .style("font-size","14px")
+   .style("font-family", "gopher")
+   .style("font-weight","500")
+   .text("Main Industries")
+
+
+
+//deforestation graph
+// var treelost=[]
+d3.csv("./data/ForestLoss&CO2.csv").then(function(data) {
+    // for (var i=0; i<data.length; i++){
+    //     treelost.push(data[i].threshold30);
+    // }
+    
+//Forest Loss Scale
+var xScale = d3.scaleSqrt()
+  .domain([0, 527274])
+  .range([0, 60]);
+  
+var leftSpace = 35;
+var topSpace = 70;
+var enlarge=5;
+
+
+
+// CO2 Scale  
+var xScale2 = d3.scaleSqrt()
+  .domain([0, 85])
+  .range([0, 20]);
+  
+  
+  
+var svg8 = d3.select('#deforestation')
+          .append('svg')
+          .attr('width', width2)
+          .attr('height', 1000)
+          .attr("transform", "translate(" + margin.left + ",100)");
+
+console.log(data)        
+        
+var tooltip8 = d3.select("#deforestation")
+    .append("div")
+    .attr('class', 'tooltip')
+    .style("position", "absolute")
+    .style("color", "#FFFAF0")
+    .style("background", "black")
+	.style("font-family", "gopher")
+	.style("font-size", "14px")
+    .style("padding", "8px")
+    .style("left", 100)		
+    .style("top", "20px")
+    .text("Hover to view details")
+    .style("opacity", 1)                            
+
+
           
-// var parse = d3.time.format("%Y").parse;
+          svg8.append('g')
+          .selectAll('circle')
+          .data(data)
+          .enter()
+          .append('circle')
+          .attr("cx", function(d,i) {
+			       return leftSpace+i*70;
+    	    })
+          .attr("cy", topSpace)
+          .attr("r", function(d) {
+			      return xScale(d.threshold10);
+    	    })
+    	  .style('stroke',"#000000")
+          .style('stroke-width', 1)
+          .style("fill", "none")
+          .on('mouseover', function(d) {
+                tooltip8
+                  .html("At 10% canopy cover level forest loss is "+ d.threshold10 +" hectares") 
+                d3.select(this)
+         	      .style('stroke',"tomato")
+                  .style('stroke-width', 2)
+                  .attr("r", function(d) {
+			      return xScale(d.threshold10)*enlarge;
+    	        }) 
+    	          .style("z-index", "200")
+
+                 
+            })
+          .on('mouseleave', function(d) {
+                tooltip8
+                //   .text("Hover to view details")
+                d3.select(this)
+        	      .style('stroke',"#000000")
+                  .style('stroke-width', 1)
+                  .attr("r", function(d) {
+			       return xScale(d.threshold10);
+    	        })
+            })
 
 
-// Transpose the data into layers
-var dataset = d3.layout.stack()(["ivoryCoast", "Ghana", "Indonesia", "Eduador", "Cameroon"].map(function(country) {
-  return data.map(function(d) {
-    return {x: d.year, y: +d[country]};
-  });
-}));
+          svg8.append('g')
+          .selectAll('circle')
+          .data(data)
+          .enter()
+          .append('circle')
+          .attr("cx", function(d,i) {
+			       return leftSpace+i*70;
+    	    })
+          .attr("cy", topSpace)
+          .attr("r", function(d) {
+			      return xScale(d.threshold15);
+    	    })
+    	  .style('stroke',"#000000")
+          .style('stroke-width', 1)
+          .style("fill", "none")
+          .on('mouseover', function(d) {
+                tooltip8
+                  .html("At 15% canopy cover level forest loss is "+ d.threshold15 +" hectares") 
+                d3.select(this)
+         	      .style('stroke',"tomato")
+                  .style('stroke-width', 2)
+                  .style("z-index", "200")
+                  .attr("r", function(d) {
+			      return xScale(d.threshold15)*enlarge;
+    	        })
+            })
+          .on('mouseleave', function(d) {
+                tooltip8
+                //   .text("Hover to view details")
+                d3.select(this)
+                //   .transition()
+                //   .duration(1000) 
+        	      .style('stroke',"#000000")
+                  .style('stroke-width', 1)
+                  .attr("r", function(d) {
+			      return xScale(d.threshold15);
+    	        })
+            })
+            
+            
+
+          svg8.append('g')
+          .selectAll('circle')
+          .data(data)
+          .enter()
+          .append('circle')
+          .attr("cx", function(d,i) {
+			       return leftSpace+i*70;
+    	    })
+          .attr("cy", topSpace)
+          .attr("r", function(d) {
+			      return xScale(d.threshold20);
+    	    })
+    	  .style('stroke',"#000000")
+          .style('stroke-width', 1)
+          .style("fill", "none")
+          .on('mouseover', function(d) {
+                tooltip8
+                  .html("At 20% canopy cover level forest loss is "+ d.threshold20 +" hectares") 
+                d3.select(this)
+         	      .style('stroke',"tomato")
+                  .style('stroke-width', 2)
+                  .style("z-index", "200")
+                  .attr("r", function(d) {
+			      return xScale(d.threshold20)*enlarge;
+    	        })
+            })
+          .on('mouseleave', function(d) {
+                tooltip8
+                //   .text("Hover to view details")
+                d3.select(this)
+        	      .style('stroke',"#000000")
+                  .style('stroke-width', 1)
+                  .attr("r", function(d) {
+			      return xScale(d.threshold20);
+    	        })
+            })
+          
+          
+          svg8.append('g')
+          .selectAll('circle')
+          .data(data)
+          .enter()
+          .append('circle')
+          .attr("cx", function(d,i) {
+			       return leftSpace+i*70;
+    	    })
+          .attr("cy", topSpace)
+          .attr("r", function(d) {
+			      return xScale(d.threshold25);
+    	    })
+    	  .style('stroke',"#000000")
+          .style('stroke-width', 1)
+          .style("fill", "none")
+          .on('mouseover', function(d) {
+                tooltip8
+                  .html("At 25% canopy cover level forest loss is "+ d.threshold25 +" hectares") 
+                d3.select(this)
+         	      .style('stroke',"tomato")
+                  .style('stroke-width', 2)
+                  .style("z-index", "200")
+                  .attr("r", function(d) {
+			      return xScale(d.threshold25)*enlarge;
+    	        })
+            })
+          .on('mouseleave', function(d) {
+                tooltip8
+                //   .text("Hover to view details")
+                d3.select(this)
+                  .attr("r", function(d) {
+			      return xScale(d.threshold25);
+    	        })
+    	          .style('stroke',"#000000")
+                  .style('stroke-width', 1)
+            })
+          
+          
+          svg8.append('g')
+          .selectAll('circle')
+          .data(data)
+          .enter()
+          .append('circle')
+          .attr("cx", function(d,i) {
+			       return leftSpace+i*70;
+    	    })
+          .attr("cy", topSpace)
+          .attr("r", function(d) {
+			      return xScale(d.threshold30);
+    	    })
+    	  .style('stroke',"#000000")
+          .style('stroke-width', 1)
+          .style("fill", "none")
+          .on('mouseover', function(d) {
+                tooltip8
+                  .html("At 30% canopy cover level forest loss is "+ d.threshold30 +" hectares") 
+                d3.select(this)
+         	      .style('stroke',"tomato")
+                  .style('stroke-width', 2)
+                  .style("z-index", "200")
+                  .attr("r", function(d) {
+			      return xScale(d.threshold30)*enlarge;
+    	        })                  
+            })
+          .on('mouseleave', function(d) {
+                tooltip8
+                //   .text("Hover to view details")
+                d3.select(this)
+        	      .style('stroke',"#000000")
+                  .style('stroke-width', 1)
+                  .attr("r", function(d) {
+			      return xScale(d.threshold30);
+    	        })
+            })
+        
+          
+          svg8.append('g')
+          .selectAll('circle')
+          .data(data)
+          .enter()
+          .append('circle')
+          .attr("cx", function(d,i) {
+			       return leftSpace+i*70;
+    	    })
+          .attr("cy", topSpace)
+          .attr("r", function(d) {
+			      return xScale(d.threshold50);
+    	    })
+    	  .style('stroke',"#000000")
+          .style('stroke-width', 1)
+          .style("fill", "none")
+          .on('mouseover', function(d) {
+                tooltip8
+                  .html("At 50% canopy cover level forest loss is "+ d.threshold50 +" hectares") 
+                d3.select(this)
+         	      .style('stroke',"tomato")
+                  .style('stroke-width', 2)
+                  .style("z-index", "200")
+                  .attr("r", function(d) {
+			      return xScale(d.threshold50)*enlarge;
+    	        })
+            })
+          .on('mouseleave', function(d) {
+                tooltip8
+                //   .text("Hover to view details")
+                d3.select(this)
+        	      .style('stroke',"#000000")
+                  .style('stroke-width', 1)
+                  .attr("r", function(d) {
+			      return xScale(d.threshold50);
+    	        })
+            })
 
 
-// Set x, y and colors
-var x = d3.scale.ordinal()
-  .domain(dataset[0].map(function(d) { return d.x; }))
-  .rangeRoundBands([0, width5-70], 0.02);
+          svg8.append('g')
+          .selectAll('circle')
+          .data(data)
+          .enter()
+          .append('circle')
+          .attr("cx", function(d,i) {
+			       return leftSpace+i*70;
+    	    })
+          .attr("cy", topSpace)
+          .attr("r", function(d) {
+			      return xScale(d.threshold70);
+    	    })
+    	  .style('stroke',"#000000")
+          .style('stroke-width', 1)
+          .style("fill", "none")
+          .on('mouseover', function(d) {
+                tooltip8
+                  .html("At 70% canopy cover level forest loss is "+ d.threshold70 +" hectares") 
+                d3.select(this)
+         	      .style('stroke',"tomato")
+                  .style('stroke-width', 2)
+                  .style("z-index", "200")
+                  .attr("r", function(d) {
+			      return xScale(d.threshold70)*enlarge;
+    	        })
 
-var y = d3.scale.linear()
-  .domain([0, d3.max(dataset, function(d) {  return d3.max(d, function(d) { return d.y0 + d.y; });  })])
-  .range([height5, 0]);
+            })
+          .on('mouseleave', function(d) {
+                tooltip8
+                //   .text("Hover to view details")
+                d3.select(this)
+        	      .style('stroke',"#000000")
+                  .style('stroke-width', 1)
+                  .attr("r", function(d) {
+			      return xScale(d.threshold70);
+    	        })
+                  
+            })
 
-var colors = ["#FF7154", "#FE9984", "#FFCCC2", "#FFE6E1", "#FFF2EF"];
+//Year Legend
+		  svg8.selectAll("text")
+			   .data(data)
+			   .enter()
+			   .append("text")
+               .attr("x", function(d,i) {
+         		  return leftSpace+i*70;
+               }) 
+			   .attr("y", 200 )
+			   .attr("text-anchor", "middle")
+			   .attr("font-family", "sans-serif")
+			   .style("font-size", "12px")
+			   .attr("fill", "#000000")
+			   .text(function(d) {
+			   		return d.Year;
+			   })
+          
+         
+    //       svg8.append('g')
+    //       .selectAll('circle')
+    //       .data(data)
+    //       .enter()
+    //       .append('circle')
+    //       .attr("cx", function(d,i) {
+			 //      return leftSpace+i*70;
+    // 	    })
+    //       .attr("cy", topSpace+150)
+    //       .attr("r", function(d) {
+			 //     return xScale2(d.CO2);
+    // 	    })
+    // // 	  .style('stroke',"#000000")
+    //     //   .style('stroke-width', 1)
+    //       .style("fill", "#000000")
+    //       .on('mouseover', function(d) {
+    //             tooltip8
+    //               .html("At 30% canopy cover level CO2 emission is "+ d.CO2 +" tonnes") 
+    //             d3.select(this)
+
+    //      	      .style('fill',"tomato")
+    //             //   .style('stroke-width', 2)
+    //             //   .style("z-index", "200")
+
+    //         })
+    //       .on('mouseleave', function(d) {
+    //             tooltip8
+    //             //   .text("Hover to view details")
+    //             d3.select(this)
+    //     	      .style('fill',"#000000")
+    //             //   .style('stroke-width', 1)
+                  
+    //         })
 
 
-// Define and draw axes
-var yAxis = d3.axisLeft()
-  .scale(y)
-  .ticks(3)
-  .tickFormat( function(d) { return d } );
 
-var xAxis = d3.axisBottom()
-  .scale(x)
-  .ticks(0)
 
-svg6.append("g")
-  .attr("class", "y axis")
-  .attr("transform", "translate(" + 5 + ",0)")
-  .call(yAxis);
+
+
+});
+
+
+
+// Ivory Coast Export Data
+
+d3.csv("./data/ICExports.csv").then(function(data) {
+
+
+var exportsScaleWidth = d3.scaleSqrt()
+  .domain([0, 39])
+  .range([1, width5/2]);
   
 
-svg6.append("g")
-  .attr("class", "x axis")
-  .attr("transform", "translate(" + 35 + "," + height5 + ")")
-  .call(xAxis);
+//graph for exports
+var svg9 = d3.select("#exports")
+  .append("svg")
+    .attr("width", width5 + margin.left + margin.right)
+    .attr("height", height5 + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform",
+          "translate(" + 0 + "," + 50 + ")");
+
+var color = d3.scaleOrdinal()
+  .domain(data)
+  .range(["#FF7154", "#FE9984", "#FFCCC2", "#FFE6E1", "#FFF2EF"])
 
 
-// Create groups for each series, rects for each segment 
-var groups = svg6.selectAll("g.cost")
-  .data(dataset)
-  .enter().append("g")
-  .attr("class", "cost")
-  .style("fill", function(d, i) { return colors[i]; });
-
-var rect = groups.selectAll("rect")
-  .data(function(d) { return d; })
+var mouse = [480, 250],
+    count = 0;
+svg9
+  .selectAll('rect')
+  .data(data)
   .enter()
-  .append("rect")
-  .attr("x", function(d) { return x(d.x); })
-  .attr("y", function(d) { return y(d.y0 + d.y); })
-  .attr("height", function(d) { return y(d.y0) - y(d.y0 + d.y); })
-  .attr("width", x.rangeBand())
-  .on("mouseover", function() { 
-      tooltip.style("display", null); 
-      
-  })
-  .on("mouseout", function() { tooltip.style("display", "none"); })
-  .on("mousemove", function(d) {
-    var xPosition = d3.mouse(this)[0] - 15;
-    var yPosition = d3.mouse(this)[1] - 25;
-    tooltip.attr("transform", "translate(" + xPosition + "," + yPosition + ")");
-    tooltip.select("text").text( d.y + ",000 tons");
-  });
+  .append('rect')
+    .attr('x', function(d) {
+		return exportsScaleWidth(d.percentage)/2;
+     })
+    .attr('y', function(d) {
+		return exportsScaleWidth(d.percentage)/2;
+     })
+    .attr('width',function(d) {
+		return exportsScaleWidth(d.percentage);
+     })
+    .attr('height',function(d) {
+		return exportsScaleWidth(d.percentage);
+     })
+    .style("fill", function(d){ return(color(d.percentage)) })
+    .style("stroke-width", "2px")
+    .style("opacity", 0.7)
+
+svg9.datum(function(d) {
+  return {center: mouse.slice(), angle: 0};
+});
 
 
-// Draw legend
-var legend = svg6.selectAll(".legend")
-  .data(colors)
-  .enter().append("g")
-  .attr("class", "legend")
-  .attr("transform", function(d, i) { return "translate(30," + i * 15 + ")"; });
- 
-legend.append("rect")
-  .attr("x", width4 - 40)
-  .attr("width", 10)
-  .attr("height", 10)
-  .style("fill", function(d, i) {return colors.slice().reverse()[i];});
- 
-legend.append("text")
-  .attr("x", width4 -25)
-  .attr("y", 6)
-  .attr("dy", ".25em")
-  .style("text-anchor", "start")
-  .style("font-size","10px")
-  .style("font-family", "sans-serif")
-  .text(function(d, i) { 
-    switch (i) {
-      case 4: return "Ivory Coast";
-      case 3: return "Ghana";
-      case 2: return "Indonesia";
-      case 1: return "Eduador";
-      case 0: return "Cameroon";
-    }
-  });
 
-
-// Prep the tooltip bits, initial display is hidden
-var tooltip = svg6.append("g")
-  .attr("class", "tooltip")
-  .style("display", "none");
-    
-tooltip.append("rect")
-  .attr("width", 80)
-  .attr("height", 20)
-  .attr("fill", "#000000")
-//   .style("opacity", 0.5);
-
-tooltip.append("text")
-  .attr("x", 40)
-  .attr("dy", "1.2em")
-  .style("text-anchor", "middle")
-  .style("font-size","10px")
-  .style("font-family", "gopher")
-  .attr("fill", "#FFFAF0")
-  .attr("font-weight", "bold");
-    
+});

@@ -9,7 +9,7 @@ var margin = { top: 150, right: 40, bottom: 350, left: 50 },
 
 
 //Graph2
-d3.csv("globalproductiontrend.csv").then(function(data) {
+d3.csv("./data/globalproductiontrend.csv").then(function(data) {
     for (var i=0; i<data.length; i++){
         year.push(data[i].Year);
         yearQuantity.push(data[i].Tons);
