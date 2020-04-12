@@ -13,6 +13,7 @@ var width4 = 650 - margin.left - margin.right,
 var width5 = 700 - margin.left - margin.right,
     height5 = 750 - margin.top - margin.bottom;
 
+var numberFormat = d3.format(",.2r");
 
 
 // map icon on the front page
@@ -118,7 +119,8 @@ function isElementOnScreen(id) {
     return bounds.top < window.innerHeight && bounds.bottom > 0;
 }
 
-// Create 2 datasets
+
+//Section 3 specific datasets
 var data1 = [
    {year: 1991, gdp: 10.4926},
    {year: 1992, gdp: 11.153},
@@ -195,7 +197,7 @@ var data = [
 
 
 
-//id = countrySupply
+//Cocoa Production by Country
 var svg6 = d3.select("#countrySupply")
   .append("svg")
     .attr("width", width5 + margin.left + margin.right)
@@ -204,16 +206,12 @@ var svg6 = d3.select("#countrySupply")
     .attr("transform",
           "translate(" + 50 + "," + 50 + ")");
           
-
-// Transpose the data into layers
 var dataset = d3.layout.stack()(["ivoryCoast", "Ghana", "Indonesia", "Eduador", "Cameroon"].map(function(country) {
   return data.map(function(d) {
     return {x: d.year, y: +d[country]};
   });
 }));
 
-
-// Set x, y and colors
 var x = d3.scale.ordinal()
   .domain(dataset[0].map(function(d) { return d.x; }))
   .rangeRoundBands([0, width5-70], 0.02);
@@ -246,8 +244,6 @@ svg6.append("g")
   .attr("transform", "translate(" + 35 + "," + height5 + ")")
   .call(xAxis);
 
-
-// Create groups for each series, rects for each segment 
 var groups = svg6.selectAll("g.cost")
   .data(dataset)
   .enter().append("g")
@@ -260,8 +256,8 @@ var groups = svg6.selectAll("g.cost")
   .append("rect")
   .attr("x", function(d) { return x(d.x); })
   .attr("y", function(d) { return y(d.y0 + d.y); })
-          .attr("rx", 10)
-        .attr("ry", 10) 
+  .attr("rx", 10)
+  .attr("ry", 10) 
   .attr("height", function(d) { return y(d.y0) - y(d.y0 + d.y); })
   .attr("width", x.rangeBand())
   .on("mouseover", function() { 
@@ -269,8 +265,6 @@ var groups = svg6.selectAll("g.cost")
       d3.select(this)
         .attr("rx", 0)
         .attr("ry", 0)        
-    // .style('stroke',"tomato")
-        // .attr('stroke-width', 1);
   })
   .on("mouseout", function() { 
       tooltip.style("display", "none");
@@ -282,7 +276,7 @@ var groups = svg6.selectAll("g.cost")
     var xPosition = d3.mouse(this)[0] - 15;
     var yPosition = d3.mouse(this)[1] - 25;
     tooltip.attr("transform", "translate(" + xPosition + "," + yPosition + ")");
-    tooltip.select("text").text( d.y + ",000 tons");
+    tooltip.select("text").text( numberFormat(d.y) + ",000 tons");
   });
 
 
@@ -340,7 +334,6 @@ svg6.append("text")
   .style("font-family", "gopher")
   .text("Global Cocoa Production by Country");
 
-// Prep the tooltip bits, initial display is hidden
 var tooltip = svg6.append("g")
   .attr("class", "tooltip")
   .style("display", "none");
@@ -430,7 +423,7 @@ function update(data) {
       
 }
 
-// At the beginning, I run the update function on the first dataset:
+// At the beginning, run the update function on the first dataset:
 update(data1)
 
 
@@ -461,7 +454,7 @@ update(data1)
         }
       
         var totalGraph = svg5.selectAll('rect').append("g")
-        var totalGraphGroup = totalGraph.data(d3.range(98))
+        totalGraph.data(d3.range(98))
           .enter()
           .append('rect')
           .attr('x', (d, i) => {
@@ -631,7 +624,7 @@ svg7.append("a")
    
    
    
-//Dashboard Information - 3rd rwo
+//Dashboard Information - 3rd row
 svg7.append("line")
     .attr("x1", x1+z )
     .attr("x2", length+z)
@@ -673,21 +666,16 @@ svg7.append("text")
 
 
 
-//deforestation graph
-// var treelost=[]
+//Forest Cover Loss
 d3.csv("./data/ForestLoss&CO2.csv").then(function(data) {
-    // for (var i=0; i<data.length; i++){
-    //     treelost.push(data[i].threshold30);
-    // }
-    
-//Forest Loss Scale
+
 var xScale = d3.scaleSqrt()
   .domain([0, 527274])
   .range([0, 60]);
   
 var leftSpace = 35;
 var topSpace = 70;
-var enlarge=5;
+var enlarge=3;
 
 
 
@@ -739,7 +727,7 @@ var tooltip8 = d3.select("#deforestation")
           .style("fill", "none")
           .on('mouseover', function(d) {
                 tooltip8
-                  .html("At 10% canopy cover level forest loss is "+ d.threshold10 +" hectares") 
+                  .html("At 10% canopy cover level forest loss is "+ numberFormat(d.threshold10) +" hectares") 
                 d3.select(this)
          	      .style('stroke',"tomato")
                   .style('stroke-width', 2)
@@ -779,7 +767,7 @@ var tooltip8 = d3.select("#deforestation")
           .style("fill", "none")
           .on('mouseover', function(d) {
                 tooltip8
-                  .html("At 15% canopy cover level forest loss is "+ d.threshold15 +" hectares") 
+                  .html("At 15% canopy cover level forest loss is "+ numberFormat(d.threshold15) +" hectares") 
                 d3.select(this)
          	      .style('stroke',"tomato")
                   .style('stroke-width', 2)
@@ -820,7 +808,7 @@ var tooltip8 = d3.select("#deforestation")
           .style("fill", "none")
           .on('mouseover', function(d) {
                 tooltip8
-                  .html("At 20% canopy cover level forest loss is "+ d.threshold20 +" hectares") 
+                  .html("At 20% canopy cover level forest loss is "+ numberFormat(d.threshold20) +" hectares") 
                 d3.select(this)
          	      .style('stroke',"tomato")
                   .style('stroke-width', 2)
@@ -858,7 +846,7 @@ var tooltip8 = d3.select("#deforestation")
           .style("fill", "none")
           .on('mouseover', function(d) {
                 tooltip8
-                  .html("At 25% canopy cover level forest loss is "+ d.threshold25 +" hectares") 
+                  .html("At 25% canopy cover level forest loss is "+ numberFormat(d.threshold25) +" hectares") 
                 d3.select(this)
          	      .style('stroke',"tomato")
                   .style('stroke-width', 2)
@@ -896,7 +884,7 @@ var tooltip8 = d3.select("#deforestation")
           .style("fill", "none")
           .on('mouseover', function(d) {
                 tooltip8
-                  .html("At 30% canopy cover level forest loss is "+ d.threshold30 +" hectares") 
+                  .html("At 30% canopy cover level forest loss is "+ numberFormat(d.threshold30) +" hectares") 
                 d3.select(this)
          	      .style('stroke',"tomato")
                   .style('stroke-width', 2)
@@ -934,7 +922,7 @@ var tooltip8 = d3.select("#deforestation")
           .style("fill", "none")
           .on('mouseover', function(d) {
                 tooltip8
-                  .html("At 50% canopy cover level forest loss is "+ d.threshold50 +" hectares") 
+                  .html("At 50% canopy cover level forest loss is "+ numberFormat(d.threshold50) +" hectares") 
                 d3.select(this)
          	      .style('stroke',"tomato")
                   .style('stroke-width', 2)
@@ -972,7 +960,7 @@ var tooltip8 = d3.select("#deforestation")
           .style("fill", "none")
           .on('mouseover', function(d) {
                 tooltip8
-                  .html("At 70% canopy cover level forest loss is "+ d.threshold70 +" hectares") 
+                  .html("At 70% canopy cover level forest loss is "+ numberFormat(d.threshold70) +" hectares") 
                 d3.select(this)
          	      .style('stroke',"tomato")
                   .style('stroke-width', 2)
@@ -994,6 +982,9 @@ var tooltip8 = d3.select("#deforestation")
                   
             })
 
+
+
+
 //Year Legend
 		  svg8.selectAll("text")
 			   .data(data)
@@ -1011,44 +1002,21 @@ var tooltip8 = d3.select("#deforestation")
 			   		return d.Year;
 			   })
           
-         
-    //       svg8.append('g')
-    //       .selectAll('circle')
-    //       .data(data)
-    //       .enter()
-    //       .append('circle')
-    //       .attr("cx", function(d,i) {
-			 //      return leftSpace+i*70;
-    // 	    })
-    //       .attr("cy", topSpace+150)
-    //       .attr("r", function(d) {
-			 //     return xScale2(d.CO2);
-    // 	    })
-    // // 	  .style('stroke',"#000000")
-    //     //   .style('stroke-width', 1)
-    //       .style("fill", "#000000")
-    //       .on('mouseover', function(d) {
-    //             tooltip8
-    //               .html("At 30% canopy cover level CO2 emission is "+ d.CO2 +" tonnes") 
-    //             d3.select(this)
-
-    //      	      .style('fill',"tomato")
-    //             //   .style('stroke-width', 2)
-    //             //   .style("z-index", "200")
-
-    //         })
-    //       .on('mouseleave', function(d) {
-    //             tooltip8
-    //             //   .text("Hover to view details")
-    //             d3.select(this)
-    //     	      .style('fill',"#000000")
-    //             //   .style('stroke-width', 1)
-                  
-    //         })
-
-
-
-
+  		  svg8.selectAll("line")
+			   .data(data)
+			   .enter()
+			   .append("line")
+			   .style("stroke-dasharray", ("3, 3"))
+               .attr("x1", function(d,i) {
+         		  return leftSpace+i*70;
+               })
+               .attr("y1", topSpace-100)
+               .attr("x2", function(d,i) {
+         		  return leftSpace+i*70;
+               })                         
+               .attr("y2", 180)
+               .style("stroke", "#000000")
+               .style("stroke-weight", 2)
 
 
 });
@@ -1102,9 +1070,9 @@ svg9
     .style("stroke-width", "2px")
     .style("opacity", 0.7)
 
-svg9.datum(function(d) {
-  return {center: mouse.slice(), angle: 0};
-});
+    svg9.datum(function(d) {
+      return {center: mouse.slice(), angle: 0};
+    });
 
 
 

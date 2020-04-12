@@ -74,6 +74,14 @@ h5 {
   width: 400px;
 }
 
+b {
+  color: tomato;
+  font-family: courier-std, monospace;
+  font-style: normal;
+  /*font-weight: 400; */
+  /*font-size: 14px;*/
+  /*width: 400px; */
+}
 /*h6 is homepage title*/
 h6 {
   /*transform: rotate(90deg) translateY(350px) translateX(970px);*/
@@ -347,12 +355,17 @@ section:last-child {
   z-index: 1000;
 }
 
+/*#forests {*/
+/*  position: relative;*/
+/*  z-index: 1000;*/
+/*}*/
 
 #image {
   position: -webkit-sticky;
   position: sticky;
   padding-top: -50px;
   z-index: 100;
+  padding-bottom: 100px;
 }
 
 

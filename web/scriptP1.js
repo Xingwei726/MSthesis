@@ -29,14 +29,6 @@ var size = 9;
 var groupSpacing = 3.5;
 var cellSpacing = 2;
 
-// var xScale = d3.scaleBand()
-//   .domain([0, 39])
-//   .range([0, width2])
-//   .padding(0.1);
-  
-// var yGuide
-
-
 
 var svg = d3.select('#intro')
       .append('svg')
@@ -44,24 +36,24 @@ var svg = d3.select('#intro')
       .attr('height', height); 
 
 
-    //square legend units      
-        svg.selectAll('rect')
-          .data(d3.range(100))
-          .enter()
-          .append('rect')
-          .attr('x', (d, i) => {
-              var x0 = Math.floor(i / 100) % 10, x1 = Math.floor(i % 10);
-              return groupSpacing * x0 + (cellSpacing + size) * (x1 + x0 * 10);
-          })
-          .attr('y', (d, i) => {
-              var y0 = Math.floor(i / 1000), y1 = Math.floor(i % 100 / 10);
-              return groupSpacing * y0 + (cellSpacing + size) * (y1 + y0 * 10);
-          }) 
-          .attr('width', size)
-          .attr('height', size)
-          .attr('fill', '#FFFAF0')
-          .attr('stroke-width', 2)
-          .attr("transform", "translate(270, 480)");
+//square legend units      
+    svg.selectAll('rect')
+      .data(d3.range(100))
+      .enter()
+      .append('rect')
+      .attr('x', (d, i) => {
+          var x0 = Math.floor(i / 100) % 10, x1 = Math.floor(i % 10);
+          return groupSpacing * x0 + (cellSpacing + size) * (x1 + x0 * 10);
+      })
+      .attr('y', (d, i) => {
+          var y0 = Math.floor(i / 1000), y1 = Math.floor(i % 100 / 10);
+          return groupSpacing * y0 + (cellSpacing + size) * (y1 + y0 * 10);
+      }) 
+      .attr('width', size)
+      .attr('height', size)
+      .attr('fill', '#FFFAF0')
+      .attr('stroke-width', 2)
+      .attr("transform", "translate(270, 480)");
 
 
 
@@ -74,16 +66,16 @@ d3.csv("./data/globalsupply2019.csv").then(function(data) {
     console.log("CountryNames:",countryName);
     console.log("Quantity:",quantity);
 
-        var svg2 = d3.select('#graph1')
-          .append('svg')
-          .attr('width', width2)
-          .attr('height', height2)
-          .attr('background','#000000')
-          .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-          
+    var svg2 = d3.select('#graph1')
+      .append('svg')
+      .attr('width', width2)
+      .attr('height', height2)
+      .attr('background','#000000')
+      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
       
-        var totalGraph = svg2.selectAll('rect').append("g")
-        var totalGraphGroup = totalGraph.data(d3.range(4831))
+  
+    var totalGraph = svg2.selectAll('rect').append("g")
+    var totalGraphGroup = totalGraph.data(d3.range(4831))
           .enter()
           .append('rect')
           .attr('x', (d, i) => {
@@ -127,6 +119,7 @@ d3.csv("./data/globalsupply2019.csv").then(function(data) {
             .style("padding", "8px")
             .style("left", "1000px")
             .style("top", "915px")
+            
 
         var mouseover = function(d) {
             tooltip
@@ -134,14 +127,36 @@ d3.csv("./data/globalsupply2019.csv").then(function(data) {
               .style("opacity", 1);
             d3.select(this)
               .attr('fill', "tomato");
-              
+            totalGraphGroup
+            //   .style("opacity", 0.5)
+              .data(d3.range(d.Tons))
+              .attr('fill', 'tomato')
+            //   .style("opacity", 1)
           }
+
+        // var mousemove = function(d) {
+        //     // tooltip
+        //     //   .html("" + d.Ton + "Tons")
+        //     //   .style("opacity", 1);
+        //     // d3.select(this)
+        //     //   .attr('fill', "tomato");
+        //     totalGraphGroup
+        //       .style("opacity", 0.5)
+        //       .data(d3.range(d.Tons))
+        //       .attr('fill', 'tomato')
+        //       .style("opacity", 1)
+        //   }          
+        
 
         var mouseleave = function(d) {
             tooltip
               .style("opacity", 0)
             d3.select(this)
               .attr('fill', "#FFFAF0");
+            totalGraphGroup
+              .style("opacity", 1)
+              .data(d3.range(4831))
+              .attr('fill', '#FFFAF0')
           }
           
         
