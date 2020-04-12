@@ -355,10 +355,6 @@ section:last-child {
   z-index: 1000;
 }
 
-/*#forests {*/
-/*  position: relative;*/
-/*  z-index: 1000;*/
-/*}*/
 
 #image {
   position: -webkit-sticky;
@@ -396,3 +392,19 @@ path.domain {
   position: sticky;
   z-index: 100;
 }
+
+/*.waffle {*/
+/*  display: flex;*/
+/*  flex-wrap: wrap;*/
+/*  width: 120px;*/
+/*  position: -webkit-sticky;*/
+/*  position: sticky;*/
+/*  padding: 0;*/
+  
+/*}*/
+
+/*.block {*/
+/*  width: 12px;*/
+/*  height: 12px;*/
+/*  margin: 1.5px;*/
+/*}*/
