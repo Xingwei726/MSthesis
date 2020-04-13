@@ -7,7 +7,7 @@ div{
 
 a {
   color:#000000; 
-  padding-left:20px;
+  padding-left:10px;
   font-family: gopher, sans-serif;
 }
 
@@ -30,6 +30,16 @@ h2 {
   font-weight: 400; 
   font-size: 22px;
   margin-top: 10px;
+}
+
+/*position transformation for text on homepage*/
+.rotateText {
+    transform: rotate(90deg) translateY(-250px) translateX(350px);
+}
+
+/*position transformation for image on homepage*/
+.rotateImage {
+    transform: rotate(90deg) translateY(20px) translateX(-120px);
 }
 
 
@@ -58,12 +68,6 @@ h4 {
   transform: rotate(90deg)translateY(-70px)translateX(-290px);
 }
 
-/*#scrollText {*/
-/*  width: 400px; */
-/*  transform: rotate(90deg)translateY(180px)translateX(-820px);*/
-/*}*/
-
-
 /*h5 is black text on white background (p)*/
 h5 {
   color: #FFFAF0;
@@ -82,6 +86,7 @@ b {
   /*font-size: 14px;*/
   /*width: 400px; */
 }
+
 /*h6 is homepage title*/
 h6 {
   /*transform: rotate(90deg) translateY(350px) translateX(970px);*/
@@ -101,37 +106,35 @@ p {
 }
 
 
+body {
+  /*background: #FFFAF0;*/
+}
 
 .horizontal-scroll-wrapper{
   position:absolute;
+  /*  display:block;*/
   top:0;
   left:0;
   width:700px;
   max-height:1500px;
-  margin:0;
+  margin-top:10px;
+  margin-bottom:10px;
   background:#000000;
   overflow-y:scroll;
   overflow-x:hidden;
   transform:rotate(-90deg) translateY(-750px);
   transform-origin:right top;
-  /*transition: 0.4s;*/
+  transition: 0.4s;
 }
 
+/*style for each section's chocolatebar navigation*/
 .section{
   display:block;
   padding-left:10px;
   padding-top: 10px;
   background:#FFFAF0;
   height:40px;
-}
-
-.introsection{
-  display:block;
-  padding:10px;
-  background:#000000;
-  overflow-y:hidden;
-  overflow-x:hidden;
-  z-index: 999;
+  
 }
 
 .squares{
@@ -142,15 +145,59 @@ p {
   width:700px;
   /*height:200px;*/
   margin:10px;
-  margin-left: 0px;
 }
 
-#intro{
+#intro1{
  height:1220px;
  width:2000px;
  overflow:hidden;
  z-index: 99;
 }
+
+#intro2{
+ height: 1410px;
+ /*padding-left:20px;*/
+}
+
+#intro3{
+ height:1220px;
+ width:2000px;
+ overflow:hidden;
+ z-index: 99;
+}
+
+
+/*intro slide for all sections*/
+.introsection1{
+  display:block;
+  padding:10px;
+  background:#000000;
+  overflow-y:hidden;
+  overflow-x:hidden;
+  /*z-index: 999;*/
+}
+
+/*intro slide on homepage*/
+.introsection2{
+  display:block;
+  padding:10px;
+  background:#FFFAF0;
+  /*transform:rotate(90deg) translateX(700px);*/
+  /*transform-origin: right top;*/
+}
+
+
+/*style for homepage chocolatebar(navigation)*/
+.squares2{
+  padding:50px 0 0 0;
+}
+.squares2 > div{
+  width:700px;
+  height:40px;
+  margin:10px;
+}
+
+
 
 #fixed {
   transition: 0.4s; /* Adds a transition effect when the padding is decreased */
@@ -164,11 +211,22 @@ p {
 
 .section:hover {
   background: tomato;
-  display: block;
+  /*display: block;*/
   -webkit-transform: scale(0.8);
   -ms-transform: scale(0.8);
   transform: scale(0.8);
 }
+
+
+/*.section:hover {*/
+/*  background: tomato;*/
+/*  display: block;*/
+  /*height: 1440px;*/
+/*  -webkit-transform: scale(0.8);*/
+  /*-ms-transform: scale(0.8);*/
+/*  transform: scale(0.8);*/
+  /*transform: translateY(100px)*/
+/*}*/
 
 #graph1{
   height:1500px;
@@ -278,6 +336,13 @@ p {
     height: 900px;
     padding-top: 400px;
     padding-left: 280px;
+}
+
+#square-unit{
+    /*padding-left: -100;*/
+    /*height: 900px;*/
+    /*padding-top: 400px;*/
+    /*padding-left: 280px;*/
 }
 
 #map { 

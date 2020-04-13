@@ -19,7 +19,7 @@ var quantity=[];
 
          
 var width = 1220,
-    height = 1000;
+    height = 700;
 
 var margin = { top: 150, right: 40, bottom: 350, left: 50 },
     width2 = 1440 - margin.left - margin.right,
@@ -30,7 +30,7 @@ var groupSpacing = 3.5;
 var cellSpacing = 2;
 
 
-var svg = d3.select('#intro')
+var svg = d3.select('#square-unit')
       .append('svg')
       .attr('width', width)
       .attr('height', height); 
