@@ -18,7 +18,7 @@ var countryName=[];
 var quantity=[];
 
          
-var width = 1220,
+var width = 1440,
     height = 700;
 
 var margin = { top: 150, right: 40, bottom: 350, left: 50 },
@@ -54,6 +54,12 @@ var svg = d3.select('#square-unit')
       .attr('fill', '#FFFAF0')
       .attr('stroke-width', 2)
       .attr("transform", "translate(270, 480)");
+
+//Introduction
+let svg1=d3.select('#definition')
+.append('svg')
+      .attr('width', width)
+      .attr('height', height)
 
 
 
@@ -114,16 +120,18 @@ d3.csv("./data/globalsupply2019.csv").then(function(data) {
             .attr("class", "tooltip")
             .style("position", "absolute")
             .style("color", "tomato")
-			.style("font-family", "gopher")
-			.style("font-size", "18px")
+			      .style("font-family", "gopher")
+		      	.style("font-size", "18px")
             .style("padding", "8px")
             .style("left", "1000px")
-            .style("top", "915px")
+      //select tooltip position
+            .style("top", "1620px")
             
 
         var mouseover = function(d) {
             tooltip
               .html("" + d.Ton + "Tons")
+              // .attr("transform", "translate(0, 710)")
               .style("opacity", 1);
             d3.select(this)
               .attr('fill', "tomato");
