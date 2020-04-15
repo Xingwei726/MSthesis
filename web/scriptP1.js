@@ -51,15 +51,16 @@ var svg = d3.select('#square-unit')
       }) 
       .attr('width', size)
       .attr('height', size)
-      .attr('fill', '#FFFAF0')
+    //   .attr('fill', '#FFFAF0')
+      .attr('fill', i => (i < 99 ?  '#FFFAF0': 'tomato'))
       .attr('stroke-width', 2)
       .attr("transform", "translate(270, 480)");
 
 //Introduction
-let svg1=d3.select('#definition')
-.append('svg')
-      .attr('width', width)
-      .attr('height', height)
+// let svg1=d3.select('#definition')
+// .append('svg')
+//       .attr('width', width)
+//       .attr('height', height)
 
 
 
@@ -75,9 +76,9 @@ d3.csv("./data/globalsupply2019.csv").then(function(data) {
     var svg2 = d3.select('#graph1')
       .append('svg')
       .attr('width', width2)
-      .attr('height', height2)
+      .attr('height', 1000)
       .attr('background','#000000')
-      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+      .attr("transform", "translate(" + margin.left + ",0)");
       
   
     var totalGraph = svg2.selectAll('rect').append("g")
@@ -90,7 +91,7 @@ d3.csv("./data/globalsupply2019.csv").then(function(data) {
           })
           .attr('y', (d, i) => {
               var y0 = Math.floor(i / 1000), y1 = Math.floor(i % 100 / 10);
-              return groupSpacing * y0 + (cellSpacing + size) * (y1 + y0 * 10)+800;
+              return groupSpacing * y0 + (cellSpacing + size) * (y1 + y0 * 10)+300;
           }) 
           .attr('width', size/2)
           .attr('height', size/2)
@@ -121,11 +122,11 @@ d3.csv("./data/globalsupply2019.csv").then(function(data) {
             .style("position", "absolute")
             .style("color", "tomato")
 			      .style("font-family", "gopher")
-		      	.style("font-size", "18px")
+		        .style("font-size", "18px")
             .style("padding", "8px")
             .style("left", "1000px")
-      //select tooltip position
-            .style("top", "1620px")
+            //select tooltip position
+            .style("top", "4060px")
             
 
         var mouseover = function(d) {
@@ -185,7 +186,7 @@ d3.csv("./data/globalsupply2019.csv").then(function(data) {
 			   .text(function(d) {
 			   		return d.Country;
 			   })
-			   .attr("transform", "translate(950, 710)")
+			   .attr("transform", "translate(950, 210)")
                .on('mouseover', mouseover)
                .on('mouseleave', mouseleave)
                
@@ -199,7 +200,7 @@ d3.csv("./data/globalsupply2019.csv").then(function(data) {
 			   .style("font-size", "36px")
 			   .attr("fill", "#FFFAF0")
 			   .text( "Global Cocoa Supply 2019")
-			   .attr("transform", "translate(0, 530)")
+			   .attr("transform", "translate(0, 20)")
 
 
 //Total Count (static)
@@ -211,7 +212,7 @@ d3.csv("./data/globalsupply2019.csv").then(function(data) {
 			   .style("font-size", "18px")
 			   .attr("fill", "#FFFAF0")
 			   .text( "Total Amount:")
-			   .attr("transform", "translate(0, 560)")
+			   .attr("transform", "translate(0, 60)")
 
           svg2.append("text")
 			   .attr("x", 0)
@@ -221,7 +222,7 @@ d3.csv("./data/globalsupply2019.csv").then(function(data) {
 			   .style("font-size", "18px")
 			   .attr("fill", "#FFFAF0")
 			   .text( "4,831,885 Tons")
-			   .attr("transform", "translate(0, 585)")
+			   .attr("transform", "translate(0, 85)")
 
 //Selected Count (change based on selection)
           svg2.append("text")
@@ -232,7 +233,7 @@ d3.csv("./data/globalsupply2019.csv").then(function(data) {
 			   .style("font-size", "18px")
 			   .attr("fill", "tomato")
 			   .text( "Selected Amount:")
-			   .attr("transform", "translate(950, 560)")
+			   .attr("transform", "translate(950, 60)")
 
     console.log("CountryNames:",countryName);
     console.log("Quantity:",quantity);

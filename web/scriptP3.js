@@ -254,12 +254,14 @@ groups.selectAll("rect")
     .on("mouseover", function () {
         tooltip.style("display", null);
         d3.select(this)
+            .transition ()
             .attr("rx", 0)
             .attr("ry", 0)
     })
     .on("mouseout", function () {
         tooltip.style("display", "none");
         d3.select(this)
+            .transition ()
             .attr("rx", 10)
             .attr("ry", 10)
     })
@@ -695,6 +697,7 @@ d3.csv("./data/ForestLoss&CO2.csv").then(function (data) {
             tooltip8
                 .html("At 10% canopy cover level forest loss is " + numberFormat(d.threshold10) + " hectares")
             d3.select(this)
+                .transition ()
                 .style('stroke', "tomato")
                 .style('stroke-width', 2)
                 .attr("r", function (d) {
@@ -706,6 +709,7 @@ d3.csv("./data/ForestLoss&CO2.csv").then(function (data) {
             tooltip8
             //   .text("Hover to view details")
             d3.select(this)
+                .transition ()
                 .style('stroke', "#000000")
                 .style('stroke-width', 1)
                 .attr("r", function (d) {

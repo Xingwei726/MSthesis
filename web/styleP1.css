@@ -32,6 +32,17 @@ h2 {
   margin-top: 10px;
 }
 
+.countries {
+  /*color:#000000;*/
+  font-family: gopher, sans-serif;
+  font-style: normal;
+  font-weight: 800; 
+  font-size: 50px;
+  /*margin-top: 10px;*/
+}
+
+
+
 /*position transformation for text on homepage*/
 .rotateText {
     transform: rotate(90deg) translateY(-250px) translateX(350px);
@@ -68,7 +79,7 @@ h4 {
   transform: rotate(90deg)translateY(-70px)translateX(-290px);
 }
 
-/*h5 is black text on white background (p)*/
+/*h5 is white text on black background (p)*/
 h5 {
   color: #FFFAF0;
   font-family: courier-std, monospace;
@@ -76,6 +87,16 @@ h5 {
   font-weight: 400; 
   font-size: 14px;
   width: 400px;
+}
+
+/*h7 is white text on black background (p) at homepage */
+h7 {
+  color: #FFFAF0;
+  font-family: courier-std, monospace;
+  font-style: normal;
+  font-weight: 400; 
+  font-size: 16px;
+  /*width: 400px;*/
 }
 
 b {
@@ -95,6 +116,7 @@ h6 {
   font-style: normal;
   font-weight: 400;
 }
+
 
 p {
   color: #000000;
@@ -223,15 +245,33 @@ body {
 
 /*height and width are defined in js, but can also defined here*/
 #definition{
-  /*height:700px;*/
-  /*width:100%;*/
+  height:500px;
+  width:100%;
   display:block;
   background:#000000;
+  margin-top: 700px;
+  padding-top:50px;
+  padding-left:30px;
+}
+
+.prose {
+    max-width: 40rem;
+    margin: 5rem auto;
+    padding: 0 1rem;
+    
+}
+
+#history{
+  height:700px;
+  width:100%;
+  display:block;
+  background:#FFFAF0;
+  margin-top:100px;
 }
 
 
 #graph1{
-  height:1500px;
+  height:1200px;
   width:1440px;
   display:block;
   background:#000000;
@@ -246,11 +286,21 @@ body {
   padding-bottom: 100px;
 }
 
-.graph3 {
+#graph3{
+  height:1200px;
+  width:1440px;
+  display:block;
+  background:#000000;
+
+}
+
+
+.slide {
   height:1500px;
   width:100%;
   background:#000000;
 }
+
 
 
 #graphic {
@@ -377,12 +427,19 @@ section {
 
 section.active {
   opacity: 1;
-
 }
 
 section:last-child {
   border-bottom: none;
   /*margin-bottom: 200px;*/
+}
+
+section.active2 {
+  opacity: 1;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
 
@@ -466,18 +523,3 @@ path.domain {
   z-index: 100;
 }
 
-/*.waffle {*/
-/*  display: flex;*/
-/*  flex-wrap: wrap;*/
-/*  width: 120px;*/
-/*  position: -webkit-sticky;*/
-/*  position: sticky;*/
-/*  padding: 0;*/
-  
-/*}*/
-
-/*.block {*/
-/*  width: 12px;*/
-/*  height: 12px;*/
-/*  margin: 1.5px;*/
-/*}*/
