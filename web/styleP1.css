@@ -41,11 +41,19 @@ h2 {
   /*margin-top: 10px;*/
 }
 
+.chocolateTypes {
+  /*color:#000000;*/
+  font-family: gopher, sans-serif;
+  font-style: normal;
+  font-weight: 400; 
+  /*margin-top: 10px;*/
+}
+
 
 
 /*position transformation for text on homepage*/
 .rotateText {
-    transform: rotate(90deg) translateY(-250px) translateX(350px);
+    transform: rotate(90deg) translateY(-50px) translateX(350px);
 }
 
 /*position transformation for image on homepage*/
@@ -74,7 +82,20 @@ h4 {
   font-size: 12px;
 }
 
-#legendText {
+#coverLegend1 {
+  width: 400px; 
+  transform: rotate(90deg)translateY(-58px)translateX(-38px);
+
+}
+
+.coverLegend1 h4 {
+  width: 400px; 
+  transform: rotate(90deg)translateY(-182px)translateX(30px);
+  color: tomato;
+
+}
+
+#coverLegend3 {
   width: 400px; 
   transform: rotate(90deg)translateY(-70px)translateX(-290px);
 }
@@ -134,7 +155,6 @@ body {
 
 .horizontal-scroll-wrapper{
   position:absolute;
-  /*  display:block;*/
   top:0;
   left:0;
   width:700px;
@@ -269,29 +289,54 @@ body {
   margin-top:100px;
 }
 
+#endSection{
+  height:700px;
+  width:100%;
+  display:block;
+  background:#FFFAF0;
+  /*margin-top:100px;*/
+}
+
+.countries {
+  /*color:#000000;*/
+  font-family: gopher, sans-serif;
+  font-style: normal;
+  font-weight: 800; 
+  font-size: 50px;
+  /*margin-top: 10px;*/
+}
+
 
 #graph1{
   height:1200px;
-  width:1440px;
+  width:100%;
   display:block;
   background:#000000;
+  margin-top: 100px;
+
 }
 
 #graph2 {
   height:1500px;
-  width:1440px;
-  margin-bottom: 300px;
+  width:100%;
+  /*margin-bottom: 300px;*/
   display:block;
   background:#000000;
-  padding-bottom: 100px;
+  /*padding-bottom: 100px;*/
 }
 
 #graph3{
-  height:1200px;
-  width:1440px;
+  height:750px;
+  width:100%;
   display:block;
   background:#000000;
+}
 
+#graph4{
+  height:1150px;
+  width:100%;
+  display:block;
+  background:tomato;
 }
 
 
@@ -301,6 +346,11 @@ body {
   background:#000000;
 }
 
+.slide1 {
+  /*height:1500px;*/
+  width:100%;
+  background:#000000;
+}
 
 
 #graphic {
@@ -381,6 +431,19 @@ body {
   width:450px;
 }
 
+.stickyfloatingBlack {
+  position: -webkit-sticky;
+  position: sticky;
+  z-index: 99;
+  bottom:250px;
+  left: 500px;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: #000000;
+  width:450px;
+}
 
 #svg-container{
     padding-left: -100;
@@ -436,9 +499,9 @@ section:last-child {
 
 section.active2 {
   opacity: 1;
-  padding-top: 20px;
+  padding-top: 30px;
   padding-bottom: 10px;
-  padding-left: 30px;
+  padding-left: 50px;
   padding-right: 30px;
 }
 

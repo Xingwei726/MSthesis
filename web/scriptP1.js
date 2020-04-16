@@ -1,19 +1,3 @@
-//Try below code to make the menu expandable
-// window.onscroll = function() {scrollFunction()};
-
-// function scrollFunction() {
-//   if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
-//     document.getElementById("fixed").style.width = "700px";
-//     document.getElementById("fixed").style.transform = "rotate(-90deg) translateY(-750px)";
-//     // document.getElementById("fixed").style.position = "absolte";
-
-//   } else {
-//     document.getElementById("fixed").style.width = "100px";
-//     document.getElementById("fixed").style.transform = "rotate(-90deg) translateY(-150px)";
-//     // document.getElementById("fixed").style.position = "absolute";
-//   }
-// }
-
 var countryName=[];
 var quantity=[];
 
@@ -36,7 +20,7 @@ var svg = d3.select('#square-unit')
       .attr('height', height); 
 
 
-//square legend units      
+//square legend units 
     svg.selectAll('rect')
       .data(d3.range(100))
       .enter()
@@ -51,16 +35,31 @@ var svg = d3.select('#square-unit')
       }) 
       .attr('width', size)
       .attr('height', size)
-    //   .attr('fill', '#FFFAF0')
       .attr('fill', i => (i < 99 ?  '#FFFAF0': 'tomato'))
       .attr('stroke-width', 2)
-      .attr("transform", "translate(270, 480)");
+      .attr("transform", "translate(270, 480)")
+      .on('mouseover', function(d){
+          d3.select(this)
+          .style('opacity',0.5);
+      })
+      .on('mouseleave', function(d){
+          d3.select(this)
+          .style('opacity',1);
+      });
 
-//Introduction
-// let svg1=d3.select('#definition')
-// .append('svg')
-//       .attr('width', width)
-//       .attr('height', height)
+
+	   // var coverLegend = svg.append('g')
+    //     .append("text")
+    //     .attr("x", 50)
+			 //  .attr("y", -420)
+			 //  .attr("text-anchor", "left")
+			 //  .attr("font-family", "courier")
+			 //  .style("font-size", "14px")
+			 //  .style("font-weight", 800)
+			 //  .attr("fill", "tomato")
+			 //  .text("Hint: Hover over countries' names")
+    //     .attr("transform", "translate(270, 480)");
+
 
 
 
@@ -126,12 +125,13 @@ d3.csv("./data/globalsupply2019.csv").then(function(data) {
             .style("padding", "8px")
             .style("left", "1000px")
             //select tooltip position
-            .style("top", "4060px")
+            .style("top", "4005px")
             
 
         var mouseover = function(d) {
             tooltip
-              .html("" + d.Ton + "Tons")
+              .html("It produced <br>" + 
+              d.Ton + "Tons")
               // .attr("transform", "translate(0, 710)")
               .style("opacity", 1);
             d3.select(this)
@@ -194,14 +194,28 @@ d3.csv("./data/globalsupply2019.csv").then(function(data) {
 // Graph Title
           svg2.append("text")
 			   .attr("x", 0)
-			   .attr("y", 200)
+			   .attr("y", 170)
 			   .attr("text-anchor", "left")
 			   .attr("font-family", "gopher")
-			   .style("font-size", "36px")
+			   .style("font-size", "30px")
+			   .style("font-weight", 400)
 			   .attr("fill", "#FFFAF0")
-			   .text( "Global Cocoa Supply 2019")
+			   .text( "Cacao Production in 2019")
 			   .attr("transform", "translate(0, 20)")
 
+          svg2.append("text")
+			   .attr("x", 0)
+			   .attr("y", 220)
+			   .attr("text-anchor", "left")
+			   .attr("font-family", "courier")
+			   .style("font-size", "14px")
+			   .style("font-weight", 400)
+			   //.attr("text-anchor", "left")
+			   //.attr("font-family", "gopher")
+			   //.style("font-size", "18px")
+			   .attr("fill", "#FFFAF0")
+			   .text( "Unit: 1,000tons")
+			   //.attr("transform", "translate(0, 20)")
 
 //Total Count (static)
           svg2.append("text")
@@ -211,6 +225,7 @@ d3.csv("./data/globalsupply2019.csv").then(function(data) {
 			   .attr("font-family", "gopher")
 			   .style("font-size", "18px")
 			   .attr("fill", "#FFFAF0")
+			   .style("font-weight", 400)
 			   .text( "Total Amount:")
 			   .attr("transform", "translate(0, 60)")
 
@@ -225,15 +240,17 @@ d3.csv("./data/globalsupply2019.csv").then(function(data) {
 			   .attr("transform", "translate(0, 85)")
 
 //Selected Count (change based on selection)
-          svg2.append("text")
-			   .attr("x", 0)
-			   .attr("y", 200)
-			   .attr("text-anchor", "left")
-			   .attr("font-family", "gopher")
-			   .style("font-size", "18px")
-			   .attr("fill", "tomato")
-			   .text( "Selected Amount:")
-			   .attr("transform", "translate(950, 60)")
+      //     svg2.append("text")
+			   //.attr("x", 0)
+			   //.attr("y", 200)
+			   //.attr("text-anchor", "left")
+			   //.attr("font-family", "gopher")
+			   //.style("font-size", "18px")
+			   //.attr("fill", "tomato")
+			   //.text( "It produced:")
+			   //.style("font-weight", 400)
+
+			   //.attr("transform", "translate(950, 60)")
 
     console.log("CountryNames:",countryName);
     console.log("Quantity:",quantity);
