@@ -1,6 +1,10 @@
 ::-webkit-scrollbar{width:2px;height:2px;}
 ::-webkit-scrollbar-button{width:2px;height:2px;}
 
+
+
+
+
 div{
   box-sizing:border-box;
 }
@@ -110,13 +114,22 @@ h5 {
   width: 400px;
 }
 
+/*h6 is homepage title*/
+h6 {
+  /*transform: rotate(90deg) translateY(350px) translateX(970px);*/
+  color:#000000;
+  font-family: gopher, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+}
+
 /*h7 is white text on black background (p) at homepage */
 h7 {
   color: #FFFAF0;
   font-family: courier-std, monospace;
   font-style: normal;
   font-weight: 400; 
-  font-size: 16px;
+  font-size: 14px;
   /*width: 400px;*/
 }
 
@@ -129,14 +142,6 @@ b {
   /*width: 400px; */
 }
 
-/*h6 is homepage title*/
-h6 {
-  /*transform: rotate(90deg) translateY(350px) translateX(970px);*/
-  color:#000000;
-  font-family: gopher, sans-serif;
-  font-style: normal;
-  font-weight: 400;
-}
 
 
 p {
@@ -145,7 +150,7 @@ p {
   font-style: normal;
   font-weight: 400; 
   font-size: 14px;
-  width: 400px;
+  width: 420px;
 }
 
 
@@ -167,7 +172,10 @@ body {
   transform:rotate(-90deg) translateY(-750px);
   transform-origin:right top;
   transition: 0.4s;
+  z-index: 3;
 }
+
+
 
 /*style for each section's chocolatebar navigation*/
 .section{
@@ -176,8 +184,9 @@ body {
   padding-top: 10px;
   background:#FFFAF0;
   height:40px;
-  
+  border-radius:2px;
 }
+
 
 .squares{
   padding:50px 0 0 0;
@@ -209,6 +218,8 @@ body {
 }
 
 
+
+
 /*intro slide for all sections*/
 .introsection1{
   display:block;
@@ -228,6 +239,15 @@ body {
   /*transform-origin: right top;*/
 }
 
+/*intro slide for all sections*/
+.introsection3{
+  display:block;
+  padding:10px;
+  background:#000000;
+  overflow-y:hidden;
+  overflow-x:hidden;
+}
+
 
 /*style for homepage chocolatebar(navigation)*/
 .squares2{
@@ -237,6 +257,8 @@ body {
   width:700px;
   height:40px;
   margin:10px;
+  border-radius:2px;
+
 }
 
 
@@ -259,8 +281,6 @@ body {
   transform: scale(0.8);
   /*transform: translateY(100px)*/
   /*height: 1440px;*/
-
-
 }
 
 /*height and width are defined in js, but can also defined here*/
@@ -289,13 +309,53 @@ body {
   margin-top:100px;
 }
 
-#endSection{
-  height:700px;
-  width:100%;
-  display:block;
-  background:#FFFAF0;
+/*.endSection{*/
+/*  height:700px;*/
+/*  width:100%;*/
+/*  display:block;*/
+/*  background:#000000;*/
   /*margin-top:100px;*/
+/*  overflow-y:scroll;*/
+/*  overflow-x:hidden;*/
+/*  transform:rotate(-90deg) translateY(-550px);*/
+/*  transform-origin:right top;*/
+/*  transition: 0.4s;*/
+/*}*/
+
+
+/*style for end section*/
+#end {
+ height:1200px;
+ width:1000px;
+ overflow:hidden;
 }
+
+.end {
+  /*top:0;*/
+  /*left:0;*/
+  width:700px;
+  max-height:700px;
+  margin-top:10px;
+  margin-bottom:10px;
+  background:#000000;
+  /*overflow:hidden;*/
+  transform:rotate(-90deg) translateY(-750px);
+  transform-origin:right top;
+  transition: 0.4s;
+}
+
+.end h1 {
+  transform: rotate(90deg) translateY(-80px) translateX(380px);
+  color:#FFFAF0;
+  font-family: gopher, sans-serif;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 50px;
+  /*width: 900px;*/
+  /*margin-top: 0px;*/
+}
+
+
 
 .countries {
   /*color:#000000;*/
@@ -339,6 +399,14 @@ body {
   background:tomato;
 }
 
+#space {
+  height:400px;
+  width:100%;
+  display:block;
+  background:#000000;
+}
+
+
 
 .slide {
   height:1500px;
@@ -346,21 +414,33 @@ body {
   background:#000000;
 }
 
+
+
 .slide1 {
   /*height:1500px;*/
   width:100%;
   background:#000000;
 }
 
+.slide2 {
+  height:1500px;
+  width:100%;
+  background:#000000;
+  position: -webkit-sticky;
+  position: sticky;
+  display:block;
+  z-index: 1;
 
-#graphic {
-    max-width:  1440px;
-    width: 100%;
-    position: relative; 
-    height: 100%;
-    position: relative; 
-    margin:auto;
 }
+
+/*#graphic {*/
+/*    max-width:  1440px;*/
+/*    width: 100%;*/
+/*    position: relative; */
+/*    height: 100%;*/
+/*    position: relative; */
+/*    margin:auto;*/
+/*}*/
 
 .container {
     height: 100%;
@@ -378,6 +458,8 @@ body {
     display: block;
     padding: 0 45px;
 }
+
+
 
 
 .fixed {
@@ -404,6 +486,38 @@ body {
   /*margin-top: 200px;*/
 }
 
+.sticky2 {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 25px;
+  bottom:50px;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+  background-color: #FFFAF0;
+  height:675px;
+  /*border: 2px solid #4CAF50;*/
+  /*margin-top: 200px;*/
+}
+
+.sticky2 p {
+  font-family: gopher, sans-serif;
+  font-style: normal;
+  font-weight: 800; 
+  font-size: 50px;
+  width: 900px;
+  margin-top: 0px;
+}
+
+.sticky2 h5 {
+   color: #000000;
+   margin-top:50px;
+   font-weight: 800;
+ 
+}
+
+
 .stickyblack {
   position: -webkit-sticky;
   position: sticky;
@@ -421,7 +535,7 @@ body {
   position: -webkit-sticky;
   position: sticky;
   z-index: 99;
-  bottom:250px;
+  bottom:300px;
   left: 500px;
   padding-top: 20px;
   padding-bottom: 10px;
@@ -429,6 +543,8 @@ body {
   padding-right: 20px;
   background-color: #FFFAF0;
   width:450px;
+  /*opacity:0.75;*/
+  /*border-radius: 5px;*/
 }
 
 .stickyfloatingBlack {
@@ -445,11 +561,30 @@ body {
   width:450px;
 }
 
+.stickyfloatingOrange {
+  position: -webkit-sticky;
+  position: sticky;
+  z-index: 99;
+  bottom:250px;
+  left: 500px;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: tomato;
+  width:450px;
+}
+
+.stickyfloatingOrange p {
+  color: #FFFAF0;
+}
+
+
 #svg-container{
-    padding-left: -100;
-    height: 900px;
-    padding-top: 400px;
-    padding-left: 280px;
+    /*padding-left: -100;*/
+    /*height: 900px;*/
+    padding-top: 420px;
+    padding-left: 220px;
 }
 
 #square-unit{
@@ -465,10 +600,11 @@ body {
   position: sticky;
   display:inline-block;
   top: 0; 
-  bottom: 20px;
+  bottom: 25px;
   left: 700px;
   width:50%;
   height:675px; 
+  z-index:0;
 }
 
 #features {
@@ -482,10 +618,7 @@ body {
 
 
 section {
-  /*padding: 50px 50px;*/
-  /*line-height: 25px;*/
   opacity: 0.1;
-
 }
 
 section.active {
@@ -505,6 +638,45 @@ section.active2 {
   padding-right: 30px;
 }
 
+section.active3 {
+  opacity: 1;
+  padding-top: 30px;
+  padding-bottom: 10px;
+  padding-left: 50px;
+  padding-right: 30px;
+}
+
+.active3 p {
+  font-family: gopher, sans-serif;
+  font-style: normal;
+  font-weight: 800; 
+  font-size: 50px;
+  width: 900px;
+  margin-top: 0px;
+  color: #FFFAF0;
+}
+
+
+.continueSection{
+  display:block;
+  padding-left:10px;
+  padding-top: 10px;
+  background:#FFFAF0;
+  height:170px;
+  border-radius:2px;
+}
+
+.continueSection:hover {
+  background: tomato;
+  /*display: block;*/
+  -webkit-transform: scale(0.8);
+  -ms-transform: scale(0.8);
+  transform: scale(0.8);
+  /*transform: translateY(100px)*/
+  /*height: 1440px;*/
+}
+
+
 
 #employment {
   position: -webkit-sticky;
@@ -522,7 +694,9 @@ section.active2 {
 #countrySupply {
   position: -webkit-sticky;
   position: sticky;
-  /*padding-top:50px;*/
+  padding-top:50px;
+  padding-bottom:50px;
+
 }
 
 #method {
@@ -555,6 +729,16 @@ section.active2 {
   padding-top: -50px;
   z-index: 100;
   padding-bottom: 100px;
+}
+
+#image2 {
+  position: -webkit-sticky;
+  position: sticky;
+  z-index: 100;
+  margin-left: -50px;
+  width:1440px;
+  height:500px;
+  /*padding-bottom: 100px;  */
 }
 
 

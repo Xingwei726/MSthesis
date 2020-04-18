@@ -1,7 +1,7 @@
 var countryName=[];
 var quantity=[];
 
-         
+
 var width = 1440,
     height = 700;
 
@@ -40,11 +40,11 @@ var svg = d3.select('#square-unit')
       .attr("transform", "translate(270, 480)")
       .on('mouseover', function(d){
           d3.select(this)
-          .style('opacity',0.5);
+          .attr('fill',"tomato")
       })
       .on('mouseleave', function(d){
           d3.select(this)
-          .style('opacity',1);
+      .attr('fill', i => (i < 99 ?  '#FFFAF0': 'tomato'))
       });
 
 
@@ -125,7 +125,7 @@ d3.csv("./data/globalsupply2019.csv").then(function(data) {
             .style("padding", "8px")
             .style("left", "1000px")
             //select tooltip position
-            .style("top", "4005px")
+            .style("top", "4065px")
             
 
         var mouseover = function(d) {

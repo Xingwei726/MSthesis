@@ -14,10 +14,11 @@ var numberFormat = d3.format(",.2r");
 
 //// 3.0 mapbox
 // map icon on the front page
-d3.xml("./images/Ivory_Coast.svg")
+d3.xml("./images/IC.svg")
     .then(data => {
         d3.select("#svg-container").node().append(data.documentElement)
     });
+
 mapboxgl.accessToken = "pk.eyJ1IjoiaHVhbng0MjkiLCJhIjoiY2szMzRzNHpqMGpiZDNib3EzbGgweHR0eSJ9.FbzMgwMQ7oL8uqZBSJqF2A";
 var map = new mapboxgl.Map({
     container: 'map',
@@ -316,14 +317,15 @@ svg6.append("text")
     .attr("y", 10)
     .style("text-anchor", "start")
     .style("font-size", "12px")
-    .style("font-family", "sans-serif")
+    .style("font-family", "courier")
     .text("(Unit: 1000 tons)");
 
 svg6.append("text")
     .attr("x", -20)
     .attr("y", -20)
     .style("text-anchor", "start")
-    .style("font-size", "14px")
+    .style("font-size", "18px")
+    .style("font-weight", 400)
     .style("font-family", "gopher")
     .text("Global Cocoa Production by Country");
 
@@ -1032,3 +1034,11 @@ d3.csv("./data/ICExports.csv").then(function (data) {
 
 
 });
+
+
+var svg10 = d3.select("#graphic")
+        .append("svg")
+        .attr("width",1440)
+        .attr("height", 2000)
+        .append("g")
+        .attr("transform","translate(" + 0 + "," + 50 + ")");

@@ -34,7 +34,6 @@ d3.csv("./data/globalproductiontrend.csv").then(function(data) {
 
         var mouseover2 = function(d) {
             tooltip2
-            //   .style("opacity", 1)
               .html(d.Year +": " + numberFormat(d.Tons) + ",000 tons") 
               .style("opacity", 1)
               .style('left', (d3.event.pageX+12) + 'px')
@@ -42,13 +41,16 @@ d3.csv("./data/globalproductiontrend.csv").then(function(data) {
             d3.select(this)
               .attr('fill', "tomato")
               .style("z-index", "0")
+              .attr('width',"25px")
         }
 
         var mouseleave2 = function(d) {
             tooltip2
               .style("opacity", 0)
             d3.select(this)
-              .attr('fill', '#FFFAF0');
+              .attr('fill', '#FFFAF0')
+              .attr('width',"30px")
+
         }  
 
         var svg3 = d3.select('#graph2')
@@ -525,6 +527,8 @@ d3.csv("./data/perCapita.csv").then(function(data) {
 });
 
 
+
+
 var cocoaPercentage = [];
 var rc=5;
 
@@ -542,7 +546,20 @@ d3.csv("./data/cocoaPercentage.csv").then(function(data) {
           
         var cocoaPercentageScale = d3.scaleLinear()
     	  .domain([0, 100])
-      	  .range([0, 300]);    
+      	  .range([0, 300]);
+      	  
+      	var tooltip5=d3.select("#graph4")
+            .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+            .append("div")
+            .style("opacity", 0)
+            .style("position", "absolute")
+            .style("color", "#FFFAF0")
+            .style("background", "black")
+			.style("font-family", "gopher")
+			.style("font-size", "12px")
+            .style("padding", "8px")
+            .style("border-radius", "5px")
+            .style("z-index", "1000")
 
         var cocoaPercentageTitle = svg5.append('g')
                .append("text")
@@ -640,18 +657,47 @@ d3.csv("./data/cocoaPercentage.csv").then(function(data) {
 			   .style("font-weight", 400)
 			   .attr("fill", "#000000")
 			   .text("others (includes butter fat, artificial colors or flavors etc)")
+
 			   
         var mouseover5 = function (d) {
+            tooltip5
+              .html(d.type +":<br><b> " + d.cocoa + "% cocoa</b> <br>" +
+              d.milk + "% milk <br>" +
+              d.sugar + "% sugar <br>" +
+              d.others + "% others"
+              ) 
+
+              .style("opacity", 1)
+              .style('left', (d3.event.pageX+12) + 'px')
+              .style('top', (d3.event.pageY-34) + 'px')
+            cocoaPercentageBackground
+               .style("opacity", 0.5)
+            milkOverlay
+               .style("opacity", 0.5)
+            cocoaOverlay
+               .style("opacity", 0.5)
+            sugarOverlay
+               .style("opacity", 0.5)
             d3.select(this)
-              .style("opacity", 0.5)
+              .style("opacity", 1)
+            
         }
         
         var mouseleave5 = function (d) {
+
+            cocoaPercentageBackground
+               .style("opacity", 1)
+            milkOverlay
+               .style("opacity", 1)
+            cocoaOverlay
+               .style("opacity", 1)
+            sugarOverlay
+               .style("opacity", 1)            
             d3.select(this)
               .style("opacity", 1)
         } 
 	    
-	    
+//legends	    
         var chocolateTypes = svg5.append('g')
             .selectAll('text')
             .data(data)
@@ -710,7 +756,7 @@ d3.csv("./data/cocoaPercentage.csv").then(function(data) {
 			   		return d.cocoa + "% cocoa";
 			}) 			
 
-
+//shapes
         var cocoaPercentageBackground = svg5.append("g")
             .selectAll('rect')
             .data(data)
@@ -834,6 +880,12 @@ d3.csv("./data/cocoaPercentage.csv").then(function(data) {
 			.style("opacity", 1)  
 			.on("mouseover", mouseover5)
             .on("mouseout", mouseleave5)  
+
+
+
+
+
+
  
 
 
