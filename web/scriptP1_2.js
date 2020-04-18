@@ -392,7 +392,7 @@ d3.csv("./data/perCapita.csv").then(function(data) {
                tooltip4
                   .style("opacity", 1)
                   .html(d.kilograms + " kilograms") 
-                  .style("opacity", 1)
+                //   .style("opacity", 1)
                   .style('left', (d3.event.pageX+12) + 'px')
                   .style('top', (d3.event.pageY) + 'px')
                    

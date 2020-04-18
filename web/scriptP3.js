@@ -11,6 +11,8 @@ var size = 100;
 var groupSpacing = 5;
 var cellSpacing = 5;
 var numberFormat = d3.format(",.2r");
+var yearFormat = d3.format("")	
+
 
 //// 3.0 mapbox
 // map icon on the front page
@@ -198,7 +200,8 @@ var svg6 = d3.select("#countrySupply")
     .attr("height", height5 + margin.top + margin.bottom)
     .append("g")
     .attr("transform",
-        "translate(" + 50 + "," + 400 + ")");
+        "translate(" + 25 + "," + 150 + ")");
+//if the graph is scrollable, need to translate 50,400
 
 var dataset = d3.layout.stack()(["ivoryCoast", "Ghana", "Indonesia", "Eduador", "Cameroon"].map(function (country) {
     return data.map(function (d) {
@@ -359,28 +362,76 @@ var svg4 = d3.select("#employment")
     .attr("height", height4 + margin.top + margin.bottom)
     .append("g")
     .attr("transform",
-        "translate(" + margin.left + "," + 50 + ")");
+        "translate(" + margin.left + "," + 0 + ")");
+
 
 // Initialise a X axis:
-var x = d3.scaleLinear().range([0, width4]);
-var xAxis = d3.axisBottom().scale(x);
+var x = d3.scaleLinear()
+        //   .domain([1990,2018])
+          .range([0, width4]);
+var xAxis = d3.axisBottom()
+              .scale(x);
 svg4.append("g")
     .attr("transform", "translate(0," + height4 + ")")
     .attr("class", "myXaxis")
 
+
 // Initialize an Y axis
-var y = d3.scaleLinear().range([height4, 0]);
-var yAxis = d3.axisLeft().scale(y);
+var y = d3.scaleLinear()
+          .range([height4, 0]);
+var yAxis = d3.axisLeft()
+              .scale(y);
 svg4.append("g")
     .attr("class", "myYaxis")
 
+
+
+
+
+
+
+
 // Update datasets
 function update(data) {
+    
+    //Tooltip
+    var tooltip = d3.select("#employment")
+            .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+            .append("div")
+            .style("opacity", 0)
+            .style("position", "absolute")
+            .style("color", "#FFFAF0")
+            .style("background", "black")
+			.style("font-family", "gopher")
+			.style("font-size", "14px")
+            .style("padding", "8px")
+            .style("z-index", "1000")
 
-    // d3.csv("GDP.csv").then(function(data) {
-    // Create the X axis:
+    // var mouseover = function (d) {
+    //     tooltip
+    //          .html( d.gdp + "million <br>") 
+
+    //          .style("opacity", 1)
+
+    //     // d3.select(this)
+    //     //     .attr('width', size * 3 + cellSpacing * 2)
+    //     //     .attr('height', size * 3 + cellSpacing * 2)
+    //     //     .attr('fill', '#FFFAF0')
+    //     //     .attr('z-index', '200')
+    // }
+    
+    // var mouseleave = function (d) {
+    //     tooltip
+    //          .style("opacity", 0)
+    //     d3.select(this)
+    //         .attr('fill', '#FFFAF0')
+    //         .attr('width', size)
+    //         .attr('height', size)
+    // }
+
     x.domain([1990, d3.max(data, function (d) { return d.year })]);
-    svg4.selectAll(".myXaxis").transition()
+    svg4.selectAll(".myXaxis")
+        .transition()
         .duration(3000)
         .call(xAxis);
 
@@ -407,8 +458,10 @@ function update(data) {
             .x(function (d) { return x(d.year); })
             .y(function (d) { return y(d.gdp); }))
         .attr("fill", "none")
-        .attr("stroke", "steelblue")
-        .attr("stroke-width", 2.5)
+        .attr("stroke", "#000000")
+        .attr("stroke-width", 2)
+        // .on("mouseover",mouseover)
+        // .on("mouseleave",mouseleave)
 
 
 
@@ -416,6 +469,10 @@ function update(data) {
 
 // At the beginning, run the update function on the first dataset:
 update(data1)
+
+
+
+
 
 
 
@@ -488,7 +545,7 @@ svg7.append("line")
     .attr("y1", y1)
     .attr("y2", y1)
     .style("stroke", "#000000")
-    .style("stroke-width", "2px")
+    .style("stroke-width", "3px")
 svg7.append("text")
     .attr("x", x1)
     .attr("y", y1 + 20)
@@ -512,7 +569,7 @@ svg7.append("line")
     .attr("y1", y1)
     .attr("y2", y1)
     .style("stroke", "#000000")
-    .style("stroke-width", "2px")
+    .style("stroke-width", "3px")
 svg7.append("text")
     .attr("x", x1 + z)
     .attr("y", y1 + 20)
@@ -535,7 +592,7 @@ svg7.append("line")
     .attr("y1", y1)
     .attr("y2", y1)
     .style("stroke", "#000000")
-    .style("stroke-width", "2px")
+    .style("stroke-width", "3px")
 svg7.append("text")
     .attr("x", x1 + z * 2)
     .attr("y", y1 + 20)
@@ -558,7 +615,7 @@ svg7.append("line")
     .attr("y1", y2)
     .attr("y2", y2)
     .style("stroke", "#000000")
-    .style("stroke-width", "2px")
+    .style("stroke-width", "1px")
 svg7.append("text")
     .attr("x", x1 + z)
     .attr("y", y2 + 20)
@@ -581,7 +638,7 @@ svg7.append("line")
     .attr("y1", y2)
     .attr("y2", y2)
     .style("stroke", "#000000")
-    .style("stroke-width", "2px")
+    .style("stroke-width", "1px")
 svg7.append("text")
     .attr("x", x1 + z * 2)
     .attr("y", y2 + 20)
@@ -609,7 +666,7 @@ svg7.append("line")
     .attr("y1", y3)
     .attr("y2", y3)
     .style("stroke", "#000000")
-    .style("stroke-width", "2px")
+    .style("stroke-width", "1px")
 svg7.append("text")
     .attr("x", x1 + z)
     .attr("y", y3 + 20)
@@ -632,7 +689,7 @@ svg7.append("line")
     .attr("y1", y3)
     .attr("y2", y3)
     .style("stroke", "#000000")
-    .style("stroke-width", "2px")
+    .style("stroke-width", "1px")
 svg7.append("text")
     .attr("x", x1 + z * 2)
     .attr("y", y3 + 20)
@@ -641,7 +698,27 @@ svg7.append("text")
     .style("font-family", "gopher")
     .style("font-weight", "500")
     .text("Main Industries")
-
+svg7.append("text")
+    .attr("x", x1 + z * 2)
+    .attr("y", y3 + 20 + 20)
+    .style("text-anchor", "left")
+    .style("font-size", "14px")
+    .style("font-family", "sans-serif")
+    .html("Agriculture, Food Processing")
+svg7.append("text")
+    .attr("x", x1 + z * 2)
+    .attr("y", y3 + 20*3)
+    .style("text-anchor", "left")
+    .style("font-size", "14px")
+    .style("font-family", "sans-serif")
+    .html("Forestry, Leather Goods")
+svg7.append("text")
+    .attr("x", x1 + z * 2)
+    .attr("y", y3 + 20*4)
+    .style("text-anchor", "left")
+    .style("font-size", "14px")
+    .style("font-family", "sans-serif")
+    .html("Mining, Petroleum Refining")
 
 
 //// 3.6 Forest Cover Loss
@@ -989,7 +1066,7 @@ d3.csv("./data/ForestLoss&CO2.csv").then(function (data) {
 d3.csv("./data/ICExports.csv").then(function (data) {
     var exportsScaleWidth = d3.scaleSqrt()
         .domain([0, 39])
-        .range([1, width5 / 2]);
+        .range([1, width5 / 2-30]);
 
     //graph for exports
     var svg9 = d3.select("#exports")
@@ -1004,18 +1081,51 @@ d3.csv("./data/ICExports.csv").then(function (data) {
         .domain(data)
         .range(["#FF7154", "#FE9984", "#FFCCC2", "#FFE6E1", "#FFF2EF"])
 
-    var mouse = [480, 250],
-        count = 0;
+
+    var tooltip = d3.select("#exports")
+            .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+            .append("div")
+            .style("opacity", 0)
+            .style("position", "absolute")
+            .style("color", "#FFFAF0")
+            .style("background", "black")
+			.style("font-family", "gopher")
+			.style("font-size", "14px")
+            .style("padding", "8px")
+            .style("z-index", "1000")
+
+
+    var mouseover = function (d) {
+        tooltip
+              .html("<b>"+ d.commodity +"</b> <br>" + numberFormat(d.US$) + "million <br>" + d.percentage +"%") 
+              .style("opacity", 1)
+              .style('left', (d3.event.pageX-20) + 'px')
+              .style('top', (d3.event.pageY-5180) + 'px')        
+        d3.select(this)
+            .attr('stroke', '#FFFFFF')
+            .style("stroke-weight", 3)
+    }
+    
+    var mouseleave = function (d) {
+        tooltip
+              .style("opacity", 0)
+        d3.select(this)
+            .attr('stroke', 'none')
+            // .style("stroke-weight", 2)
+    }
+    
+
+
     svg9
         .selectAll('rect')
         .data(data)
         .enter()
         .append('rect')
-        .attr('x', function (d) {
-            return exportsScaleWidth(d.percentage) / 2;
+        .attr('x', function (d,i) {
+            return i*35;
         })
-        .attr('y', function (d) {
-            return exportsScaleWidth(d.percentage) / 2;
+        .attr('y', function (d,i) {
+            return i*15-40;
         })
         .attr('width', function (d) {
             return exportsScaleWidth(d.percentage);
@@ -1023,13 +1133,89 @@ d3.csv("./data/ICExports.csv").then(function (data) {
         .attr('height', function (d) {
             return exportsScaleWidth(d.percentage);
         })
-        .style("fill", function (d) { return (color(d.percentage)) })
+        .attr("rx","5px")
+        .attr("ry","5px")
+        .style("fill","tomato")
+        // .style("fill", function (d) { return (color(d.percentage)) })
+        // .style("fill","none")
+        // .style("stroke","#000000")
         .style("stroke-width", "2px")
-        .style("opacity", 0.7)
+        .style("opacity", function (d,i){
+            return 0.05+ i*0.1
+        })
+        .on("mouseover", mouseover)
+        .on("mouseleave",mouseleave)
 
-    svg9.datum(function (d) {
-        return { center: mouse.slice(), angle: 0 };
-    });
+// //vertical lines
+//     svg9
+//       .append("g")
+//       .selectAll("line")
+//       .data(data)
+//       .enter()
+//       .append("line")
+//       .attr("x1", function (d,i) {
+//             return i*35+1 
+//         } )
+//       .attr("x2", function (d,i) {
+//             return i*35+1
+//         } )
+//       .attr("y2", "450px")
+//       .attr("y1", function (d,i) {
+//             return i*20-20 + exportsScaleWidth(d.percentage);
+//         } )
+//       .style("stroke", "#8a8a8a")
+//       .style("stroke-width", "1px")
+
+//     svg9
+//       .append("g")
+//       .selectAll("text")
+//       .data(data)
+//       .enter()
+//       .append ("text")
+//       .attr("transform", function() {
+//          return d3.svg.transform()
+//             .rotate(-90)
+//       })     
+//       .attr("x", "20px")
+//       .attr("y",function (d,i) {
+//          return i*20-20;
+//       })
+//       .attr("text-anchor", "left")
+//       .attr("font-family", "sans-serif")
+//       .style("font-size", "12px")
+//       .attr("fill", "#000000")
+//       .text(function (d) {
+//             return d.commodity;
+//       })
+      
+    // svg9
+    //   .append("g")
+    //   .selectAll("line")
+    //   .data(data)
+    //   .enter()
+    //   .append("line")
+    //   .attr("x1", function (d,i) {
+    //         return i*35+1 
+    //     } )
+    //   .attr("x2", function (d,i) {
+    //         return i*35+1 +exportsScaleWidth(d.percentage)
+    //     } )
+    //   .attr("y2", function (d,i) {
+    //         return i*20-20+exportsScaleWidth(d.percentage);
+    //     })
+    //   .attr("y1", function (d,i) {
+    //         return i*20-20;
+    //     })
+    //   .style("stroke", "#FFFFFF")
+    //   .style("stroke-dasharray", ("3, 3"))
+    //   .style("stroke-width", "1px")
+    //           .style("opacity", function (d,i){
+    //         return 0.05+ i*0.1
+    //     })
+
+
+
+
 
 
 

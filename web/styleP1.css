@@ -3,8 +3,6 @@
 
 
 
-
-
 div{
   box-sizing:border-box;
 }
@@ -36,35 +34,6 @@ h2 {
   margin-top: 10px;
 }
 
-.countries {
-  /*color:#000000;*/
-  font-family: gopher, sans-serif;
-  font-style: normal;
-  font-weight: 800; 
-  font-size: 50px;
-  /*margin-top: 10px;*/
-}
-
-.chocolateTypes {
-  /*color:#000000;*/
-  font-family: gopher, sans-serif;
-  font-style: normal;
-  font-weight: 400; 
-  /*margin-top: 10px;*/
-}
-
-
-
-/*position transformation for text on homepage*/
-.rotateText {
-    transform: rotate(90deg) translateY(-50px) translateX(350px);
-}
-
-/*position transformation for image on homepage*/
-.rotateImage {
-    transform: rotate(90deg) translateY(20px) translateX(-120px);
-}
-
 
 /*h3 section title on black background*/
 h3 {
@@ -84,24 +53,6 @@ h4 {
   font-style: normal;
   font-weight: 400; 
   font-size: 12px;
-}
-
-#coverLegend1 {
-  width: 400px; 
-  transform: rotate(90deg)translateY(-58px)translateX(-38px);
-
-}
-
-.coverLegend1 h4 {
-  width: 400px; 
-  transform: rotate(90deg)translateY(-182px)translateX(30px);
-  color: tomato;
-
-}
-
-#coverLegend3 {
-  width: 400px; 
-  transform: rotate(90deg)translateY(-70px)translateX(-290px);
 }
 
 /*h5 is white text on black background (p)*/
@@ -135,9 +86,9 @@ h7 {
 
 b {
   color: tomato;
-  font-family: courier-std, monospace;
+  /*font-family: courier-std, monospace;*/
   font-style: normal;
-  /*font-weight: 400; */
+  font-weight: 800; 
   /*font-size: 14px;*/
   /*width: 400px; */
 }
@@ -155,8 +106,61 @@ p {
 
 
 body {
-  /*background: #FFFAF0;*/
+
+  
 }
+
+
+.countries {
+  /*color:#000000;*/
+  font-family: gopher, sans-serif;
+  font-style: normal;
+  font-weight: 800; 
+  font-size: 50px;
+  /*margin-top: 10px;*/
+}
+
+.chocolateTypes {
+  /*color:#000000;*/
+  font-family: gopher, sans-serif;
+  font-style: normal;
+  font-weight: 400; 
+  /*margin-top: 10px;*/
+}
+
+
+
+/*position transformation for text on homepage*/
+.rotateText {
+    transform: rotate(90deg) translateY(-50px) translateX(350px);
+}
+
+/*position transformation for image on homepage*/
+.rotateImage {
+    transform: rotate(90deg) translateY(20px) translateX(-120px);
+}
+
+
+
+#coverLegend1 {
+  width: 400px; 
+  transform: rotate(90deg)translateY(-58px)translateX(-38px);
+
+}
+
+.coverLegend1 h4 {
+  width: 400px; 
+  transform: rotate(90deg)translateY(-182px)translateX(30px);
+  color: tomato;
+
+}
+
+#coverLegend3 {
+  width: 400px; 
+  transform: rotate(90deg)translateY(-70px)translateX(-290px);
+}
+
+
 
 .horizontal-scroll-wrapper{
   position:absolute;
@@ -531,6 +535,8 @@ body {
   height:700px;
 }
 
+
+
 .stickyfloating {
   position: -webkit-sticky;
   position: sticky;
@@ -748,6 +754,40 @@ section.active3 {
   /*top:500px;*/
   margin-left: 30px;
   padding-top:100px;
+  margin-top:100px;
+}
+
+.buttongroup h2 {
+  font-size: 18px;
+  font-weight: 400;
+  font-family: "gopher";
+}
+
+.button {
+  border: 1px solid black;
+  border-radius:20px;
+  font-size: 10px;
+  font-weight: 400;
+  font-family: "courier";
+  color:#000000;
+  background:none;
+  /*stroke:#000000;*/
+  width:140px;
+  margin-right:10px;  
+  padding: 10px;
+  text-align: center;
+}
+
+.button:hover {
+  background:#000000;
+  color:#FFFAF0;
+  cursor: pointer;
+}
+
+.button:focus {
+   background:#000000;
+  color:#FFFAF0;
+  cursor: pointer; 
 }
 
 .axis path,

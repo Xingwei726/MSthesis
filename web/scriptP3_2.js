@@ -8,6 +8,7 @@ var size3 = 10;
 // var groupSpacing3 = 2;
 var cellSpacing3 = 2;
 var forestSpacing = 200;
+var lineSpacing =15;
 
 var siteSize =[]
 
@@ -24,28 +25,164 @@ d3.csv("./data/forests.csv").then(function(data) {
     
   var forest = svg2.append("g").selectAll('rect').append("g")
   var forest2 = svg2.append("g").attr("transform", "translate(-1400,250)").selectAll('rect').append("g")
-  var forest3 = svg2.append("g").attr("transform", "translate(-3000,400)").selectAll('rect').append("g")
+  var forest3 = svg2.append("g").attr("transform", "translate(-2800,400)").selectAll('rect').append("g")
   var forest4 = svg2.append("g").attr("transform", "translate(-4200,550)").selectAll('rect').append("g")
-                    
-  var tooltip2 = svg2.append("g")
-    .attr("class", "tooltip")
-    .style("display", "none");
-      
-  tooltip2.append("rect")
-    .attr("width", 80)
-    .attr("height", 20)
-    .attr("fill", "#000000")
   
-  tooltip2.append("text")
-    .attr("x", 40)
-    .attr("dy", "1.2em")
-    .style("text-anchor", "middle")
-    .style("font-size","10px")
-    .style("font-family", "gopher")
-    .attr("fill", "#FFFAF0")
-    .attr("font-weight", "bold")
-    .text("Hover to view details")
-    .style("opacity", 1)
+  
+        var forestName = svg2
+              .append("g")
+              .selectAll("text")
+              .data(data)
+              .enter()
+              .append("g")
+              .attr("transform", "translate(0,550)")
+              .attr("class", "legend")
+              .append("text")
+              .attr("x", function(d,i){
+                return i*200;
+              })
+              
+              .attr("x",function(d,i) {
+                  if ( i<7) {
+  			   	        	return i*200;
+                  } else if (i<14) {
+                      return (i-7)*200
+                  } else if (i<21) {
+                      return (i-14)*200
+                  } else {
+                      return (i-21)*200
+                  }
+		        	})
+              .attr("y", function(d,i) {
+                  if ( i<7) {
+  			   	  	      return -400
+                  } else if (i<14) {
+                      return -250
+                  } else if (i<21) {
+                      return -100
+                  } else {
+                      return 50
+                  }      
+		         	})
+              .style("fill","#FFFAF0")
+              .style("text-anchor", "start")
+              .style("font-size", "12px")
+              // .style("font-weight",800)
+              .style("font-family", "gopher")
+              .text(function(d) {
+			   	     	return d.name;
+			        })
+
+
+        var forestSize = svg2
+              .append("g")
+              .selectAll("text")
+              .data(data)
+              .enter()
+              .append("g")
+              .attr("transform", "translate(0,550)")
+              .attr("class", "legend")
+              .append("text")
+              .attr("x", function(d,i){
+                return i*200;
+              })
+              
+              .attr("x",function(d,i) {
+                  if ( i<7) {
+  			   	        	return i*200;
+                  } else if (i<14) {
+                      return (i-7)*200
+                  } else if (i<21) {
+                      return (i-14)*200
+                  } else {
+                      return (i-21)*200
+                  }
+		        	})
+              .attr("y", function(d,i) {
+                  if ( i<7) {
+  			   	  	      return -400 + lineSpacing
+                  } else if (i<14) {
+                      return -250 + lineSpacing
+                  } else if (i<21) {
+                      return -100 + lineSpacing
+                  } else {
+                      return 50 + lineSpacing
+                  }      
+		        	})
+              .style("fill","#FFFAF0")
+              .style("text-anchor", "start")
+              .style("font-size", "12px")
+              .style("font-family", "courier")
+              .text(function(d) {
+			   	     	return "Total: " + d.size + "km2";
+			        })
+			        .attr("opacity",0.6)
+
+        var cocoaFarmSize = svg2
+              .append("g")
+              .selectAll("text")
+              .data(data)
+              .enter()
+              .append("g")
+              .attr("transform", "translate(0,550)")
+              .attr("class", "legend")
+              .append("text")
+              .attr("x", function(d,i){
+                return i*200;
+              })
+              
+              .attr("x",function(d,i) {
+                  if ( i<7) {
+  			   	        	return i*200;
+                  } else if (i<14) {
+                      return (i-7)*200
+                  } else if (i<21) {
+                      return (i-14)*200
+                  } else {
+                      return (i-21)*200
+                  }
+		        	})
+              .attr("y", function(d,i) {
+                  if ( i<7) {
+  			   	  	      return -400 + lineSpacing*2
+                  } else if (i<14) {
+                      return -250 + lineSpacing*2
+                  } else if (i<21) {
+                      return -100 + lineSpacing*2
+                  } else {
+                      return 50 + lineSpacing*2
+                  }      
+		        	})
+              .style("fill","#FFFAF0")
+              .style("text-anchor", "start")
+              .style("font-size", "12px")
+              .style("font-family", "courier")
+              .text(function(d) {
+			   	     	return "Cocoa Farm: " + d.tococoafarms + "km2";
+			        })
+			        .attr("opacity",0.6)
+
+
+
+  // var tooltip2 = svg2.append("g")
+  //   .attr("class", "tooltip")
+  //   .style("display", "none");
+      
+  // tooltip2.append("rect")
+  //   .attr("width", 80)
+  //   .attr("height", 20)
+  //   .attr("fill", "#000000")
+  
+  // tooltip2.append("text")
+  //   .attr("x", 40)
+  //   .attr("dy", "1.2em")
+  //   .style("text-anchor", "middle")
+  //   .style("font-size","10px")
+  //   .style("font-family", "gopher")
+  //   .attr("fill", "#FFFAF0")
+  //   .attr("font-weight", "bold")
+  //   .text("Hover to view details")
+  //   .style("opacity", 1)
 
 
 
@@ -76,29 +213,24 @@ d3.csv("./data/forests.csv").then(function(data) {
               .attr('fill', i => (i < colorBlock[z] ? 'tomato' : '#FFFAF0'))
               .attr('stroke-width', 2)
               .on("mouseover", function() { 
-                tooltip2.style("display", null);
+                // tooltip2.style("display", null);
                 d3.select(this)
-                  .attr("rx", 0)
-                  .attr("ry", 0)        
+                  .attr("opacity", 0.5)      
               })
-              .on("mouseout", function() { 
-                tooltip2.style("display", "none");
+              .on("mouseleave", function() { 
+                // tooltip2.style("display", "none");
                 d3.select(this)
-                  .attr("rx", 10)
-                  .attr("ry", 10)
+                  .attr("opacity", 1)      
+
               })
-              .on("mousemove", function(d) {
-                var xPosition = d3.mouse(this)[0] - 15;
-                var yPosition = d3.mouse(this)[1] - 25;
-                tooltip2
-                  .attr("transform", "translate(" + xPosition + "," + yPosition + ")")
-                  .select("text")
-                  .html(d[i] + " km2");
-              });
-              
-              
-              
-              
+              // .on("mousemove", function(d) {
+              //   var xPosition = d3.mouse(this)[0] - 15;
+              //   var yPosition = d3.mouse(this)[1] - 25;
+              //   tooltip2
+              //     .attr("transform", "translate(" + xPosition + "," + yPosition + ")")
+              //     .select("text")
+              //     .html(d[i] + " km2");
+              // });
         }
     }
     
@@ -106,7 +238,6 @@ d3.csv("./data/forests.csv").then(function(data) {
  
     for (var i=7; i<14; i++){
         siteSize.push(data[i].size);
-        // console.log(siteSize[i])
         colorBlock.push(data[i].color);
 
         for (var z=7; z<14; z++){
@@ -133,7 +264,7 @@ d3.csv("./data/forests.csv").then(function(data) {
     for (var i=14; i<21; i++){
         siteSize.push(data[i].size);
         colorBlock.push(data[i].color);
-
+        // console.log ("color block:" , colorBlock[i])
         for (var z=14; z<21; z++){
           var forest3rd = forest3
               .data(d3.range(siteSize[z]/10))
@@ -184,27 +315,6 @@ d3.csv("./data/forests.csv").then(function(data) {
 
 
         console.log(siteSize)
-
-        // var legend4 = svg2
-        //       .selectAll(".legend")
-        //       .data(data)
-        //       .enter()
-        //       .append("g")
-        //       .attr("transform", "translate(-200,550)")
-        //       .attr("class", "legend")
-        //       .append("text")
-        //       .attr("x", function(d,i){
-        //         return 100 + i*100;
-        //       })
-        //       .attr("y", 100)
-        //       // .attr("dy", ".25em")
-        //       .style("fill","#FFFAF0")
-        //       .style("text-anchor", "start")
-        //       .style("font-size", "10px")
-        //       .style("font-family", "sans-serif")
-        //       .text(function(d) {
-			   	 //    	return d.name;
-			     //   })
 
 
 

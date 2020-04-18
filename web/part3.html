@@ -8,6 +8,8 @@
         <title>A Guilty Pleasure</title>
         <link href="https://fonts.googleapis.com/css?family=Anton&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Rubik:400,400i,500,500i,700,700i&display=swap" rel="stylesheet">
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+        
         <link rel="stylesheet" type="text/css" href="styleP1.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/noframework.waypoints.js"></script>
         <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.js'></script>
@@ -29,8 +31,8 @@
              <!--<div id='graphic'></div>-->
                 <div class="slide2">
                     <div class="sticky2">
-                        <h5>Introduction</h5>
-                        <p>Cocoa farming is a major contributor to the economies of several West African countries. The last piece of chocolate you ate likely had its roots in West Africa, where two-thirds of cocoa beans are produced. </p>
+                        <h5>Where were they from?</h5>
+                        <p>Cocoa farming is a major contributor to the economies of several West African countries. The last piece of chocolate you ate likely had its roots in <b>West Africa</b>, where two-thirds of cocoa beans are produced. </p>
                         <!--<p>Most likely it’s grown up in Ivory Coast (Côte d'Ivoire) where cocoa sales accounting for approximately 10% of the country's GNP.</p>-->
                     </div>
                     
@@ -43,30 +45,29 @@
                     <div class="sticky">
                       <section id="section1" class="active">
                         <h2>Biggest Cocoa Supplier</h2>
-                        <!--<p>Cocoa farming is a major contributor to the economies of several West African countries. The last piece of chocolate you ate likely had its roots in West Africa, where two-thirds of cocoa beans are produced. </p>-->
                         <p>Most likely it’s grown up in <b>Ivory Coast</b> (Côte d'Ivoire) where cocoa sales accounting for approximately 10% of the country's GNP.</p>
+                        
+                        <div id="countrySupply"></div>
                       </section>
                     </div>
-                    
-                    <div id="countrySupply"></div>
                 </div>  
                 
 
                 <div class="slide">
                     <div class="sticky">
                       <section id="section2">
-                        <h2>Ivory Coast</h2>
-                        <p>Ivory coast is gifted with an advantageous location in the forest belt where the savanna reaches down to the sea and the seasonal dryness of the climate precludes the planting of drought-sensitive crops like cocoa. It has the highest level of biodiversity in West Africa.</p>
+                        <h2>Geolocation</h2>
+                        <p>Ivory coast is gifted with an advantageous location in the <b>forest belt</b> where the savanna reaches down to the sea and the seasonal dryness of the climate precludes the planting of drought-sensitive crops like cocoa. It has the highest level of <b>biodiversity</b> in West Africa.</p>
                       </section>
                       <div id="dashboard"></div>
                     </div>
                 </div>  
 
                 <div class="slide">
-                    <div class="sticky">
-                      <section id="section3">
-                        <h2>Ivory Coast's Exports</h2>
-                        <p>Cocoa has brought to this land with....(good aspects)</p>
+                    <div class="stickyblack">
+                      <section id="section3" style="background-color:#000000;">
+                        <h3>Ivory Coast's Exports</h3>
+                        <h5>Worldwide, 90% of cocoa is grown on small family farms of 2 to 5 hectares. In Ivory Coast, cacao accounts for 40% of their total exports and up to 90% of the farmers rely on cocoa for their primary income.</h5>
                       </section>
                       <!--take "exports" out of "sticky div" will make it floating-->
                       <div id="exports"></div>
@@ -79,19 +80,20 @@
                     <div class="sticky">
                       <section id="section4">
                         <h2>Cocoa & Ivory Coast's Economy</h2>
-                        <p>Cocoa has brought to this land with....(good aspects)</p>
+                        <p>Therefore when we are discussing the impacts of cocoa production and the potential solution in response to minimize deforestation, it’s not just to solve problems with a big number, we also need to address the qualitative data that’s involved in the process which is someone’s day to day livelihood, solutions for deforestation doesn’t necessarily lie in the complete cut off cocoa plantation.</p>
                       </section>
                     </div>
                     
                     <div class="buttongroup">
+                      <h2> GDP & Employment</h2>
                       <button class="button" onclick="update(data1)">GDP</button>
                       <button class="button" onclick="update(data2)">Unemployment Rate</button>
                     </div>
                     
                     <div id="employment"></div>
-                    
+
                     <div data-aos="fade-up" class="stickyfloating">
-                      <p>The introduction of cocoa farming brought many economic opportunities to this land, also marking the beginning of deforestation.  </p>
+                      <p>The introduction of cocoa farming brought many economic opportunities to this land, also marking the beginning of <b>deforestation</b>.</p>
                     </div>
                     
                 </div> 
@@ -190,6 +192,7 @@
         <script src='https://d3js.org/d3.v5.min.js'></script>
         <script src="scriptP3.js"></script>
         <script src="scriptP3_2.js"></script>
+        <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
         <script>
             AOS.init({
               // Global settings:
