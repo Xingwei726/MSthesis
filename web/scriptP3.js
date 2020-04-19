@@ -493,17 +493,17 @@ var svg5 = d3.select('#method')
 
 var mouseover = function (d) {
     d3.select(this)
-        // .attr('width', size * 3 + cellSpacing * 2)
-        // .attr('height', size * 3 + cellSpacing * 2)
-        .attr('fill', 'none')
-        .attr('z-index', '200')
+        .attr('width', size * 3 + cellSpacing * 2)
+        .attr('height', size * 3 + cellSpacing * 2)
+        // .attr('fill', 'none')
+        // .attr('z-index', '200')
 }
 
 var mouseleave = function (d) {
     d3.select(this)
-        .attr('fill', 'none')
-        // .attr('width', size)
-        // .attr('height', size)
+        // .attr('fill', 'none')
+        .attr('width', size)
+        .attr('height', size)
 }
 
 var totalGraph = svg5.selectAll('rect').append("g")

@@ -98,11 +98,11 @@ d3.csv("./data/globalsupply2019.csv").then(function(data) {
           .attr('stroke-width', 2)
           .on('mouseover', function(d){
               d3.select(this)
-              .style('fill','tomato');
+              .style("opacity", 0.5)
           })
           .on('mouseleave', function(d){
               d3.select(this)
-              .style('fill','#FFFAF0');
+              .style("opacity", 1)
           });
 
           

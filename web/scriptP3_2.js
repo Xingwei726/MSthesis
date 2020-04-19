@@ -16,18 +16,39 @@ var colorBlock=[]
 
 d3.csv("./data/forests.csv").then(function(data) {
     
-  var svg2 = d3.select('#forests')
+var svg2 = d3.select('#forests')
     .append('svg')
     .attr('width', width3)
     .attr('height', height3)
     .attr('background','#000000')
     .attr("transform", "translate(30,0)");  
     
-  var forest = svg2.append("g").selectAll('rect').append("g")
-  var forest2 = svg2.append("g").attr("transform", "translate(-1400,250)").selectAll('rect').append("g")
-  var forest3 = svg2.append("g").attr("transform", "translate(-2800,400)").selectAll('rect').append("g")
-  var forest4 = svg2.append("g").attr("transform", "translate(-4200,550)").selectAll('rect').append("g")
+var forest = svg2.append("g").selectAll('rect').append("g")
+var forest2 = svg2.append("g").attr("transform", "translate(-1400,250)").selectAll('rect').append("g")
+var forest3 = svg2.append("g").attr("transform", "translate(-2800,400)").selectAll('rect').append("g")
+var forest4 = svg2.append("g").attr("transform", "translate(-4200,550)").selectAll('rect').append("g")
   
+        var mouseover = function(d) {
+            d3.select(this)
+              .attr('stroke', "#FFFAF0")
+              .attr('stroke-width', 2)
+        }
+
+        var mouseleave = function(d) {
+            d3.select(this)
+              .attr('stroke', "none")
+        } 
+        
+        var mouseover2 = function(d) {
+            d3.select(this)
+              .attr('opacity', 1)
+              // .attr('stroke-width', 2)
+        }
+
+        var mouseleave2 = function(d) {
+            d3.select(this)
+              .attr('opacity', 0.6)
+        } 
   
         var forestName = svg2
               .append("g")
@@ -117,6 +138,9 @@ d3.csv("./data/forests.csv").then(function(data) {
 			   	     	return "Total: " + d.size + "km2";
 			        })
 			        .attr("opacity",0.6)
+			        .on("mouseover", mouseover2)
+              .on("mouseleave",mouseleave2)
+
 
         var cocoaFarmSize = svg2
               .append("g")
@@ -161,6 +185,9 @@ d3.csv("./data/forests.csv").then(function(data) {
 			   	     	return "Cocoa Farm: " + d.tococoafarms + "km2";
 			        })
 			        .attr("opacity",0.6)
+			        .on("mouseover", mouseover2)
+              .on("mouseleave",mouseleave2)
+
 
         var cocoaProduction = svg2
               .append("g")
@@ -205,21 +232,8 @@ d3.csv("./data/forests.csv").then(function(data) {
 			   	     	return "Supply: " + d.cocoaproduction + "tons";
 			        })
 			        .attr("opacity",0.6)
-
-        var mouseover = function(d) {
-            d3.select(this)
-              .attr('stroke', "#FFFAF0")
-              .attr('stroke-width', 2)
-        }
-
-        var mouseleave = function(d) {
-            d3.select(this)
-              .attr('stroke', "none")
-
-
-        } 
-
-
+			        .on("mouseover", mouseover2)
+              .on("mouseleave",mouseleave2)
 
 
 // for loop to create 23 forests    
