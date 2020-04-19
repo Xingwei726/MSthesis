@@ -98,11 +98,11 @@ d3.csv("./data/globalsupply2019.csv").then(function(data) {
           .attr('stroke-width', 2)
           .on('mouseover', function(d){
               d3.select(this)
-              .style('opacity',0.5);
+              .style('fill','tomato');
           })
           .on('mouseleave', function(d){
               d3.select(this)
-              .style('opacity',1);
+              .style('fill','#FFFAF0');
           });
 
           
@@ -143,20 +143,6 @@ d3.csv("./data/globalsupply2019.csv").then(function(data) {
             //   .style("opacity", 1)
           }
 
-        // var mousemove = function(d) {
-        //     // tooltip
-        //     //   .html("" + d.Ton + "Tons")
-        //     //   .style("opacity", 1);
-        //     // d3.select(this)
-        //     //   .attr('fill', "tomato");
-        //     totalGraphGroup
-        //       .style("opacity", 0.5)
-        //       .data(d3.range(d.Tons))
-        //       .attr('fill', 'tomato')
-        //       .style("opacity", 1)
-        //   }          
-        
-
         var mouseleave = function(d) {
             tooltip
               .style("opacity", 0)
@@ -187,8 +173,8 @@ d3.csv("./data/globalsupply2019.csv").then(function(data) {
 			   		return d.Country;
 			   })
 			   .attr("transform", "translate(950, 210)")
-               .on('mouseover', mouseover)
-               .on('mouseleave', mouseleave)
+         .on('mouseover', mouseover)
+         .on('mouseleave', mouseleave)
                
                
 // Graph Title

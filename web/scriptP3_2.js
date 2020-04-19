@@ -162,29 +162,62 @@ d3.csv("./data/forests.csv").then(function(data) {
 			        })
 			        .attr("opacity",0.6)
 
+        var cocoaProduction = svg2
+              .append("g")
+              .selectAll("text")
+              .data(data)
+              .enter()
+              .append("g")
+              .attr("transform", "translate(0,550)")
+              .attr("class", "legend")
+              .append("text")
+              .attr("x", function(d,i){
+                return i*200;
+              })
+              
+              .attr("x",function(d,i) {
+                  if ( i<7) {
+  			   	        	return i*200;
+                  } else if (i<14) {
+                      return (i-7)*200
+                  } else if (i<21) {
+                      return (i-14)*200
+                  } else {
+                      return (i-21)*200
+                  }
+		        	})
+              .attr("y", function(d,i) {
+                  if ( i<7) {
+  			   	  	      return -400 + lineSpacing*3
+                  } else if (i<14) {
+                      return -250 + lineSpacing*3
+                  } else if (i<21) {
+                      return -100 + lineSpacing*3
+                  } else {
+                      return 50 + lineSpacing*3
+                  }      
+		        	})
+              .style("fill","#FFFAF0")
+              .style("text-anchor", "start")
+              .style("font-size", "12px")
+              .style("font-family", "courier")
+              .text(function(d) {
+			   	     	return "Supply: " + d.cocoaproduction + "tons";
+			        })
+			        .attr("opacity",0.6)
+
+        var mouseover = function(d) {
+            d3.select(this)
+              .attr('stroke', "#FFFAF0")
+              .attr('stroke-width', 2)
+        }
+
+        var mouseleave = function(d) {
+            d3.select(this)
+              .attr('stroke', "none")
 
 
-  // var tooltip2 = svg2.append("g")
-  //   .attr("class", "tooltip")
-  //   .style("display", "none");
-      
-  // tooltip2.append("rect")
-  //   .attr("width", 80)
-  //   .attr("height", 20)
-  //   .attr("fill", "#000000")
-  
-  // tooltip2.append("text")
-  //   .attr("x", 40)
-  //   .attr("dy", "1.2em")
-  //   .style("text-anchor", "middle")
-  //   .style("font-size","10px")
-  //   .style("font-family", "gopher")
-  //   .attr("fill", "#FFFAF0")
-  //   .attr("font-weight", "bold")
-  //   .text("Hover to view details")
-  //   .style("opacity", 1)
-
-
+        } 
 
 
 
@@ -212,25 +245,9 @@ d3.csv("./data/forests.csv").then(function(data) {
               .attr('height', size3)
               .attr('fill', i => (i < colorBlock[z] ? 'tomato' : '#FFFAF0'))
               .attr('stroke-width', 2)
-              .on("mouseover", function() { 
-                // tooltip2.style("display", null);
-                d3.select(this)
-                  .attr("opacity", 0.5)      
-              })
-              .on("mouseleave", function() { 
-                // tooltip2.style("display", "none");
-                d3.select(this)
-                  .attr("opacity", 1)      
+              .on("mouseover", mouseover)
+              .on("mouseleave",mouseleave)
 
-              })
-              // .on("mousemove", function(d) {
-              //   var xPosition = d3.mouse(this)[0] - 15;
-              //   var yPosition = d3.mouse(this)[1] - 25;
-              //   tooltip2
-              //     .attr("transform", "translate(" + xPosition + "," + yPosition + ")")
-              //     .select("text")
-              //     .html(d[i] + " km2");
-              // });
         }
     }
     
@@ -257,6 +274,9 @@ d3.csv("./data/forests.csv").then(function(data) {
               .attr('height', size3)
               .attr('fill', i => (i < colorBlock[z] ? 'tomato' : '#FFFAF0'))
               .attr('stroke-width', 2)
+              .on("mouseover", mouseover)
+              .on("mouseleave",mouseleave)
+
         }
     }
 
@@ -283,6 +303,9 @@ d3.csv("./data/forests.csv").then(function(data) {
             //   .attr('fill', '#FFFAF0')
               .attr('fill', i => (i < colorBlock[z] ? 'tomato' : '#FFFAF0'))
               .attr('stroke-width', 2)
+              .on("mouseover", mouseover)
+              .on("mouseleave",mouseleave)
+
         }
     }      
  
@@ -309,6 +332,9 @@ d3.csv("./data/forests.csv").then(function(data) {
             //   .attr('fill', '#FFFAF0')
               .attr('fill', i => (i < colorBlock[z] ? 'tomato' : '#FFFAF0'))
               .attr('stroke-width', 2)
+              .on("mouseover", mouseover)
+              .on("mouseleave",mouseleave)
+
         }
       
     } 

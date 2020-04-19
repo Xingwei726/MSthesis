@@ -49,6 +49,8 @@ map.on('load', function () {
     map.setFilter('countries', ['in', 'ADM0_A3_IS'].concat(['CIV']));
 });
 
+
+
 map.scrollZoom.disable();
 
 //scroll points & coordinates
@@ -78,6 +80,11 @@ var section = {
         center: [-5.336393, 7.781411],
         zoom: 6,
     },
+    // 'section5': {
+    //     bearing: 0,
+    //     center: [-5.336393, 7.781411],
+    //     zoom: 6,
+    // },
     'section5': {
         bearing: 0,
         center: [30.962501, 6.392383],
@@ -330,7 +337,7 @@ svg6.append("text")
     .style("font-size", "18px")
     .style("font-weight", 400)
     .style("font-family", "gopher")
-    .text("Global Cocoa Production by Country");
+    .text("Cocoa Production by Leading Countries");
 
 var tooltip = svg6.append("g")
     .attr("class", "tooltip")
@@ -486,17 +493,17 @@ var svg5 = d3.select('#method')
 
 var mouseover = function (d) {
     d3.select(this)
-        .attr('width', size * 3 + cellSpacing * 2)
-        .attr('height', size * 3 + cellSpacing * 2)
-        .attr('fill', '#FFFAF0')
+        // .attr('width', size * 3 + cellSpacing * 2)
+        // .attr('height', size * 3 + cellSpacing * 2)
+        .attr('fill', 'none')
         .attr('z-index', '200')
 }
 
 var mouseleave = function (d) {
     d3.select(this)
-        .attr('fill', '#FFFAF0')
-        .attr('width', size)
-        .attr('height', size)
+        .attr('fill', 'none')
+        // .attr('width', size)
+        // .attr('height', size)
 }
 
 var totalGraph = svg5.selectAll('rect').append("g")
@@ -521,6 +528,14 @@ totalGraph.data(d3.range(98))
     .on('mouseover', mouseover)
     .on('mouseleave', mouseleave);
 
+
+
+
+
+
+
+
+//// 3.5 Dashboard Infromation 
 var svg7 = d3.select("#dashboard")
     .append("svg")
     .attr("width", width5 + margin.left + margin.right)
@@ -536,8 +551,6 @@ var y2 = 100;
 var y3 = 200;
 var z = 20 + length;//gutter
 
-
-//// 3.5 Dashboard Infromation 
 //First Row
 svg7.append("line")
     .attr("x1", x1)
@@ -1135,13 +1148,13 @@ d3.csv("./data/ICExports.csv").then(function (data) {
         })
         .attr("rx","5px")
         .attr("ry","5px")
-        .style("fill","tomato")
+        .style("fill","#FFFAF0")
         // .style("fill", function (d) { return (color(d.percentage)) })
         // .style("fill","none")
         // .style("stroke","#000000")
         .style("stroke-width", "2px")
         .style("opacity", function (d,i){
-            return 0.05+ i*0.1
+            return 0.1+ i*0.1
         })
         .on("mouseover", mouseover)
         .on("mouseleave",mouseleave)
