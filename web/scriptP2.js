@@ -134,8 +134,54 @@ var podCacao = 40
 			   .text("=")
 			   .style('opacity',1)
 
+        var chocoLegend = svg.append ('text')
+			   .attr("x", 50)
+			   .attr("y", 100)
+			   .attr("text-anchor", "left")
+			   .attr("font-family", "gopher")
+			   .style("font-size", "36px")
+			   .style("font-weight",800)
+			   .attr("fill", "#000000")
+			   .text("1 pound of chocolate")
+			   .style('opacity',1)
 
-        var pod = svg.append('g').selectAll('rect')
+        var podLegend = svg.append ('text')
+			   .attr("x", 200)
+			   .attr("y", 100)
+			   .attr("text-anchor", "left")
+			   .attr("font-family", "gopher")
+			   .style("font-size", "36px")
+			   .style("font-weight",800)
+			   .attr("fill", "#000000")
+			   .text("1 cacao pod")
+			   .style('opacity',0)
+
+        var treeLegend = svg.append ('text')
+			   .attr("x", 100)
+			   .attr("y", 100)
+			   .attr("text-anchor", "left")
+			   .attr("font-family", "gopher")
+			   .style("font-size", "36px")
+			   .style("font-weight",800)
+			   .attr("fill", "#000000")
+			   .text("1 cacao tree")
+			   .style('opacity',0)
+
+        var treeLegend2 = svg.append ('text')
+			   .attr("x", 100)
+			   .attr("y", 150)
+			   .attr("text-anchor", "left")
+			   .attr("font-family", "gopher")
+			   .style("font-size", "36px")
+			   .style("font-weight",800)
+			   .attr("fill", "#000000")
+			   .text("(annual production)")
+			   .style('opacity',0)
+
+
+        var pod = svg.append('g')
+              .attr("transform","translate(" + 550 + "," + 60 + ")")
+              .selectAll('rect')
               .data(d3.range(podCacao))
               .enter()
               .append('rect')
@@ -155,13 +201,39 @@ var podCacao = 40
               .style('opacity',0)        
         
 
-// var changeColor = function(data){
+var changeChocolate = function(data){
 
-// chocolate
-//     .style('opacity',data)
-// // tree
-// //     .style('opacity',0)    
-// // pod
-// //     .style('opacity',0)    
+chocolate.style('opacity',data)
+tree.style('opacity',0)    
+pod.style('opacity',0)    
 
-// } 
+chocoLegend.style('opacity',data)
+treeLegend.style('opacity',0)
+treeLegend2.style('opacity',0)
+podLegend.style('opacity',0)
+
+} 
+
+var changePod = function(data){
+
+chocolate.style('opacity',0)
+tree.style('opacity',0)    
+pod.style('opacity',data)    
+
+chocoLegend.style('opacity',0)
+treeLegend.style('opacity',0)
+treeLegend2.style('opacity',0)
+podLegend.style('opacity',data)
+} 
+
+var changeTree = function(data){
+
+chocolate.style('opacity',0)
+tree.style('opacity',data)    
+pod.style('opacity',0)    
+
+chocoLegend.style('opacity',0)
+treeLegend.style('opacity',data)
+treeLegend2.style('opacity',data)
+podLegend.style('opacity',0)
+} 
