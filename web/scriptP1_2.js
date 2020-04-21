@@ -532,7 +532,7 @@ d3.csv("./data/perCapita.csv").then(function(data) {
 var cocoaPercentage = [];
 var rc=5;
 
-//Graph 4---continents share
+//Graph 4---contents share
 d3.csv("./data/cocoaPercentage.csv").then(function(data) {
     for (var i=0; i<data.length; i++){
         cocoaPercentage.push(data[i].percentage);

@@ -87,6 +87,7 @@ h7 {
   /*width: 400px;*/
 }
 
+/*white & black background*/
 b {
   color: tomato;
   /*font-family: courier-std, monospace;*/
@@ -96,15 +97,20 @@ b {
   /*width: 400px; */
 }
 
+/*white & black background*/
 b2 {
   color: tomato;
-  /*font-family: courier-std, monospace;*/
   font-style: normal;
   font-weight: 400; 
-  /*font-size: 14px;*/
-  /*width: 400px; */
 }
 
+/*orange background*/
+b3 {
+  font-style: normal;
+  font-weight: 800;
+  color: #000000;
+
+}
 
 p {
   color: #000000;
@@ -380,6 +386,7 @@ body {
   background:#FFFAF0;
   margin-top:100px;
 }
+
 
 
 
@@ -856,7 +863,19 @@ section.active3 {
   /*height:740px;*/
   padding-bottom: 100px;  
   padding-top: 100px;  
+}
 
+/*for section2 graph*/
+#image5 {
+  position: -webkit-sticky;
+  position: sticky;
+  z-index: 100;
+  margin-left: -30px;
+  margin-bottom: 5px;
+  width:1440px;
+  padding-left: 30px;
+  height:700px;
+  /*padding-bottom: 100px;  */
 }
 
 .buttongroup {

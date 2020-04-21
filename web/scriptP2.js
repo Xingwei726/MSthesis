@@ -54,7 +54,7 @@ var svg = d3.select('#round-unit')
         $(this).prop('Counter',0).animate({
             Counter: $(this).text()
         }, {
-            duration: 10000,
+            duration: 4000,
             easing: 'swing',
             step: function (now) {
                 $(this).text(Math.ceil(now));
@@ -112,7 +112,40 @@ var svg = d3.select('#round-unit')
 			   .attr("fill", "#000000")
 			   .text("1 pound of chocolate")
 			   .style('opacity',1)
-		
+
+        var explain1 = svg.append ('text')
+			   .attr("x", 0)
+			   .attr("y", 430)
+			   .attr("text-anchor", "left")
+			   .attr("font-family", "courier")
+			   .style("font-size", "10px")
+			   .style("font-weight",800)
+			   .attr("fill", "#000000")
+			   .text("The calculation model is based on the prerequisite of nice weathers with no natural or")
+			   .style('opacity',0.6)
+
+        var explain2 = svg.append ('text')
+			   .attr("x", 0)
+			   .attr("y", 442)
+			   .attr("text-anchor", "left")
+			   .attr("font-family", "courier")
+			   .style("font-size", "10px")
+			   .style("font-weight",800)
+			   .attr("fill", "#000000")
+			   .text("human catastrophe intervened which means if there are any other additional factors happened,")
+			   .style('opacity',0.6)
+
+        var explain3 = svg.append ('text')
+			   .attr("x", 0)
+			   .attr("y", 454)
+			   .attr("text-anchor", "left")
+			   .attr("font-family", "courier")
+			   .style("font-size", "10px")
+			   .style("font-weight",800)
+			   .attr("fill", "#000000")
+			   .text("each pound of chocolate will cost more tree’s production.")
+			   .style('opacity',0.6)
+			   
         var podLegend = svg.append ('text')
 			   .attr("x", 200)
 			   .attr("y", 100)
@@ -336,9 +369,42 @@ d3.csv("./data/capitaFormula.csv").then(function(data) {
 var svg2 = d3.select('#capita')
     .append('svg')
     .attr('width', width2)
-    .attr('height', 4500)
+    .attr('height', 4000)
     .attr('background','#000000')
     .attr("transform", "translate(50,100)");  
+
+        var mouseover = function (d) {
+                d3.select(this)
+                  .transition ()
+			      .style("font-size", "70px")
+			      .style("opacity", 1)
+        }
+        
+        var mouseleave = function (d) {
+          
+                d3.select(this)
+                  .transition ()
+                  .attr("fill", "#FFFAF0")
+			      .style("font-size", "50px")
+			      .style("opacity", 0.5)
+        }
+
+
+
+
+
+//Title
+svg2.append("g")
+    .append ("text")
+	.attr("x", 0)
+    .attr("y", 50)
+	.attr("text-anchor", "left")
+	.attr("font-family", "gopher")
+	.style("font-size", "22px")
+	.style("font-weight", 800)
+	.attr("fill", "#FFFAF0")
+	.text( "Equivalent Cacao Trees to Consumption Per Capita")
+    .style('opacity',1)
 
 //legend
 svg2.append("g")
@@ -348,7 +414,7 @@ svg2.append("g")
 	.attr("text-anchor", "left")
 	.attr("font-family", "gopher")
 	.style("font-size", "12px")
-    .style("font-weight",800)
+    .style("font-weight",400)
 	.attr("fill", "#FFFAF0")
 	.text("Country Name")
     .style('opacity',1)
@@ -358,24 +424,24 @@ svg2.append("g")
 	.attr("x", 100)
     .attr("y", 165)
 	.attr("text-anchor", "left")
-	.attr("font-family", "gopher")
+	.attr("font-family", "courier")
 	.style("font-size", "12px")
-    .style("font-weight",800)
+    .style("font-weight",400)
 	.attr("fill", "#FFFAF0")
 	.text("Pound of Chocolate")
-    .style('opacity',1)
+    .style('opacity',0.7)
 
 svg2.append("g")
     .append ("text")
 	.attr("x", 100)
     .attr("y", 180)
 	.attr("text-anchor", "left")
-	.attr("font-family", "gopher")
+	.attr("font-family", "courier")
 	.style("font-size", "12px")
-    .style("font-weight",800)
+    .style("font-weight",400)
 	.attr("fill", "#FFFAF0")
 	.text("Number of Cacao Beans")
-    .style('opacity',1)
+    .style('opacity',0.7)
 
 svg2.append("g")
     .append ("text")
@@ -384,7 +450,7 @@ svg2.append("g")
 	.attr("text-anchor", "left")
 	.attr("font-family", "gopher")
 	.style("font-size", "12px")
-    .style("font-weight",800)
+    .style("font-weight",400)
 	.attr("fill", "#FFFAF0")
 	.text("Number of Cacao Trees' Annual Production")
     .style('opacity',1)
@@ -405,7 +471,7 @@ svg2.append("g")
 	.attr("font-family", "gopher")
 	.style("font-size", "12px")
     .style("font-weight",400)
-	.attr("fill", "#FFFAF0")
+	.attr("fill", "tomato")
 	.text(function(d) {
 		return d.country;
 	})
@@ -424,12 +490,12 @@ svg2.append("g")
         return 55 + i*lineSpace
     })
 	.attr("text-anchor", "left")
-	.attr("font-family", "gopher")
+	.attr("font-family", "courier")
 	.style("font-size", "12px")
     .style("font-weight",400)
 	.attr("fill", "#FFFAF0")
 	.text(function(d) {
-		return d.pound;
+		return "Pound: "+ d.pound;
 	})
     .style('opacity',1)
 
@@ -445,12 +511,12 @@ svg2.append("g")
         return 70 + i*lineSpace
     })
 	.attr("text-anchor", "left")
-	.attr("font-family", "gopher")
+	.attr("font-family", "courier")
 	.style("font-size", "12px")
     .style("font-weight",400)
 	.attr("fill", "#FFFAF0")
 	.text(function(d) {
-		return d.cocoa;
+		return "Beans: " + d.cocoa;
 	})
     .style('opacity',1)
     
@@ -473,9 +539,11 @@ svg2.append("g")
     .style("font-weight",800)
 	.attr("fill", "#FFFAF0")
 	.text(function(d) {
-		return d.tree +" trees";
+		return d.tree +" tree";
 	})
-    .style('opacity',1)
+    .style('opacity',0.5)
+    .on("mouseover",mouseover)
+    .on("mouseleave",mouseleave)
 
 
 

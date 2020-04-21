@@ -125,7 +125,7 @@ d3.csv("./data/globalsupply2019.csv").then(function(data) {
             .style("padding", "8px")
             .style("left", "1000px")
             //select tooltip position
-            .style("top", "4065px")
+            .style("top", "5185px")
             
 
         var mouseover = function(d) {
