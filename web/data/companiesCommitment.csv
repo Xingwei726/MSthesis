@@ -1,11 +1,11 @@
-Company,revenue,Improving West African Cocoa,Agroforestry,Deforestation Free,Reduce Water Usage,Traceability,Living Income
-Mars Inc.,"18,000",Y,M,M,Y,Y,Y
-Ferrero Group,"13,000",Y,Y,Y,Y,Y,Y
-Mondelez International,"11,800",Y,N,Y,N,Y,Y
-Meiji Co.,"9,721",N,N,N,Y,N,N
-Hershey Co.,"7,986",Y,N,Y,Y,Y,Y
-Nestle SA,"7,925",Y,Y,Y,Y,Y,Y
-Chocoladenfabriken Lindt & Sprungli AG,"4,574",Y,N,N,Y,Y,Y
-Pladis,"4,515",M,N,N,N,N,Y
-Godiva,790,Y,N,Y,Y,N,Y
-Lotte Confectionery,638,N,N,N,N,N,N
+company,revenue,improvingWA,agroforestry,deforestationFree,waterUsage,traceability,livingIncome
+Mars Inc.,"18,000",4,2,2,4,4,4
+Ferrero Group,"13,000",4,4,4,4,4,4
+Mondelez International,"11,800",4,1,4,1,4,4
+Meiji Co.,"9,721",1,1,1,4,1,1
+Hershey Co.,"7,986",4,1,4,4,4,4
+Nestle SA,"7,925",4,4,4,4,4,4
+Chocoladenfabriken Lindt & Sprungli AG,"4,574",4,1,1,4,4,4
+Pladis,"4,515",2,1,1,1,1,4
+Godiva,790,4,1,4,4,1,4
+Lotte Confectionery,638,1,1,1,1,1,1

@@ -59,9 +59,9 @@ var forest4 = svg2.append("g").attr("transform", "translate(-4200,550)").selectA
               .attr("transform", "translate(0,550)")
               .attr("class", "legend")
               .append("text")
-              .attr("x", function(d,i){
-                return i*200;
-              })
+              // .attr("x", function(d,i){
+              //   return i*200;
+              // })
               
               .attr("x",function(d,i) {
                   if ( i<7) {
@@ -104,9 +104,9 @@ var forest4 = svg2.append("g").attr("transform", "translate(-4200,550)").selectA
               .attr("transform", "translate(0,550)")
               .attr("class", "legend")
               .append("text")
-              .attr("x", function(d,i){
-                return i*200;
-              })
+              // .attr("x", function(d,i){
+              //   return i*200;
+              // })
               
               .attr("x",function(d,i) {
                   if ( i<7) {
@@ -151,9 +151,9 @@ var forest4 = svg2.append("g").attr("transform", "translate(-4200,550)").selectA
               .attr("transform", "translate(0,550)")
               .attr("class", "legend")
               .append("text")
-              .attr("x", function(d,i){
-                return i*200;
-              })
+              // .attr("x", function(d,i){
+              //   return i*200;
+              // })
               
               .attr("x",function(d,i) {
                   if ( i<7) {
@@ -198,9 +198,9 @@ var forest4 = svg2.append("g").attr("transform", "translate(-4200,550)").selectA
               .attr("transform", "translate(0,550)")
               .attr("class", "legend")
               .append("text")
-              .attr("x", function(d,i){
-                return i*200;
-              })
+              // .attr("x", function(d,i){
+              //   return i*200;
+              // })
               
               .attr("x",function(d,i) {
                   if ( i<7) {

@@ -38,9 +38,25 @@ var mouseleave2 = function (d) {
     d3.select(this)
         .attr("x", width2/2+550)
         .style("font-weight",400)
-        
 }
 
+
+//tooltip for barcode
+var mouseover3 = function (d) {
+    d3.select(this)
+        .attr("fill", "tomato")        
+        .style("font-weight",600)
+        .style("stroke-width", 2);
+
+}
+
+var mouseleave3 = function (d) {
+    d3.select(this)
+        .attr("fill", "#000000")        
+        .style("font-weight",400)
+        .style("stroke-width", 0);
+
+}
 
 
 
@@ -161,7 +177,7 @@ d3.csv("./data/companiesCommitment.csv").then(function (data) {
         .style("font-family", "gopher")
 	    .attr("fill", "#000000")
         .text(function (d, i) {
-           return d.Company
+           return d.company
         })
         .on("mouseover", mouseover)
         .on("mouseleave", mouseleave)
@@ -185,11 +201,6 @@ d3.csv("./data/companiesCommitment.csv").then(function (data) {
         })
         .on("mouseover", mouseover2)
         .on("mouseleave", mouseleave2)
-
-
-
-
-
 
 
 //All middle lines
@@ -238,7 +249,273 @@ d3.csv("./data/companiesCommitment.csv").then(function (data) {
         .style("stroke", "#000000")
         .style("stroke-width", 1);
        
-    
-    
-    
 });
+
+
+
+//Graph2---barcode
+
+var improvingWA =[];
+var agroforestry =[];
+var deforestationFree=[];
+var waterUsage=[];
+var traceability=[];
+var livingIncome=[];
+var barHeight=90;
+var barMargin=22;
+
+d3.csv("./data/companiesCommitment.csv").then(function (data) {
+
+
+    // for (var i=0; i<data.length; i++){
+        // improvingWA.push(data[i].improvingWA);
+        // agroforestry.push(data[i].agroforestry);
+        // deforestationFree.push(data[i].deforestationFree);
+        // waterUsage.push(data[i].waterUsage);        
+        // traceability.push(data[i].traceability);
+        // livingIncome.push(data[i].livingIncome);  
+    // }
+
+    var svg3 = d3.select("#barcode")
+        .append("svg")
+        .attr("width", width2 + margin.left + margin.right)
+        .attr("height", height2 + margin.top + margin.bottom)
+        .append("g")
+    
+//"4"for yes, "2" for "maybe", "1" for no  
+// 0.improvingWA
+    svg3.append("g")
+        .selectAll("rect")
+        .data(data)
+        .enter()
+        .append("rect")
+        .attr('x', function(d,i){
+            return width/5 + i*250
+        })
+        
+        .attr("x",function(d,i) {
+            if ( i<4) {
+         	  return width/4 + i*250;
+            } else if (i<8) {
+              return width/4 + (i-4)*250
+            } else  {
+              return width/4 + (i-8)*250
+            } 
+    	})
+        .attr("y",function(d,i) {
+            if ( i<4) {
+         	  return 80;
+            } else if (i<8) {
+              return 280;
+            } else  {
+              return 480;
+            } 
+    	})
+        .attr('width', function(d,i){
+            return d.improvingWA*5
+        })
+        .attr('height', barHeight)
+        .attr('stroke', '#FFFAF0')
+        .attr('stroke-width', 0)
+        .attr('fill', '#000000')
+        .on("mouseover", mouseover3)
+        .on("mouseleave", mouseleave3)
+        
+
+// 1.agroforestry
+    svg3.append("g")
+        .selectAll("rect")
+        .data(data)
+        .enter()
+        .append("rect")
+        .attr('x', function(d,i){
+            return width/5 + i*250
+        })
+        
+        .attr("x",function(d,i) {
+            if ( i<4) {
+         	  return width/4 + i*250+barMargin;
+            } else if (i<8) {
+              return width/4 + (i-4)*250+barMargin;
+            } else  {
+              return width/4 + (i-8)*250+barMargin;
+            } 
+    	})
+        .attr("y",function(d,i) {
+            if ( i<4) {
+         	  return 80;
+            } else if (i<8) {
+              return 280;
+            } else  {
+              return 480;
+            } 
+    	})
+        .attr('width', function(d,i){
+            return d.agroforestry*5
+        })
+        .attr('height', barHeight)
+        .attr('stroke', '#FFFAF0')
+        .attr('stroke-width', 0)
+        .attr('fill', '#000000')       
+        .on("mouseover", mouseover3)
+        .on("mouseleave", mouseleave3)
+
+
+// 2.deforestationFree
+    svg3.append("g")
+        .selectAll("rect")
+        .data(data)
+        .enter()
+        .append("rect")
+        .attr('x', function(d,i){
+            return width/5 + i*250
+        })
+        
+        .attr("x",function(d,i) {
+            if ( i<4) {
+         	  return width/4 + i*250+barMargin*2;
+            } else if (i<8) {
+              return width/4 + (i-4)*250+barMargin*2;
+            } else  {
+              return width/4 + (i-8)*250+barMargin*2;
+            } 
+    	})
+        .attr("y",function(d,i) {
+            if ( i<4) {
+         	  return 80;
+            } else if (i<8) {
+              return 280;
+            } else  {
+              return 480;
+            } 
+    	})
+        .attr('width', function(d,i){
+            return d.deforestationFree*5
+        })
+        .attr('height', barHeight)
+        .attr('stroke', '#FFFAF0')
+        .attr('stroke-width', 0)
+        .attr('fill', '#000000')        
+        .on("mouseover", mouseover3)
+        .on("mouseleave", mouseleave3)
+
+
+// 3.waterUsage
+    svg3.append("g")
+        .selectAll("rect")
+        .data(data)
+        .enter()
+        .append("rect")
+        .attr('x', function(d,i){
+            return width/5 + i*250
+        })
+        
+        .attr("x",function(d,i) {
+            if ( i<4) {
+         	  return width/4 + i*250+barMargin*3;
+            } else if (i<8) {
+              return width/4 + (i-4)*250+barMargin*3;
+            } else  {
+              return width/4 + (i-8)*250+barMargin*3;
+            } 
+    	})
+        .attr("y",function(d,i) {
+            if ( i<4) {
+         	  return 80;
+            } else if (i<8) {
+              return 280;
+            } else  {
+              return 480;
+            } 
+    	})
+        .attr('width', function(d,i){
+            return d.waterUsage*5
+        })
+        .attr('height', barHeight)
+        .attr('stroke', '#FFFAF0')
+        .attr('stroke-width', 0)
+        .attr('fill', '#000000')   
+        .on("mouseover", mouseover3)
+        .on("mouseleave", mouseleave3)
+ 
+ // 4.traceability
+    svg3.append("g")
+        .selectAll("rect")
+        .data(data)
+        .enter()
+        .append("rect")
+        .attr('x', function(d,i){
+            return width/5 + i*250
+        })
+        
+        .attr("x",function(d,i) {
+            if ( i<4) {
+         	  return width/4 + i*250+barMargin*4;
+            } else if (i<8) {
+              return width/4 + (i-4)*250+barMargin*4;
+            } else  {
+              return width/4 + (i-8)*250+barMargin*4;
+            } 
+    	})
+        .attr("y",function(d,i) {
+            if ( i<4) {
+         	  return 80;
+            } else if (i<8) {
+              return 280;
+            } else  {
+              return 480;
+            } 
+    	})
+        .attr('width', function(d,i){
+            return d.traceability*5
+        })
+        .attr('height', barHeight)
+        .attr('stroke', '#FFFAF0')
+        .attr('stroke-width', 0)
+        .attr('fill', '#000000')    
+        .on("mouseover", mouseover3)
+        .on("mouseleave", mouseleave3)
+    
+ // 5.livingIncome
+    svg3.append("g")
+        .selectAll("rect")
+        .data(data)
+        .enter()
+        .append("rect")
+        .attr('x', function(d,i){
+            return width/5 + i*250
+        })
+        
+        .attr("x",function(d,i) {
+            if ( i<4) {
+         	  return width/4 + i*250+barMargin*5;
+            } else if (i<8) {
+              return width/4 + (i-4)*250+barMargin*5;
+            } else  {
+              return width/4 + (i-8)*250+barMargin*5;
+            } 
+    	})
+        .attr("y",function(d,i) {
+            if ( i<4) {
+         	  return 80;
+            } else if (i<8) {
+              return 280;
+            } else  {
+              return 480;
+            } 
+    	})
+        .attr('width', function(d,i){
+            return d.livingIncome*5
+        })
+        .attr('height', barHeight)
+        .attr('stroke', '#FFFAF0')
+        .attr('stroke-width', 0)
+        .attr('fill', '#000000')       
+        .on("mouseover", mouseover3)
+        .on("mouseleave", mouseleave3)   
+    
+    
+    
+
+
+})
