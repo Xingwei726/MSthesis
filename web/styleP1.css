@@ -814,7 +814,12 @@ section.active3 {
 
 #exports {
   position: relative;
+}
 
+#revenue {
+  position: -webkit-sticky;
+  position: sticky;
+  
 }
 
 #dashboard {
