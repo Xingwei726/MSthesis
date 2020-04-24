@@ -2,6 +2,11 @@
 
 **How cocoa production is driving deforestation in Ivory Coast**
 
+![](preview.png)
+
+
+
+
 ## Table of Contents
 Abstract
 Introduction
