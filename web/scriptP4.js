@@ -6,6 +6,19 @@ var margin = { top: 100, right: 50, bottom: 100, left: 50 },
     height2 = 2000 - margin.top - margin.bottom;
 
 
+    $('.count').each(function () {
+        $(this).prop('Counter',0).animate({
+            Counter: $(this).text()
+        }, {
+            duration: 20000,
+            easing: 'swing',
+            step: function (now) {
+                $(this).text(Math.ceil(now));
+            }
+        });
+    });
+
+
 //barcode on homepage
 d3.xml("./images/bc.svg")
     .then(data => {
@@ -14,7 +27,6 @@ d3.xml("./images/bc.svg")
 
 
 //Interaction
-
 var mouseover = function (d) {
     d3.select(this)
         .attr("x", width2/2+15) 
@@ -25,7 +37,6 @@ var mouseleave = function (d) {
     d3.select(this)
         .attr("x", width2/2)
         .style("font-weight",400)
-        
 }
 
 var mouseover2 = function (d) {
@@ -77,6 +88,23 @@ var mouseleave3 = function (d) {
         .style("font-family", "courier")
 	    .attr("fill", "#000000")
         .text("(If we search “chocolate bath challenge” on youtube, more than 100 videos would show up and the lastest was uploaded two weeks ago. )");  
+
+    var svg = d3.select("#timer")
+        .append("svg")
+        .attr("width", width2 + margin.left + margin.right)
+        .attr("height", height2 + margin.top + margin.bottom)
+        // .attr("transform","translate(" + 0 + "," + -700 + ")")
+        .append("g")
+        
+        svg
+        .append("text")
+        .attr("x", 0)
+        .attr("y", 400)
+        .style("text-anchor", "start")
+        .style("font-size", "12px")
+        .style("font-family", "courier")
+	    .attr("fill", "#000000")
+        .text("Calculation model is based on 2019 data in which we consumed 306 pounds cacao per second in average.");  
 
 
     
@@ -523,7 +551,7 @@ d3.csv("./data/companiesCommitment.csv").then(function (data) {
         })
         .attr("opacity",1)
 
-//Left Legend
+//Left Legend Upper
 for(i=0;i<6;i++){
     svg3
         .append("rect")
@@ -621,4 +649,76 @@ var seq2= [4,2,1]
         .style("font-family", "courier")
         .text("6.Improve Living Income")
         .attr("opacity",1)
+        
+
+// left legend below        
+     svg3
+        .append("rect")
+        .attr("x",50)
+        .attr("y",480)
+        .attr('width', 20)
+        .attr('height', barHeight)
+        .attr('stroke', '#FFFAF0')
+        .attr('stroke-width', 0)
+        .attr('fill', '#FFFAF0')
+        .on("mouseover", mouseover3)
+        .on("mouseleave", mouseleave3)  
+        
+    svg3.append("text")
+        .attr("x",50)
+        .attr("y", 590)
+        .style("fill","FFFAF0")
+        .style("text-anchor", "start")
+        .style("font-size", "10px")
+        .style("font-family", "courier")
+        .text("Yes")
+        .attr("opacity",1)
+
+
+     svg3
+        .append("rect")
+        .attr("x",120)
+        .attr("y",480)
+        .attr('width', 10)
+        .attr('height', barHeight)
+        .attr('stroke', '#FFFAF0')
+        .attr('stroke-width', 0)
+        .attr('fill', '#FFFAF0')
+        .on("mouseover", mouseover3)
+        .on("mouseleave", mouseleave3)  
+        
+    svg3.append("text")
+        .attr("x",120)
+        .attr("y", 590)
+        .style("fill","FFFAF0")
+        .style("text-anchor", "start")
+        .style("font-size", "10px")
+        .style("font-family", "courier")
+        .text("Maybe")
+        .attr("opacity",1)        
+        
+
+     svg3
+        .append("rect")
+        .attr("x",190)
+        .attr("y",480)
+        .attr('width', 4)
+        .attr('height', barHeight)
+        .attr('stroke', '#FFFAF0')
+        .attr('stroke-width', 0)
+        .attr('fill', '#FFFAF0')
+        .on("mouseover", mouseover3)
+        .on("mouseleave", mouseleave3)  
+        
+    svg3.append("text")
+        .attr("x",190)
+        .attr("y", 590)
+        .style("fill","FFFAF0")
+        .style("text-anchor", "start")
+        .style("font-size", "10px")
+        .style("font-family", "courier")
+        .text("No")
+        .attr("opacity",1)  
+
+        
 })
