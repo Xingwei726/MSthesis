@@ -524,7 +524,6 @@ body {
   position: sticky;
   display:block;
   z-index: 1;
-
 }
 
 /*#graphic {*/
@@ -803,7 +802,6 @@ section.active3 {
   position: sticky;
   padding-top:50px;
   padding-bottom:50px;
-
 }
 
 #method {
