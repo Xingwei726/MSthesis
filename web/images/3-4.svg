@@ -119,7 +119,6 @@
             </g>
             <path d="M42.6885246,24.3428571 C39.6247396,30.6148041 37.9971038,35.3567782 37.8056172,38.5687793 C37.5183873,43.386781 35.2205486,44.52159 37.8056172,52.7428571" id="Path-22" stroke="#FFFAF0" stroke-width="2"></path>
         </g>
-        <rect id="Rectangle-Copy-65" fill="#FF6347" x="94.8186416" y="-3" width="294" height="92" rx="4"></rect>
         <rect id="Rectangle-Copy-59" fill="#FF6347" opacity="0" x="94.8186416" y="99" width="296" height="194" rx="4"></rect>
         <rect id="Rectangle-Copy-27" fill="#FF6347" x="1107.81864" y="303" width="92" height="91" rx="4"></rect>
         <rect id="Rectangle-Copy-30" fill="#FF6347" x="1310.81864" y="303" width="92" height="91" rx="4"></rect>
@@ -201,15 +200,12 @@
             </g>
             <path d="M23.4622738,20.4166667 C19.7995146,32.9852246 21.1787567,42.5130024 27.6,49" id="Path-19" stroke="#FFFAF0" stroke-width="2"></path>
         </g>
-        <text id="Monoculture-Cacao" font-family="Gopher-Bold, Gopher" font-size="22" font-weight="bold" fill="#000000">
-            <tspan x="113" y="57">Monoculture Cacao</tspan>
-        </text>
         <text id="Then-they-would-cut" font-family="Courier" font-size="12" font-weight="normal" line-spacing="14" fill="#FFFAF0">
-            <tspan x="109" y="219">Then they would cut all the tall </tspan>
-            <tspan x="109" y="233">weeds, the creepers and the small </tspan>
-            <tspan x="109" y="247">trees. Make heaps of what they have </tspan>
-            <tspan x="109" y="261">cut down and arrange the heaps in </tspan>
-            <tspan x="109" y="275">rows.</tspan>
+            <tspan x="109" y="219">Then they would cut down all the </tspan>
+            <tspan x="109" y="233">tall weeds, the creepers and the </tspan>
+            <tspan x="109" y="247">small trees. Make heaps of what they </tspan>
+            <tspan x="109" y="261">have cut down and arrange the heaps </tspan>
+            <tspan x="109" y="275">in rows.</tspan>
         </text>
         <g id="Group-2-Copy-2" transform="translate(842.000000, 238.000000)" fill="#FFFAF0">
             <polygon id="Rectangle" transform="translate(7.500000, 7.800000) scale(-1, 1) rotate(45.000000) translate(-7.500000, -7.800000) " points="-1.40470485 6.64953244 16.434512 6.43790181 16.4047049 8.95046756 -1.43451198 9.16209819"></polygon>
@@ -243,5 +239,8 @@
             <polygon id="Rectangle" transform="translate(7.500000, 7.800000) scale(-1, 1) rotate(45.000000) translate(-7.500000, -7.800000) " points="-1.40470485 6.64953244 16.434512 6.43790181 16.4047049 8.95046756 -1.43451198 9.16209819"></polygon>
             <polygon id="Rectangle" transform="translate(7.500000, 7.800000) rotate(45.000000) translate(-7.500000, -7.800000) " points="-1.40470485 6.64953244 16.434512 6.43790181 16.4047049 8.95046756 -1.43451198 9.16209819"></polygon>
         </g>
+        <text id="Monoculture-Cacao" font-family="Gopher-Bold, Gopher" font-size="22" font-weight="bold" fill="#FFFAF0">
+            <tspan x="113" y="57">Monoculture Cacao</tspan>
+        </text>
     </g>
 </svg>

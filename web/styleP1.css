@@ -641,6 +641,22 @@ body {
   /*border-radius: 5px;*/
 }
 
+.stickyfloatingRight {
+  position: -webkit-sticky;
+  position: sticky;
+  z-index: 99;
+  bottom:500px;
+  left: 940px;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: #FFFAF0;
+  width:450px;
+  /*opacity:0.75;*/
+  /*border-radius: 5px;*/
+}
+
 .stickyfloatingBlack {
   position: -webkit-sticky;
   position: sticky;

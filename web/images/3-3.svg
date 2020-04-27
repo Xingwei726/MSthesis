@@ -161,7 +161,7 @@
                 </g>
                 <path d="M42.6885246,24.3428571 C39.6247396,30.6148041 37.9971038,35.3567782 37.8056172,38.5687793 C37.5183873,43.386781 35.2205486,44.52159 37.8056172,52.7428571" id="Path-22" stroke="#FFFAF0" stroke-width="2"></path>
             </g>
-            <rect id="Rectangle-Copy-65" fill="#FF6347" x="102.818642" y="0" width="294" height="92" rx="4"></rect>
+            <rect id="Rectangle-Copy-65" fill="#FF6347" opacity="0" x="102.818642" y="0" width="294" height="92" rx="4"></rect>
             <rect id="Rectangle-Copy-59" fill="#FF6347" opacity="0" x="102.818642" y="102" width="296" height="194" rx="4"></rect>
             <rect id="Rectangle-Copy-27" fill="#FF6347" x="1115.81864" y="306" width="92" height="91" rx="4"></rect>
             <rect id="Rectangle-Copy-30" fill="#FF6347" x="1318.81864" y="306" width="92" height="91" rx="4"></rect>
@@ -254,16 +254,16 @@
                 <path d="M23.4622738,20.4166667 C19.7995146,32.9852246 21.1787567,42.5130024 27.6,49" id="Path-19" stroke="#FFFAF0" stroke-width="2"></path>
             </g>
         </g>
-        <text id="Monoculture-Cacao" font-family="Gopher-Bold, Gopher" font-size="22" font-weight="bold" fill="#000000">
+        <text id="Monoculture-Cacao" font-family="Gopher-Bold, Gopher" font-size="22" font-weight="bold" fill="#FFFAF0">
             <tspan x="113" y="57">Monoculture Cacao</tspan>
         </text>
-        <text id="Sometimes-growers-pu" font-family="Courier" font-size="12" font-weight="normal" line-spacing="14" fill="#FFFAF0">
-            <tspan x="109" y="115">Sometimes growers put banana trees </tspan>
-            <tspan x="109" y="129">or taros into the cocoa plantation, </tspan>
-            <tspan x="109" y="143">to give shade for the young cocoa </tspan>
-            <tspan x="109" y="157">trees. If these are planted long </tspan>
-            <tspan x="109" y="171">enough before the cocoa trees, they </tspan>
-            <tspan x="109" y="185">give good protection.</tspan>
+        <text id="Firstly,-cocoa-farme" font-family="Courier" font-size="12" font-weight="normal" line-spacing="14" fill="#FFFAF0">
+            <tspan x="109" y="115">Firstly, cocoa farmers would put </tspan>
+            <tspan x="109" y="129">banana trees or taros into the cocoa </tspan>
+            <tspan x="109" y="143">plantation, to give shade for the </tspan>
+            <tspan x="109" y="157">young cocoa trees. If these are </tspan>
+            <tspan x="109" y="171">planted long enough before the cocoa </tspan>
+            <tspan x="109" y="185">trees, they give good protection.</tspan>
         </text>
     </g>
 </svg>
