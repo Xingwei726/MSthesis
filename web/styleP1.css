@@ -392,13 +392,19 @@ body {
 
 /*style for end section*/
 #end {
- height:1200px;
+ height:900px;
  width:1000px;
  overflow:hidden;
 }
 
 #end2 {
  height:1440px;
+ width:1000px;
+ overflow:hidden;
+}
+
+#end3 {
+ height:1220px;
  width:1000px;
  overflow:hidden;
 }
@@ -425,8 +431,9 @@ body {
   font-weight: 800;
   font-size: 50px;
   /*width: 900px;*/
-  margin-top: 10px;
-  margin-right:10px;
+  margin-top: -150px;
+  /*margin-right:-70px;*/
+  max-width:750px;
 }
 
 .end h2 {
@@ -804,9 +811,9 @@ section.active3 {
 
 
 #forests {
-  /*position: -webkit-sticky;*/
-  /*position: sticky;*/
-  padding-top: 100px;  
+  position: -webkit-sticky;
+  position: sticky;
+  /*padding-top: 100px;  */
   background: #000000;
 
 }
@@ -915,7 +922,16 @@ section.active3 {
   /*padding-left: 0px;*/
 }
 
-
+/*for image in endpage*/
+#image7 {
+  position: -webkit-sticky;
+  position: sticky;
+  margin-top: 0px;
+  margin-left: 100px;
+  z-index: 100;
+  padding-bottom: 0px;
+  /*padding-left: 0px;*/
+}
 .buttongroup {
   position: -webkit-sticky;
   position: sticky;  
@@ -983,3 +999,8 @@ path.domain {
 /*  position: sticky;*/
 /*  z-index: 1000;*/
 /*}*/
+
+
+#part3 {
+  width:1440px;
+}

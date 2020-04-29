@@ -34,7 +34,7 @@ d3.csv("./data/globalproductiontrend.csv").then(function(data) {
 
         var mouseover2 = function(d) {
             tooltip2
-              .html(d.Year +": " + numberFormat(d.Tons) + ",000 tons") 
+              .html(d.Year +": " + numberFormat(d.Tons) ) 
               .style("opacity", 1)
               .style('left', (d3.event.pageX+12) + 'px')
               .style('top', (d3.event.pageY-34) + 'px')
@@ -572,6 +572,40 @@ d3.csv("./data/cocoaPercentage.csv").then(function(data) {
 			   .attr("fill", "#FFFAF0")
 			   .text( "Cocoa Percentage in Chocolate Varieties")
 			   .attr("transform", "translate(0, 530)")
+
+
+
+        svg5.append('g')
+               .append("text")
+               .attr("x", 900)
+			   .attr("y", -340)
+			   .attr("text-anchor", "left")
+			   .attr("font-family", "courier")
+			   .style("font-size", "12px")
+			   .attr("fill", "#000000")
+			   .text( "The nutritional contents and ingredients of chocolate")
+			   .attr("transform", "translate(0, 530)")
+        svg5.append('g')
+               .append("text")
+               .attr("x", 900)
+			   .attr("y", -325)
+			   .attr("text-anchor", "left")
+			   .attr("font-family", "courier")
+			   .style("font-size", "12px")
+			   .attr("fill", "#000000")
+			   .text( "may vary by type. While many are interchangeable, there’s")
+			   .attr("transform", "translate(0, 530)")
+
+        svg5.append('g')
+               .append("text")
+               .attr("x", 900)
+			   .attr("y", -310)
+			   .attr("text-anchor", "left")
+			   .attr("font-family", "courier")
+			   .style("font-size", "12px")
+			   .attr("fill", "#000000")
+			   .text( "one ingredient we can’t make chocolate without: cocoa.")
+			   .attr("transform", "translate(0, 530)")			   
 			   
 	    var cocoaPercentageIntro = svg5.append('g')
                .append("text")

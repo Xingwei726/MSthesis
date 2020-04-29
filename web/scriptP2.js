@@ -579,3 +579,34 @@ svg2.append("g")
           slides[slideIndex-1].style.display = "block";  
           dots[slideIndex-1].className += " active";
         }
+        
+        
+ d3.csv("./data/factors.csv").then(function(data) {
+       
+    //Factors Graph
+    var svg3 = d3.select('#factors')
+          .append('svg')
+          .attr('width', width)
+          .attr('height', height); 
+          
+          //Title
+svg3.append("g")
+    .append ("text")
+	.attr("x", 0)
+    .attr("y", 50)
+	.attr("text-anchor", "left")
+	.attr("font-family", "gopher")
+	.style("font-size", "22px")
+	.style("font-weight", 800)
+	.attr("fill", "#000000")
+	.text( "Equivalent Cacao Trees to Consumption Per Capita")
+    .style('opacity',1)
+    
+svg.append('g')
+   .selectAll('rect')
+   .data(data)
+   .enter()
+   .append('rect')
+          
+      
+ })

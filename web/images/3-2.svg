@@ -115,9 +115,10 @@
         <text id="Monoculture-Cacao" font-family="Gopher-Bold, Gopher" font-size="22" font-weight="bold" fill="#FFFAF0">
             <tspan x="113" y="57">Monoculture Cacao</tspan>
         </text>
-        <text id="Second-type-of-defor" font-family="Courier-Bold, Courier" font-size="12" font-weight="bold" line-spacing="14">
-            <tspan x="109" y="115" fill="#FF6347">Second type </tspan>
-            <tspan x="195.414062" y="115" font-family="Courier" font-weight="normal" fill="#FFFAF0">of deforestation took </tspan>
+        <text id="First-type-of-defore" font-family="Courier-Bold, Courier" font-size="12" font-weight="bold" line-spacing="14">
+            <tspan x="109" y="115" fill="#FF6347">First type </tspan>
+            <tspan x="188.212891" y="115" fill="#FF7154">of deforestation </tspan>
+            <tspan x="310.632812" y="115" font-family="Courier" font-weight="normal" fill="#FFFAF0">took </tspan>
             <tspan x="109" y="129" font-family="Courier" font-weight="normal" fill="#FFFAF0">place at the beginning of each </tspan>
             <tspan x="109" y="143" font-family="Courier" font-weight="normal" fill="#FFFAF0">cultivation process. Most cocoa is </tspan>
             <tspan x="109" y="157" font-family="Courier" font-weight="normal" fill="#FFFAF0">grown in monocultures with little or </tspan>

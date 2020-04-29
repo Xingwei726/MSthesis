@@ -14,6 +14,7 @@ var groupSpacing = 3.5;
 var cellSpacing = 2;
 
 
+
 var svg = d3.select('#square-unit')
       .append('svg')
       .attr('width', width)
@@ -125,22 +126,19 @@ d3.csv("./data/globalsupply2019.csv").then(function(data) {
             .style("padding", "8px")
             .style("left", "1000px")
             //select tooltip position
-            .style("top", "5145px")
+            .style("top", "4990px")
             
 
         var mouseover = function(d) {
             tooltip
               .html("It produced <br>" + 
               d.Ton + "Tons")
-              // .attr("transform", "translate(0, 710)")
               .style("opacity", 1);
             d3.select(this)
               .attr('fill', "tomato");
             totalGraphGroup
-            //   .style("opacity", 0.5)
               .data(d3.range(d.Tons))
               .attr('fill', 'tomato')
-            //   .style("opacity", 1)
           }
 
         var mouseleave = function(d) {

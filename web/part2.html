@@ -13,6 +13,7 @@
         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="styleP1.css">
         <link rel="stylesheet" type="text/css" href="slideShow.css">
+        <link rel="stylesheet" type="text/css" href="styleNext.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/noframework.waypoints.js"></script>
         <script src="https://d3js.org/d3.v5.js"></script>
         
@@ -38,18 +39,15 @@
               <div class="section"><a href="part4.html"><b2>4. </b2> Behind the Barcode</a></div>
         </div>
 
-
-
         <!--2.1 Cocoa Clock -->
         <div class="slide2">
             <div class="sticky2">
                 <h5>How much do we consume?</h5>
                 <!--<p>In 2019, we consumed <span class="count"> 305.2 </span> pounds cocoa <b>per second</b>, but what does that mean? How many cacao trees required to produce 1 pound of chocolate?</p>-->
-                <p>In 2019, we consumed <span class="count"> 305.2 </span> pounds cocoa <b>per second</b>. But how many cacao trees required to produce 1 pound of chocolate?</p>
+                <p>In 2019, we consumed <span class="count"> 305.2 </span> pounds cocoa <b>per second</b>. How many cacao trees required to produce 1 pound of chocolate?</p>
       
             </div>
         </div>        
-
 
         <!--2.2.1 Floating Notes-->
         <!--<div class="slide1">-->
@@ -75,11 +73,9 @@
                 <p>A healthy cacao tree can produce approximately 30 cocoa pods a year in average, and inside each pod typically there are 40 cocoa beans. It’s inevitable that there will be some losses at each stage so roughly <b>1 pound of chocolate</b> needs <b>500 cocoa beans</b> as raw materials. In a nutshell a whole year’s yield from <b>one tree</b> can make <b>2 pounds of chocolate</b>.</p>
             </div> 
         </div> 
-        
-        
-        <!--2.3 Country Capita Formula-->
-        <!--    <div id="capita"></div>-->
-
+ 
+ 
+     
 
         <!--2.3.1 Floating Notes   -->
         <div class="slide1">
@@ -88,14 +84,27 @@
             <div id="capita"></div>
 
             <div class="stickyfloatingRight">
-               <!--<p>2-2</p>-->
-               <p>In the light of knowing each cocoa tree has limited yield quantity and its produce rate declines as growing old, most cocoa farmers chose to adopt new crops while previous production centers collapsed. This has introduced the <b>first type</b> of deforestation.</p>
+               <!--<p>In the light of knowing each cocoa tree has limited yield quantity and its produce rate declines as growing old, most cocoa farmers chose to adopt new crops while previous production centers collapsed. This has introduced the <b>first type</b> of deforestation.</p>-->
+               <p>Let's look at cocoa consumption data again. Presumably not every cacao tree’s yield is the same as well as each pod’s size is different among species and geographic location, but this will give us an idea that the equation between cocoa beans and chocolate isn’t one to one.</p>
             </div>        
         </div>
-        
+  
+  
+  
+    <!--2.2.3 Disruption Factors -->
+    <div class="slide2">
+        <div class="sticky2">
+            <!--<h5>Damages to the classifies forest of Haut-Sassandra</h5>-->
+            <button class="button" onclick="changeTree(1)">Cacao Tree</button>
+            <button class="button" onclick="changePod(1)">Cacao Pod</button>
+            <button class="button" onclick="changeChocolate(1)">Chocolate</button>
+            <div id="factors"></div>
+        </div>
+    </div>         
+
+
 
     <!--2.4 Monoculture Method-->
-
     <div class="slide1">
 
         <!--this is invisible-->
@@ -107,36 +116,33 @@
 
         <!--2.4 Monoculture Slideshow-->
         <div class="slideshow-container">
-        
-        <div class="mySlides fade">
-          <div class="numbertext">1 / 5</div>
-          <img src="./images/3-2.svg" style="width:100%">
-          <!--<div class="text">Caption Text</div>-->
-        </div>
-        
-        <div class="mySlides fade">
-          <div class="numbertext">2 / 5</div>
-          <img src="./images/3-3.svg" style="width:100%">
-        </div>
-        
-        <div class="mySlides fade">
-          <div class="numbertext">3 / 5</div>
-          <img src="./images/3-4.svg" style="width:100%">
-        </div>
-        
-        <div class="mySlides fade">
-          <div class="numbertext">4 / 5</div>
-          <img src="./images/3-5.svg" style="width:100%">
-        </div>
-        
-        <div class="mySlides fade">
-          <div class="numbertext">5 / 5</div>
-          <img src="./images/3-6.svg" style="width:100%">
-        </div>
-        
-        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-        <a class="next" onclick="plusSlides(1)">&#10095;</a>
-        
+                <div class="mySlides fade">
+                  <div class="numbertext">1 / 6</div>
+                  <img src="./images/3-2.svg" style="width:100%">
+                  <!--<div class="text">Caption Text</div>-->
+                </div>
+                <div class="mySlides fade">
+                  <div class="numbertext">2 / 6</div>
+                  <img src="./images/3-3.svg" style="width:100%">
+                </div>
+                <div class="mySlides fade">
+                  <div class="numbertext">3 / 6</div>
+                  <img src="./images/3-4.svg" style="width:100%">
+                </div>
+                <div class="mySlides fade">
+                  <div class="numbertext">4 / 6</div>
+                  <img src="./images/3-5.svg" style="width:100%">
+                </div>
+                <div class="mySlides fade">
+                  <div class="numbertext">5 / 6</div>
+                  <img src="./images/3-6.svg" style="width:100%">
+                </div>
+                <div class="mySlides fade">
+                  <div class="numbertext">6 / 6</div>
+                  <img src="./images/3-7.svg" style="width:100%">
+                </div>
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
         </div>
         <br>
         
@@ -146,40 +152,49 @@
           <span class="dot" onclick="currentSlide(3)"></span>
           <span class="dot" onclick="currentSlide(4)"></span> 
           <span class="dot" onclick="currentSlide(5)"></span> 
-
-
+          <span class="dot" onclick="currentSlide(6)"></span> 
         </div>
 
-            <!--<div class="stickyfloatingRight">-->
-            <!--   <p><b>Second type</b> of deforestation took place at the beginning of each cultivation process. Most cocoa is grown in <b>monocultures</b> with little or no shade which is known as the full-sun system, requiring the removal of all surrounding trees either at the beginning or gradually during the growing phrase.</p>-->
-            <!--</div>  -->
-            
     </div>
+        <div class="slide1">
+            <div id="space"></div>
+        </div>
+       <!--Section2 Takeaway-->
+       <img id="image" style="width:1440px;" src="./images/equivalentTrees.svg">
 
 
 
         <!--Space before End navigation-->
 
-        <div class="slide1">
-            <div id="space"></div>
-        </div>
+        <!--<div class="slide1">-->
+        <!--    <div id="space"></div>-->
+        <!--</div>-->
 
 
         <!--End navigation-->
         <div class="end squares">
             
                 <div class="section">
-                    <a href="index.html">Homepage</a>
+                    <a href="part1.html">Previous</a>
                 </div>
-                <div class="section"><a href="part1.html"><b2>1. </b2> Cocoa Affection</a></div>
+                
                 <div class="introsection3" id="end">
-                  <h1>Let's look at this bittersweet</br>price we've paid for each </br> pound of chocolate more closely...</h1>
+                  <h1>Let's look at the <b>bittersweet price</b> we've paid for each </br> pound of chocolate more closely...</h1>
                 </div>
                 
-                
-              <div class="continueSection"><a href="part3.html">Continue</a></div>
-              <!--<div class="section"><a href="part3.html">Part 3</a></div>-->
-              <!--<div class="section"><a href="part4.html">Part 4</a></div>-->
+                <!--next icon & link   -->
+                <div class="center-con">
+                    <div class="round">
+                        <a href="part3.html">
+                            <div id="cta">
+                                <span class="arrow segunda next2 "></span>
+                            </div>
+                            <h5>Next</h5>
+                        </a>
+                    </div>
+                </div>
+              <!--<div class="continueSection"><a href="part3.html">Continue</a></div>-->
+
                  
         </div>
 
