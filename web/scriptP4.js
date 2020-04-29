@@ -82,7 +82,7 @@ var mouseleave3 = function (d) {
         svg
         .append("text")
         .attr("x", 0)
-        .attr("y", 300)
+        .attr("y", 210)
         .style("text-anchor", "start")
         .style("font-size", "12px")
         .style("font-family", "courier")
