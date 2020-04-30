@@ -696,6 +696,10 @@ body {
   color: #FFFAF0;
 }
 
+.stickyfloatingRight p {
+  font-size: 12px;
+}
+
 
 #svg-container{
     /*padding-left: -100;*/
@@ -831,6 +835,7 @@ section.active3 {
   position: sticky;
   top: 0;
 }
+
 
 #exports {
   position: relative;

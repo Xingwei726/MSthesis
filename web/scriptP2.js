@@ -582,31 +582,145 @@ svg2.append("g")
         
         
  d3.csv("./data/factors.csv").then(function(data) {
-       
+    
+    var yScale = d3.scaleLinear()
+          .domain([0, 100])
+          .range([0, 400])  
+          
     //Factors Graph
     var svg3 = d3.select('#factors')
           .append('svg')
           .attr('width', width)
           .attr('height', height); 
           
-          //Title
-svg3.append("g")
-    .append ("text")
-	.attr("x", 0)
-    .attr("y", 50)
-	.attr("text-anchor", "left")
-	.attr("font-family", "gopher")
-	.style("font-size", "22px")
-	.style("font-weight", 800)
-	.attr("fill", "#000000")
-	.text( "Equivalent Cacao Trees to Consumption Per Capita")
-    .style('opacity',1)
+ 
+    var tooltip = d3.select("#factors")
+            .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+            .append("div")
+            .style("opacity", 0)
+            .style("position", "absolute")
+            .style("color", "tomato")
+            .style("background", "black")
+			.style("font-family", "gopher")
+			.style("font-size", "14px")
+            .style("padding", "8px")
+            .style("z-index", "1000") 
+  
+  
+  
+            
+    var mouseover = function (d) {
+        tooltip
+              .html(d.factor + " : " + d.percentage +"% ") 
+              .style("opacity", 1)
+              .style('left', (d3.event.pageX+12) + 'px')
+              .style('top', (d3.event.pageY-7500) + 'px')
+        d3.select(this)
+          .attr('fill', '#000000')
+          .style("stroke", "#FFFAF0")
+          .style("stroke-width", 5);
+    }
     
-svg.append('g')
-   .selectAll('rect')
-   .data(data)
-   .enter()
-   .append('rect')
+    var mouseleave = function (d) {
+        tooltip
+          .style("opacity", 0)
+        d3.select(this)
+          .attr('fill', 'tomato')
+          .style("stroke", "none")
+          .style("stroke-width", 0);    
+    }
+
+    var mouseover2 = function (d) {
+        d3.select(this)
+    	.style("font-weight", 800)
+
+    }
+    
+    var mouseleave2 = function (d) {
+        d3.select(this)
+    	.style("font-weight", 400)
+  
+    }
+
+ 
+ 
+    //Title
+    svg3.append("g")
+        .append ("text")
+    	.attr("x", 0)
+        .attr("y", 50)
+    	.attr("text-anchor", "left")
+    	.attr("font-family", "gopher")
+    	.style("font-size", "22px")
+    	.style("font-weight", 800)
+    	.attr("fill", "#000000")
+    	.text( "Damages to the classifies forest of Haut-Sassandra")
+        .style('opacity',1)
+ 
+    svg3.append('g')
+          .selectAll('rect')
+          .data(data)
+          .enter()
+          .append('rect')
+          .attr('x', 100)
+          .attr('y', function(d,i){
+              return 5*i+ yScale(d.position)
+          }) 
+          .attr('width', 500)
+          .attr('height', function(d,i){
+              return yScale(d.percentage)
+          })
+          .attr('fill',  'tomato')
+          .attr('stroke-width', 2)
+          .attr("transform", "translate(-100,150)")
+        //   .attr("rx",10)
+        //   .attr("ry",10)
+          .on("mouseover", mouseover)
+          .on("mouseleave", mouseleave)
+ 
+ 
+ 
+    svg3.append("g")
+        .selectAll("text")
+        .data(data)
+        .enter()
+        .append("text")
+        .attr("x", 730)
+        .attr("y", function(d,i){
+            return i*24-50
+        })
+        .style("text-anchor", "start")
+        .style("font-size", "12px")
+        .style("font-family", "gopher")
+	    .attr("fill", "#000000")
+        .text(function (d, i) {
+           return d.factor
+        })
+        .attr("transform", "translate(200,250)")
+        .on("mouseover", mouseover2)
+        .on("mouseleave", mouseleave2)
+        
+    svg3.append("g")
+        .selectAll("text")
+        .data(data)
+        .enter()
+        .append("text")
+        .attr("x",1030)
+        .attr("y", function(d,i){
+            return i*24-50
+        })
+        .style("text-anchor", "end")
+        .style("font-size", "12px")
+        .style("font-family", "gopher")
+	    .attr("fill", "#000000")
+        .text(function (d, i) {
+           return d.percentage + "%"
+        })
+        .attr("transform", "translate(200,250)")
+        .on("mouseover", mouseover2)
+        .on("mouseleave", mouseleave2)
+        
+        
           
       
  })
