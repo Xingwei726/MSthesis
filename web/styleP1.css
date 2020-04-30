@@ -810,6 +810,8 @@ section.active3 {
 #employment {
   position: -webkit-sticky;
   position: sticky;
+  background: #FFFAF0;
+
   
 }
 
@@ -819,7 +821,7 @@ section.active3 {
   position: sticky;
   /*padding-top: 100px;  */
   background: #000000;
-
+  /*margin-top:380px;*/
 }
 
 
@@ -942,8 +944,8 @@ section.active3 {
   position: sticky;  
   /*top:500px;*/
   margin-left: 30px;
-  padding-top:100px;
-  margin-top:100px;
+  padding-top:20px;
+  margin-top:380px;
 }
 
 .buttongroup h2 {

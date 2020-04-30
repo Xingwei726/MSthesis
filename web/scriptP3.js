@@ -391,8 +391,24 @@ var yAxis = d3.axisLeft()
 svg4.append("g")
     .attr("class", "myYaxis")
 
+    
+svg4.append('text')
+        .attr("x", 30)
+        .attr("y", 40)
+        .style("text-anchor", "start")
+        .style("font-size", "12px")
+        .style("font-family", "courier")
+	    .attr("fill", "#000000")
+        .text("GDP Unit: billion USD")
 
-
+svg4.append('text')
+        .attr("x", 30)
+        .attr("y", 55)
+        .style("text-anchor", "start")
+        .style("font-size", "12px")
+        .style("font-family", "courier")
+	    .attr("fill", "#000000")
+        .text("Unemployment Unit: percent")
 
 
 
