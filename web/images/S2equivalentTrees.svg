@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="1440px" height="750px" viewBox="0 0 1440 750" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 59.1 (86144) - https://sketch.com -->
-    <title>equivalentTrees</title>
+    <title>S2equivalentTrees</title>
     <desc>Created with Sketch.</desc>
-    <g id="equivalentTrees" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+    <g id="S2equivalentTrees" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <rect fill="#000000" x="0" y="0" width="1440" height="750"></rect>
         <text id="Equivalent-Cacao-Tre" font-family="Gopher-Bold, Gopher" font-size="22" font-weight="bold" fill="#FFFAF0">
-            <tspan x="30" y="62">Equivalent Cacao Trees to </tspan>
-            <tspan x="30" y="89">Cocoa Consumption Per Capita</tspan>
+            <tspan x="30" y="88">Equivalent Cacao Trees to </tspan>
+            <tspan x="30" y="115">Cocoa Consumption Per Capita</tspan>
         </text>
         <g id="Group-8" transform="translate(639.000000, 16.000000)">
             <g id="Group-7">
@@ -358,6 +358,9 @@
             <tspan x="30" y="188">per capita was 8.8 kilograms (19.36 pounds) </tspan>
             <tspan x="30" y="200">which requires 9 cacao trees’ annual </tspan>
             <tspan x="30" y="212">production approximately.</tspan>
+        </text>
+        <text id="Part-2-Takeaway" font-family="Courier-Bold, Courier" font-size="10" font-weight="bold" line-spacing="12" fill="#FF7154">
+            <tspan x="30" y="60">Part 2 Takeaway</tspan>
         </text>
     </g>
 </svg>

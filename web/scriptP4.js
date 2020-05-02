@@ -89,22 +89,22 @@ var mouseleave3 = function (d) {
 	    .attr("fill", "#000000")
         .text("(If we search “chocolate bath challenge” on youtube, more than 100 videos would show up and the lastest was uploaded two weeks ago. )");  
 
-    var svg = d3.select("#timer")
-        .append("svg")
-        .attr("width", width2 + margin.left + margin.right)
-        .attr("height", height2 + margin.top + margin.bottom)
-        // .attr("transform","translate(" + 0 + "," + -700 + ")")
-        .append("g")
+    // var svg = d3.select("#timer")
+    //     .append("svg")
+    //     .attr("width", width2 + margin.left + margin.right)
+    //     .attr("height", height2 + margin.top + margin.bottom)
+    //     // .attr("transform","translate(" + 0 + "," + -700 + ")")
+    //     .append("g")
         
-        svg
-        .append("text")
-        .attr("x", 0)
-        .attr("y", 400)
-        .style("text-anchor", "start")
-        .style("font-size", "12px")
-        .style("font-family", "courier")
-	    .attr("fill", "#000000")
-        .text("Calculation model is based on 2019 data in which we consumed 306 pounds cacao per second in average.");  
+    //     svg
+    //     .append("text")
+    //     .attr("x", 0)
+    //     .attr("y", 400)
+    //     .style("text-anchor", "start")
+    //     .style("font-size", "12px")
+    //     .style("font-family", "courier")
+	   // .attr("fill", "#000000")
+    //     .text("Calculation model is based on 2019 data in which we consumed 306 pounds cacao per second in average.");  
 
 
     

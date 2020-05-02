@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="1440px" height="750px" viewBox="0 0 1440 750" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 59.1 (86144) - https://sketch.com -->
-    <title>forests</title>
+    <title>S3forests</title>
     <desc>Created with Sketch.</desc>
-    <g id="forests" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+    <g id="S3forests" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <rect fill="#000000" x="0" y="0" width="1440" height="750"></rect>
         <text id="Cocoa-farming-and-fo" font-family="Gopher-Bold, Gopher" font-size="22" font-weight="bold" fill="#FFFAF0">
-            <tspan x="30" y="62">Cocoa farming and forest degradation </tspan>
-            <tspan x="30" y="89">inside protected areas</tspan>
+            <tspan x="30" y="88">Cocoa farming and forest degradation </tspan>
+            <tspan x="30" y="115">inside protected areas</tspan>
         </text>
         <text id="The-graph-on-the-rig" font-family="Courier-Bold, Courier" font-size="10" font-weight="bold" line-spacing="12" fill="#FFFAF0">
             <tspan x="30" y="140">The graph on the right shows cocoa farming &amp; </tspan>
@@ -213,5 +213,8 @@
             <path id="Path-30" d="M95.206857,13 C107.009666,13 114.47455,18.1380041 117.479696,28.3589608 L117.479696,28.3589608 L116.520304,28.6410392 C113.645089,18.8619959 106.581211,14 95.206857,14 C86.8600259,14 80.0314734,15.9189566 74.7602258,19.7048829 L74.7602258,19.7048829 L70.365,23.89 L77.4115259,22.1018545 L77.6575642,23.0711147 L67.8993744,25.5481466 L70.8498136,15.9225109 L71.8059074,16.2155717 L69.674,23.167 L74.1234386,18.9369053 C79.491878,15.0752616 86.3112758,13.1000525 94.5688245,13.0037056 Z" fill="#FFFAF0" fill-rule="nonzero"></path>
             <path id="Path-30-Copy" d="M44.9952513,49.2089371 C51.0205793,44.6185281 58.3761456,43.3952492 67.0177899,45.529076 C78.3998519,48.339577 86.3568503,55.4207816 90.8517966,66.7337163 L90.8517966,66.7337163 L89.9224662,67.1029654 C85.5454321,56.0867938 77.8429616,49.2321022 66.7780662,46.4999172 C58.4174701,44.4354878 51.3732574,45.6069865 45.6539731,49.958043 L45.6539731,49.958043 L41.377,54.287 L48.3660683,52.2842347 L48.6415947,53.2455283 L38.96361,56.0194366 L41.6186893,46.3081798 L42.5832876,46.5719032 L40.666,53.584 Z" fill="#FFFAF0" fill-rule="nonzero"></path>
         </g>
+        <text id="Part-3-Takeaway" font-family="Courier-Bold, Courier" font-size="10" font-weight="bold" line-spacing="12" fill="#FF7154">
+            <tspan x="30" y="60">Part 3 Takeaway</tspan>
+        </text>
     </g>
 </svg>

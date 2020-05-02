@@ -184,7 +184,7 @@ d3.csv("./data/globalsupply2019.csv").then(function(data) {
 			   .style("font-size", "30px")
 			   .style("font-weight", 400)
 			   .attr("fill", "#FFFAF0")
-			   .text( "Cacao Production in 2019")
+			   .text( "Cocoa Production in 2019")
 			   .attr("transform", "translate(0, 20)")
 
           svg2.append("text")

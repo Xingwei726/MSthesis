@@ -15,6 +15,10 @@ a {
 
 }
 
+body {
+  width: 1440px;
+}
+
 
 /*h1 page title*/
 h1 {
@@ -221,7 +225,8 @@ body {
 #intro1{
  height:1220px;
  width:2000px;
- overflow:hidden;
+ overflow-y:hidden;
+ overflow-x:hidden;
  z-index: 99;
 }
 
@@ -488,13 +493,13 @@ body {
 
 #graph4{
   height:1150px;
-  width:100%;
+  width:1420px;
   display:block;
   background:tomato;
 }
 
 #space {
-  height:450px;
+  height:250px;
   width:100%;
   display:block;
   background:#000000;
