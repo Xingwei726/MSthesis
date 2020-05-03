@@ -10,26 +10,17 @@
         <link href="https://fonts.googleapis.com/css?family=Rubik:400,400i,500,500i,700,700i&display=swap" rel="stylesheet">
         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
         
-        <link rel="stylesheet" type="text/css" href="styleP1.css">
-        <link rel="stylesheet" type="text/css" href="styleNext2.css">
+        <link rel="stylesheet" type="text/css" href="./src/styleP1.css">
+        <link rel="stylesheet" type="text/css" href="./src/styleNext2.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/noframework.waypoints.js"></script>
         <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.js'></script>
         <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.css' rel='stylesheet' />
-        <!--<script src="https://d3js.org/d3.v5.js"></script>-->
         <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
         <script src="https://d3js.org/d3-format.v1.min.js"></script>
-
-
-
-    
     </head>
+        <body style="background-color:#000000;">
 
-    <body style="background-color:#000000;">
-
-
-            
-          <!--<div id='graphic'>-->
-             <!--<div id='graphic'></div>-->
+<!--3.1 Section Introduction-->
                 <div class="slide2">
                     <div class="sticky2">
                         <h5>Where are cacao beans from?</h5>
@@ -38,18 +29,18 @@
                     </div>
                 </div> 
 
+<!--3.2 Cocoa Production by Leading Countries-->
                 <div class="slide">
                     <div class="sticky">
                       <section id="section1" class="active">
                         <h2>Biggest Cocoa Supplier</h2>
                         <p>Most likely it’s grown up in <b>Ivory Coast</b> (Côte d'Ivoire) where cocoa sales accounting for approximately 10% of the country's GNP.</p>
-                        
                         <div id="countrySupply"></div>
                       </section>
                     </div>
                 </div>  
                 
-
+<!--3.3 Ivory Coast Geolocation & Dashboard-->
                 <div class="slide">
                     <div class="sticky">
                       <section id="section2">
@@ -112,24 +103,21 @@
                 </div> 
 
 <!--3.7 Disruption Factors -->
-    <div class="slide2">
-        <div class="sticky2">
-            <!--<h5>Damages to the classifies forest of Haut-Sassandra</h5>-->
-            <!--<button class="button" onclick="changeTree(1)">Cacao Tree</button>-->
-            <!--<button class="button" onclick="changePod(1)">Cacao Pod</button>-->
-            <!--<button class="button" onclick="changeChocolate(1)">Chocolate</button>-->
-            <div id="factors"></div>
-        </div>
-        
-        <div class="stickyfloatingRight">
-            <p>A study focusing on what factors have caused deforestation in one of the classified forests Haut-Sassandra has pointed out that there are <b>twelve kinds of disruption</b> that might cause deforestation. These plantations are between a few months and under ten years old. To sum it up, the most frequent types of disruption are cacao plantations with a frequency rate of 23.32%, around 95% of the disruptions recorded are of anthropic origin and 5% of natural origin.</p>
-        </div>  
-        
-    </div>   
+                <div class="slide2">
+                    <div class="sticky2">
+                        <!--<h5>Damages to the classifies forest of Haut-Sassandra</h5>-->
+                        <!--<button class="button" onclick="changeTree(1)">Cacao Tree</button>-->
+                        <!--<button class="button" onclick="changePod(1)">Cacao Pod</button>-->
+                        <!--<button class="button" onclick="changeChocolate(1)">Chocolate</button>-->
+                        <div id="factors"></div>
+                    </div>
+                    <div class="stickyfloatingRight">
+                        <p>A study focusing on what factors have caused deforestation in one of the classified forests Haut-Sassandra has pointed out that there are <b>twelve kinds of disruption</b> that might cause deforestation. These plantations are between a few months and under ten years old. To sum it up, the most frequent types of disruption are cacao plantations with a frequency rate of 23.32%, around 95% of the disruptions recorded are of anthropic origin and 5% of natural origin.</p>
+                    </div>  
+                </div>   
 
 
-
-
+<!--3.8 Deforestation Rate -->
                 <div class="slide">
                     <div class="sticky">
                         <h2>Deforestation Rate</h2>
@@ -138,12 +126,11 @@
                     </div>
                 </div>  
 
-
                 <div class="slide">
                     <div id="method"></div>
-                </div> 
-
-
+                </div>
+                
+                <!--23 sites map-->
                 <div class="slide">
                     <div class="stickyblack"></div>
                     <img id="image" style="width:1440px;" src="./images/protected.svg">
@@ -154,7 +141,7 @@
                     </div>
                 </div>  
                 
-                
+<!--3.9 23 Forests -->
                 <div class="slide">
                     <div class="stickyblack">
                       <h3>23 Forests</h3>
@@ -164,11 +151,11 @@
                 </div> 
 
 
-                <!--Section3 Takeaway-->
+<!--3.10 PART3 Takeaway-->
                 <img id="image" style="width:1440px;" src="./images/S3forests.svg">
 
 
-                <!--Chapter Cover-->
+<!--3.0 Homepage navigation-->
                 <div class="horizontal-scroll-wrapper squares" id="fixed">
                   <div class="section"><a href="index.html">Homepage</a></div>
                   <div class="section"><a href="part1.html"><b2>1. </b2> Cocoa Affection</a></div>
@@ -181,45 +168,35 @@
                 </div>
 
 
-                <!--End navigation-->
+<!--3.11 End navigation-->
                 <div class="end squares">
                         <div class="section">
                             <a href="part2.html">Previous</a>
                         </div>
 
-                <div id ="part3" style="background-color:#000000;">
-                        <div class="introsection3" id="end3">
-                          <!--<h2>We can show that we care about the actual ‘cost’ that we are paying for each chocolate bar by purchasing chocolate which has a clear label of where the cocoa beans were coming from.</h2>                        -->
-                          <h2>Customers shouldn’t be kept from unethical cocoa sources with its aftereffects attached, because in the end we are the one who is going to pay the “price”.</h2>
-                        </div>
-                        <!--next icon & link   -->
-                        <div class="center-con">
-                            <div class="round">
-                                <a href="part4.html">
-                                    <div id="cta">
-                                        <span class="arrow segunda next2 "></span>
+                        <div id ="part3" style="background-color:#000000;">
+                                <div class="introsection3" id="end3">
+                                  <!--<h2>We can show that we care about the actual ‘cost’ that we are paying for each chocolate bar by purchasing chocolate which has a clear label of where the cocoa beans were coming from.</h2>                        -->
+                                  <h2>Customers shouldn’t be kept from unethical cocoa sources with its aftereffects attached, because in the end we are the one who is going to pay the “price”.</h2>
+                                </div>
+                                <!--next icon & link   -->
+                                <div class="center-con">
+                                    <div class="round">
+                                        <a href="part4.html">
+                                            <div id="cta">
+                                                <span class="arrow segunda next2 "></span>
+                                            </div>
+                                            <h5>Next</h5>
+                                        </a>
                                     </div>
-                                    <h5>Next</h5>
-                                </a>
-                            </div>
+                                </div>
                         </div>
                 </div>
-                                     
 
-          
-                         
-                </div>
-
-
-
-
-                
-
-    
         <!-- References Links -->
         <script src='https://d3js.org/d3.v5.min.js'></script>
-        <script src="scriptP3.js"></script>
-        <script src="scriptP3_2.js"></script>
+        <script src="./src/scriptP3.js"></script>
+        <script src="./src/scriptP3_2.js"></script>
         <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
         <script>
             AOS.init({
@@ -248,6 +225,6 @@
 
 
 
-    </body>
+        </body>
 
 </html>

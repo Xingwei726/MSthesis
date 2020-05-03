@@ -2,10 +2,13 @@
 /*Next Button*/
 .center-con {
     display: flex;
-    height: 100vh;
+    /*height: 100vh;*/
     align-items: center;
     justify-content: center;
     transform: rotate(90deg);
+    width: 200px;
+    height: 200px;
+    margin-left: -200;
 
 }
 
