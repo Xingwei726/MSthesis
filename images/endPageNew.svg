@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1440px" height="750px" viewBox="0 0 1440 750" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 59.1 (86144) - https://sketch.com -->
+    <title>endPage</title>
+    <desc>Created with Sketch.</desc>
+    <g id="endPage" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect fill="#000000" x="0" y="0" width="1440" height="750"></rect>
+        <rect id="Rectangle" fill="#F5E2C2" x="0" y="0" width="1440" height="751" rx="25"></rect>
+        <g id="Group-4" transform="translate(581.000000, 63.000000)" fill="#000000" font-family="Courier" font-weight="normal">
+            <g id="Group-3">
+                <text id="Data-Sources" font-size="14">
+                    <tspan x="0" y="14">Data Sources</tspan>
+                    <tspan x="0" y="31"></tspan>
+                </text>
+                <text id="Datasets-used-in-thi" font-size="12">
+                    <tspan x="0" y="36">Datasets used in this project were mostly </tspan>
+                    <tspan x="0" y="50">collected from governmental or non-profit </tspan>
+                    <tspan x="0" y="64">organizations dedicated to environment </tspan>
+                    <tspan x="0" y="78">study or forests’ monitoring. Some </tspan>
+                    <tspan x="0" y="92">datasets were collected from cocoa focused </tspan>
+                    <tspan x="0" y="106">organizations such as ICCO (International </tspan>
+                    <tspan x="0" y="120">Cocoa Organization), World Cocoa </tspan>
+                    <tspan x="0" y="134">Foundation and ICI (International Cocoa </tspan>
+                    <tspan x="0" y="148">Initiative). </tspan>
+                </text>
+            </g>
+            <g id="Group-2" transform="translate(359.000000, 1.000000)">
+                <text id="Other-References" font-size="14">
+                    <tspan x="0" y="14">Other References</tspan>
+                </text>
+                <text id="--Tropical-Conservat" font-size="12">
+                    <tspan x="0" y="36">- Tropical Conservation Science</tspan>
+                    <tspan x="0" y="50">- International Monetary Fund</tspan>
+                    <tspan x="0" y="64">- WorldAtlas</tspan>
+                    <tspan x="0" y="78">- NJAS - Wageningen Journal of Life Sciences</tspan>
+                    <tspan x="0" y="92">- Global Ecology and Conservation</tspan>
+                    <tspan x="0" y="106">- Tropical Conservation Science</tspan>
+                    <tspan x="0" y="120">- Yale Environment 360</tspan>
+                </text>
+            </g>
+        </g>
+        <g id="Group" transform="translate(63.000000, 63.000000)">
+            <text id="A-Guilty-Pleasure-wa" font-family="Courier-BoldOblique, Courier" font-size="12" font-style="italic" font-weight="bold" line-spacing="14" fill="#000000">
+                <tspan x="0" y="11">A Guilty Pleasure</tspan>
+                <tspan x="122.419922" y="11" font-family="Courier" font-weight="normal"> was created by Xingwei in </tspan>
+                <tspan x="0" y="25" font-family="Courier" font-weight="normal">support of a graduate school thesis for the </tspan>
+                <tspan x="0" y="39" font-family="Courier" font-weight="normal">Masters of Science in Data Visualization at </tspan>
+                <tspan x="0" y="53" font-family="Courier" font-weight="normal">Parsons School of Design.</tspan>
+                <tspan x="0" y="67" font-family="Courier" font-weight="normal"></tspan>
+            </text>
+            <text id="For-more-details-and" font-family="Courier" font-size="12" font-weight="normal" line-spacing="14" fill="#000000">
+                <tspan x="0" y="121">For more details and process about this </tspan>
+                <tspan x="0" y="135">project, you may visit </tspan>
+                <tspan x="165.626953" y="135" font-family="Courier-Bold, Courier" font-weight="bold">here</tspan>
+                <tspan x="194.431641" y="135">.</tspan>
+                <tspan x="0" y="149"></tspan>
+            </text>
+            <line x1="0.315878378" y1="95.5" x2="314" y2="96" id="Line-Copy" stroke="#000000" stroke-width="2" stroke-linecap="square" stroke-dasharray="3,6"></line>
+        </g>
+    </g>
+</svg>
