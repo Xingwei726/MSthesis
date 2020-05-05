@@ -1,7 +1,9 @@
 # A Guilty Pleasure
 
-**How cocoa production is driving deforestation in Ivory Coast**
+**How Cocoa Production is Driving Deforestation in The Ivory Coast**
+
 Masters Thesis in Data Visualization from Parsons School of Design, May 2020
+
 By Xingwei Huang
 
 (URL Link Here)
@@ -18,7 +20,7 @@ By Xingwei Huang
 
 ## Abstract
 
-*A Guilty Pleasure* aims to visualize how the monoculture cocoa industry is driving deforestation in Ivory Coast. By drawing people’s attention to this issue, we would think about what’s the bittersweet price we’ve paid for each pound of chocolate? Through the bridges built between datasets, we could observe its conflicting role in tropical deforestation and impacts on local suppliers more closely. As the name *A Guilty Pleasure* suggests, demand and supply of cocoa beans has a duality nature whether on a consumer level or through an economical perspective. Through the zooming-in lenses at Ivory Coast as a case study, users will be able to form their own unbiased conclusion out of the dots and to consider what could be done to achieve a sustainable model.
+*A Guilty Pleasure* aims to visualize how the monoculture cocoa industry is driving deforestation in the Ivory Coast. By drawing people’s attention to this issue, we would think about what’s the bittersweet price we’ve paid for each pound of chocolate? Through the bridges built between datasets, we could observe its conflicting role in tropical deforestation and impacts on local suppliers more closely. As the name *A Guilty Pleasure* suggests, demand and supply of cocoa beans has a duality nature whether on a consumer level or through an economical perspective. Through the zooming-in lenses at Ivory Coast as a case study, users will be able to form their own unbiased conclusion out of the dots and to consider what could be done to achieve a sustainable model.
 
 ## Treatment
 
