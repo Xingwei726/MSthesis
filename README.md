@@ -3,7 +3,6 @@
 **How Cocoa Production is Driving Deforestation in The Ivory Coast**
 
 > Masters Thesis in Data Visualization from Parsons School of Design, May 2020
-
 > By Xingwei Huang
 
 [Project Link](https://xingwei726.github.io/MSthesis/)
@@ -104,7 +103,7 @@ For more details about the thinking and design process behind this project, plea
 
 
 ## Acknowledgements
-A Guilty Pleasure was created by [Xingwei Huang](http://xingwei.work/) in support of a graduate school thesis for the Masters of Science in Data Visualization at Parsons School of Design.
+*A Guilty Pleasure* was created by [Xingwei Huang](http://xingwei.work/) in support of a graduate school thesis for the Masters of Science in Data Visualization at Parsons School of Design.
 
 This thesis would not have been possible without the help of Parsons MSDV faculty, special thanks for Daniel Sauter, Aaron Hill, Alec Barrett, Richard The, Christian Swinehart. 
 
