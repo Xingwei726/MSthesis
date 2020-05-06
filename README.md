@@ -6,21 +6,25 @@ Masters Thesis in Data Visualization from Parsons School of Design, May 2020
 
 By Xingwei Huang
 
-(URL Link Here)
-![](preview.png)
+[Project Link](https://xingwei726.github.io/MSthesis/)
 
 ## Table of Contents
 
  - [Abstract](https://github.com/Xingwei726/MSthesis#Abstract)    
- - Storytelling Narrative Structure 
- - Data Sources
- - Design Decisions 
- - Conclusion 
- - Acknowledgements
+ - [Storytelling Narrative Structure](https://github.com/Xingwei726/MSthesis#Storytelling-Narrative-Structure)
+ - [Data Sources](https://github.com/Xingwei726/MSthesis#Data-Sources)
+ - [Design Decisions](https://github.com/Xingwei726/MSthesis#Design-Decisions)
+ - [Conclusion](https://github.com/Xingwei726/MSthesis#Conclusion) 
+ - [Screen Captures](https://github.com/Xingwei726/MSthesis#Screen-Captures)
+ - [Design Process](https://github.com/Xingwei726/MSthesis#Design-Process)
+ - [Acknowledgements](https://github.com/Xingwei726/MSthesis#Acknowledgements)
 
 ## Abstract
 
 *A Guilty Pleasure* aims to visualize how the monoculture cocoa industry is driving deforestation in the Ivory Coast. By drawing people’s attention to this issue, we would think about what’s the bittersweet price we’ve paid for each pound of chocolate? Through the bridges built between datasets, we could observe its conflicting role in tropical deforestation and impacts on local suppliers more closely. As the name *A Guilty Pleasure* suggests, demand and supply of cocoa beans has a duality nature whether on a consumer level or through an economical perspective. Through the zooming-in lenses at Ivory Coast as a case study, users will be able to form their own unbiased conclusion out of the dots and to consider what could be done to achieve a sustainable model.
+
+![](preview.png)
+
 
 ## Treatment
 
@@ -102,7 +106,7 @@ For more details about the thinking and design process behind this project, plea
 
 
 ## Acknowledgements
-A Guilty Pleasure was created by Xingwei Huang in support of a graduate school thesis for the Masters of Science in Data Visualization at Parsons School of Design.
+A Guilty Pleasure was created by [Xingwei Huang](http://xingwei.work/) in support of a graduate school thesis for the Masters of Science in Data Visualization at Parsons School of Design.
 
 This thesis would not have been possible without the help of Parsons MSDV faculty, special thanks for Daniel Sauter, Aaron Hill, Alec Barrett, Richard The, Christian Swinehart. 
 
