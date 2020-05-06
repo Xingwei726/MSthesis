@@ -2,16 +2,16 @@
 
 **How Cocoa Production is Driving Deforestation in The Ivory Coast**
 
-Masters Thesis in Data Visualization from Parsons School of Design, May 2020
+> Masters Thesis in Data Visualization from Parsons School of Design, May 2020
 
-By Xingwei Huang
+> By Xingwei Huang
 
 [Project Link](https://xingwei726.github.io/MSthesis/)
 
 ## Table of Contents
 
  - [Abstract](https://github.com/Xingwei726/MSthesis#Abstract)    
- - [Storytelling Narrative Structure](https://github.com/Xingwei726/MSthesis#Storytelling-Narrative-Structure)
+ - [Treatment](https://github.com/Xingwei726/MSthesis#Treatment)
  - [Data Sources](https://github.com/Xingwei726/MSthesis#Data-Sources)
  - [Design Decisions](https://github.com/Xingwei726/MSthesis#Design-Decisions)
  - [Conclusion](https://github.com/Xingwei726/MSthesis#Conclusion) 
@@ -73,8 +73,6 @@ This thesis project went through a long process from ideation, mind-map, prototy
 
 Users land on a homepage which adopts a horizontal scrolling structure. The “chocolate label” on the homepage summarizes my project title and provides a glance at the topic but not giving away too much information at the same time. As they scroll to the right side, it feels like unwrapping a chocolate bar and it also reveals the introduction about this project as well as a menu of each section’s title. Although users may choose any section to begin with, the suggested order is from PART1 to PART4. Within each section they can always navigate forward or backward.
 
-Each section curates different contents but also belongs to the same family, in order to balance the consistency and variation, I came up with a visual style guide for this project. There are two typefaces used in the design, Gopher as the display font for all the titles and subtitles while Courier as the main font for all the body texts and legends. On the opening slide located at the beginning of each section, there is a small svg shape which foreshadows the following contents and also serves as an introduction to the measurement unit which will be utilized in this section. Chart selections are highly decided upon data types, for example while displaying total cocoa production data, in order to make the large unit more comprehensible for users I chose to use the waffle chart and divide them into smaller groups. Although mapping techniques vary from section to section, typography hierarchy, color scheme and layout structure remain the same to create a smoother learning curve for first-time users.
-
 At the end of each section, I highlighted one of the main takeaways as a summary, then it ends with a question which would open the discussion of the next section. Echoing to the project homepage, endpage adopts the form of a chocolate bar’s back packaging. Here the “chocolate label” summarizes credits and acknowledgement information.
 
 
@@ -110,4 +108,4 @@ A Guilty Pleasure was created by [Xingwei Huang](http://xingwei.work/) in suppor
 
 This thesis would not have been possible without the help of Parsons MSDV faculty, special thanks for Daniel Sauter, Aaron Hill, Alec Barrett, Richard The, Christian Swinehart. 
 
-Additionally, the completion of this project could not have been accomplished without the support from the rest of the 2020 MSDV cohort! I'm more than grateful to meet you guys during this 'odyssey'.
+Additionally, the completion of this project could not have been accomplished without the support from the rest of the [2020 MSDV cohort](https://github.com/visualizedata/msdv-thesis-2020)! I'm more than grateful to meet you guys during this adventurous 'odyssey'.
