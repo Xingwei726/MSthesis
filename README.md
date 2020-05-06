@@ -11,7 +11,7 @@ By Xingwei Huang
 
 ## Table of Contents
 
- - Abstract  
+ - [Abstract](https://github.com/Xingwei726/MSthesis#Abstract)    
  - Storytelling Narrative Structure 
  - Data Sources
  - Design Decisions 
@@ -82,5 +82,28 @@ However, the deforestation issue is still an intricacy. Although Ivory Coast is 
 
 
 ## Screen Captures
-(gifs here)
 
+![](1.png)
+
+![](2.png)
+
+![](3.png)
+
+![](4.png)
+
+
+## Design Process
+
+For more details about the thinking and design process behind this project, please visit :
+
+[Mindmap](https://github.com/Xingwei726/MSthesis/tree/master/process/mind%20map)
+
+[Storyboard](https://github.com/Xingwei726/MSthesis/tree/master/process/storyboard)
+
+
+## Acknowledgements
+A Guilty Pleasure was created by Xingwei Huang in support of a graduate school thesis for the Masters of Science in Data Visualization at Parsons School of Design.
+
+This thesis would not have been possible without the help of Parsons MSDV faculty, special thanks for Daniel Sauter, Aaron Hill, Alec Barrett, Richard The, Christian Swinehart. 
+
+Additionally, the completion of this project could not have been accomplished without the support from the rest of the 2020 MSDV cohort! I'm more than grateful to meet you guys during this 'odyssey'.
