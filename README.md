@@ -105,6 +105,6 @@ For more details about the thinking and design process behind this project, plea
 ## Acknowledgements
 *A Guilty Pleasure* was created by [Xingwei Huang](http://xingwei.work/) in support of a graduate school thesis for the Masters of Science in Data Visualization at Parsons School of Design.
 
-This thesis would not have been possible without the help of Parsons MSDV faculty, special thanks for Daniel Sauter, Aaron Hill, Alec Barrett, Richard The, Christian Swinehart. 
+This thesis would not have been possible without the help of Parsons MSDV faculty, special thanks for Daniel Sauter, Aaron Hill, Alec Barrett, Richard The, Christian Swinehart and Maria Massei-Rosato. 
 
 Additionally, the completion of this project could not have been accomplished without the support from the rest of the [2020 MSDV cohort](https://github.com/visualizedata/msdv-thesis-2020)! I'm more than grateful to meet you guys during this adventurous 'odyssey'.
